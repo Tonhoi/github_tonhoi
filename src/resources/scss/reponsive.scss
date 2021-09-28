@@ -1,0 +1,296 @@
+/* breakpoint pc*/
+@media (min-width: 1024px) {
+  .hide-on-pc {
+    display: none;
+  }
+
+  .show-on-pc {
+    display: block;
+  }
+}
+
+/* breakpoint tablet mobile */
+
+@media (max-width: 1023px) {
+  .hide-on-tablet-mobile {
+    display: none;
+  }
+
+  .show-on-tablet-mobile {
+    display: block;
+  }
+
+  .header__icon-tablet-mobile .header-icon__down {
+    display: none;
+  }
+
+  /* bell */
+
+  .header-icon__bell {
+    order: 3;
+  }
+
+  /* search */
+
+  .icon__search {
+    margin-right: 20px;
+    bottom: 2px;
+  }
+
+  .search__overlay {
+    display: block;
+  }
+
+  .search__div {
+    display: none;
+  }
+
+  // page question
+  .wrap__reverse-tablet-mobile {
+    flex-direction: column-reverse;
+  }
+
+  .RecommendedTopics {
+    position: relative;
+    margin: 0 20px 0 8px;
+  }
+
+  .RecommendedTopics h1 {
+    position: relative;
+  }
+
+  .RecommendedTopics_topics {
+    max-width: 100%;
+  }
+  .question__content-title {
+    width: 100%;
+  }
+
+  .road {
+    width: 100%;
+  }
+
+  // form contact
+
+  .container__contact {
+    flex-direction: column-reverse;
+  }
+
+  .info__contact,
+  .form__contact {
+    width: 100%;
+  }
+
+  // news post
+
+  .news-post {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+/* breakpoint tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .hide-on-tablet {
+    display: none;
+  }
+
+  .show-on-tablet {
+    display: block;
+  }
+
+  .header-icon__bell {
+    margin-right: 48px;
+  }
+
+  // form contact
+  .info__contact-content i {
+    width: 50%;
+    float: left;
+    text-align: center;
+  }
+  .container__contact-icon {
+    margin-bottom: 16px;
+  }
+}
+
+/* breakpoint mobile */
+
+@media (max-width: 739px) {
+  /* common */
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .show-on-mobile {
+    display: block;
+  }
+
+  .full-width-on-mobile {
+    width: 100%;
+  }
+
+  .wrap__reverse-mobile {
+    flex-direction: column-reverse;
+  }
+
+  .wrap__column-mobile {
+    flex-direction: column;
+  }
+  /* icon heaeder */
+
+  .header-icon__bar {
+    margin: 0 13px 0 20px;
+    font-size: 2.4rem;
+  }
+
+  .header-icon__bell {
+    font-size: 2.4rem;
+    margin-right: 61px;
+    position: relative;
+    bottom: 2.5px;
+  }
+
+  .header-bell__div {
+    width: 350px;
+    position: absolute;
+    left: -260px;
+    transform-origin: 75% 5%;
+  }
+
+  .header-bell__div::after {
+    right: 70px;
+  }
+
+  /* search */
+
+  .icon__search {
+    margin-right: 20px;
+    font-size: 2.4rem;
+  }
+
+  /* register login*/
+  .footer__form-register {
+    flex-direction: column;
+  }
+  .footer__form-login {
+    flex-direction: column-reverse;
+  }
+
+  /* điều khoản  */
+
+  .text_dk {
+    transform: scale(1.4);
+  }
+
+  .btn-login {
+    margin-bottom: 8px;
+  }
+
+  .form-login__name {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-login,
+  .btn-register {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* slide */
+  .slidershow {
+    height: auto;
+  }
+
+  /* slogen */
+  .content__slogen-header {
+    font-size: 4rem;
+  }
+
+  .content__slogen-tittle {
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  /* content block */
+  .content__block-desc {
+    padding: 0 3px 0 6px;
+  }
+
+  .content__block-list-2 span {
+    height: 119px;
+  }
+
+  /* product */
+
+  .content__product-text-heading {
+    font-size: 2rem;
+  }
+
+  .content__product-text-heading:not(:first-child) {
+    font-size: 1.4rem;
+  }
+  .content__product-text span {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  /* content__product-text span */
+  .content__product-text span {
+    -webkit-line-clamp: 4;
+  }
+
+  /* content__product-text-heading */
+  .content__product-text-heading {
+    height: 22px;
+  }
+
+  /* content__product-text-heading-small */
+
+  .content__product-text-heading-small {
+    font-size: 1.8rem;
+    -webkit-line-clamp: 2;
+  }
+
+  /* footer */
+  .footer {
+    text-align: center;
+  }
+
+  // pages question
+
+  .postItem__info {
+    margin-top: 12px;
+    width: 95%;
+  }
+
+  .postItem__thumb {
+    width: 100%;
+    text-align: center;
+  }
+
+  .postItem__thumb img {
+    width: 100%;
+  }
+
+  // form contact
+
+  .info__contact-content i {
+    text-align: center;
+  }
+
+  .info__contact-content i:last-child {
+    margin-bottom: 16px;
+  }
+
+  // news post
+
+  .news-post__h1 {
+    padding: 0 6px;
+  }
+  .news-post {
+    padding: 0 4px;
+  }
+}

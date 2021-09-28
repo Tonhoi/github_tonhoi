@@ -1,0 +1,347 @@
+/* slide */
+.container {
+  background-color: #f9f9f9;
+}
+
+.img-1 {
+  background-image: url(/img/slide_1.jpg);
+}
+
+.img-2 {
+  background-image: url(/img/slide_2.jpg);
+}
+
+.img-3 {
+  background-image: url(/img/slide_3.jpg);
+}
+.img-4 {
+  background-image: url(/img/slide_4.jpg);
+}
+.img-5 {
+  background-image: url(/img/slide_5.jpg);
+}
+
+.img-1,
+.img-2,
+.img-3,
+.img-4,
+.img-5 {
+  width: 100%;
+  padding-top: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.slidershow {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  width: 500%;
+  height: 500px;
+  height: auto;
+  display: flex;
+}
+
+.slide {
+  width: 20%;
+  transition: 0.6s;
+}
+.slide .img {
+  width: 100%;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.bar {
+  /* padding: 5px; */
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.bar:hover {
+  background: var(--white-color);
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+#r2:checked ~ .s1 {
+  margin-left: -20%;
+}
+#r3:checked ~ .s1 {
+  margin-left: -40%;
+}
+#r4:checked ~ .s1 {
+  margin-left: -60%;
+}
+#r5:checked ~ .s1 {
+  margin-left: -80%;
+}
+
+.navigation-auto {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* navigation auto */
+
+.navigation-auto div {
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.r1:checked ~ .navigation-auto .nav-1,
+.r2:checked ~ .navigation-auto .nav-2,
+.r3:checked ~ .navigation-auto .nav-3,
+.r4:checked ~ .navigation-auto .nav-4,
+.r5:checked ~ .navigation-auto .nav-5 {
+  background-color: var(--white-color);
+}
+
+/* content slogen */
+
+.content__slogen {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 44px;
+}
+
+.content__slogen-header {
+  font-size: 4.4rem;
+  font-weight: 500;
+}
+
+.content__slogen-tittle {
+  text-align: center;
+  width: 60%;
+  display: block;
+  margin: 20px auto 0;
+  font-size: 2.6rem;
+}
+
+/* content block */
+
+.btn_news {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--white-color);
+}
+
+.content {
+  font-family: "Roboto", sans-serif;
+}
+
+.content__block {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  overflow: hidden;
+}
+.content__block-list-1 {
+  list-style: none;
+  position: relative;
+  user-select: none;
+}
+
+.content__block-item {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content__block-img {
+  padding-top: 60%;
+  width: 100%;
+  background-size: cover;
+}
+
+.content__block-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 2rem;
+  line-height: 2.6rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 4px 0 8px;
+  padding: 0 12px 0 6px;
+  height: 78px;
+  overflow: hidden;
+}
+
+.content__block-list-2 {
+  display: block;
+  margin-top: 62px;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  background-color: rgb(25, 91, 127);
+  list-style: none;
+  padding: 32px 0 48px;
+}
+
+.content__block-item-2 {
+  text-align: center;
+  color: #fff;
+  font-size: 3.2rem;
+  margin: 0 0 28px;
+  font-weight: 700;
+}
+
+.content__block-list-2 .img {
+  padding-top: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* fix bug */
+
+.content__block-list-2 span {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 2.8rem;
+  padding: 16px;
+  font-weight: 700;
+  height: 124px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* share knowledge */
+
+.content__product {
+  margin-top: 100px;
+}
+
+.product__name {
+  display: inline-block;
+  font-size: 3rem;
+  color: rgb(43, 43, 92);
+  font-weight: 500;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0 24px;
+}
+
+.text {
+  width: 200%;
+  position: relative;
+  overflow: hidden;
+}
+
+.content__product-item {
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 0 20px;
+  margin-bottom: 80px;
+  overflow: hidden;
+}
+
+.content__product-item-big {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+.content__product-item-big-img {
+  width: 100%;
+  padding-top: 63%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content__product-text-heading-small {
+  font-size: 2.2rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 6px;
+  height: 59px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-transform: uppercase;
+}
+.content__product-text-heading {
+  margin-top: 6px;
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.8);
+  height: 36px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.content__product-text span {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  height: 72px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-align: left;
+  font-weight: 500;
+}
+
+.content__product-item-small {
+  width: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.content__product-item-smaill-img {
+  width: 100%;
+  padding-top: 65.5%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,336 @@
+<div class="header">
+<div class="grid wide">
+    <nav class="nav-bar">
+    <a href="#"
+        ><img src="/img/logo.png" alt="" class="header__logo"
+    /></a>
+    <ul class="header-list hide-on-tablet-mobile">
+        <li class="header-list__item">
+        <a href="home" class="header-list__item-link">Trang chủ </a>
+        </li>
+        <li class="header-list__item">
+        <a href="news" class="header-list__item-link">Tin tức</a>
+        </li>
+        <li class="header-list__item">
+        <a href="question" class="header-list__item-link">Hỏi đáp</a>
+        </li>
+        <li class="header-list__item">
+        <a href="contact" class="header-list__item-link">Liên hệ</a>
+        </li>
+    </ul>
+
+    <!-- hide when login -->
+    <div class="header-login-register hide-on-tablet-mobile hide-on-pc">
+        <div class="js-login">Đăng nhập</div>
+        <div class="js-register">Đăng kí</div>
+    </div>
+
+    <!-- show when login -->
+    <div class="header-pc__avatar">
+        <div class="header-pc-function hide-on-tablet-mobile">
+        <img src="/img/anh.png" alt="" class="header-pc__img" />
+        <span class="header-pc__name">Quốc Huy</span>
+        <ul class="menu-icon-down__list hide-on-tablet-mobile">
+            <li class="menu-icon-down__item">
+            <a href="" class="menu-icon-down__item-link">
+                <i class="header-pc__icon-logout-setting fas fa-cog"></i>
+                Cài Đặt
+            </a>
+            </li>
+            <li class="menu-icon-down__item">
+            <a href="" class="menu-icon-down__item-link">
+                <i class="header-pc__icon-logout fas fa-sign-out-alt"></i>
+                Đăng Xuất
+            </a>
+            </li>
+            <li class="menu-icon-down__item">
+            <a href="admin" class="menu-icon-down__item-link">
+                <i class="header-pc__icon-logout-setting fas fa-cog"></i>
+                Quản lý
+            </a>
+            </li>
+        </ul>
+        </div>
+
+        <!-- hide bell when no login on tablet mobile: header-icon-tablet-mobile-pc--no-login-->
+        <div class="header-icon-tablet-mobile-pc">
+        <i class="header-icon__bell far fa-bell">
+            <!-- quantity -->
+            <span class="header-icon__bell-quantity">1</span>
+
+            <!-- order list  -->
+            <!-- no bell : header-bell__div--no-bell -->
+            <div class="header-bell__div">
+            <div class="header-bell__no-bell">
+                <img src="/img/no-bell.png" alt="" />
+                <p>Chưa có thông báo</p>
+            </div>
+            <div class="header-bell__heading">
+                <span>Thông báo</span>
+                <span>Đánh dấu đã đọc</span>
+            </div>
+            <ul class="header-bell__list">
+                <!-- đánh dấu là chưa đọc: header-bell__item-active -->
+                <li class="header-bell__item header-bell__item-active">
+                <img
+                    src="/img/anh.png"
+                    alt=""
+                    class="header-bell__img"
+                />
+                <div class="header-bell__tittle">
+                    <div class="header-bell__desc">
+                    Chào mừng bạn đến với trang web của chúng tôi, chúc
+                    bạn một ngày tốt lành ^^
+                    </div>
+
+                    <div class="time__comments">4 tháng trước</div>
+                </div>
+                </li>
+            </ul>
+            </div>
+        </i>
+        <label for="checksearch" class="icon__search fas fa-search">
+            <input
+            type="checkbox"
+            id="checksearch"
+            class="showsearch"
+            hidden
+            />
+            <div class="search__div">
+            <input type="text" />
+            <button class="btn__search">Tìm kiém</button>
+            </div>
+        </label>
+
+        <!-- show search on tablet mobile -->
+
+        <div id="showsearch" class="search__overlay">
+            <div class="form-search">
+            <h3>Tìm kiếm</h3>
+            <input type="text" />
+            </div>
+            <label class="close-btn close-search fas fa-times"></label>
+            <ul class="content__search-list">
+            <li class="content__search">
+                <img
+                src="https://www.tnc.com.vn/uploads/product/XUYEN_06_2021/Dell-Latitude-3420.jpg"
+                alt=""
+                class="content__search-img"
+                />
+
+                <div class="content__search-tittle">
+                <h3 class="content__search-header">
+                    Laptop Dell Latitude 3420 L3420I5SSD sản phẩm chính
+                    hãng đến từ cửa hàng của chúng tôi Laptop Dell
+                    Latitude 3420 L3420I5SSD sản phẩm chính hãng đến sản
+                    phẩm chính hãng đến
+                </h3>
+                <span class="content__search-time">11/9/2021</span>
+                </div>
+            </li>
+            </ul>
+
+            <button>XEM TẤT CẢ CÁC KẾT QUẢ</button>
+        </div>
+        </div>
+
+        <!-- icon bar -->
+        <div class="header-icon__bar-div hide-on-pc">
+        <label for="check" class="header-icon__bar fas fa-bars"></label>
+        </div>
+    </div>
+    </nav>
+
+    <!-- navbar on tablet mobie -->
+    <input type="checkbox" id="check" class="checkk" hidden />
+    <label for="check" class="overlay"></label>
+    <nav class="nav-bar-tablet-mobile">
+    <label for="check" class="close-btn fas fa-times"></label>
+
+    <!-- login success: header-tablet-mobile__avatar--no-login-->
+    <div class="header-tablet-mobile__avatar">
+        <img
+        src="/img/anh.png"
+        alt=""
+        class="header-tablet-mobile__img"
+        />
+        <span class="header-tablet-mobile__name">Quốc Huy</span>
+        <img
+        src="/img/logo.png"
+        alt=""
+        class="header__logo-tablet-mobile"
+        />
+    </div>
+    <ul class="header-tablet-mobile-list">
+        <li
+        class="header-tablet-mobile-list__item header-list__item-active"
+        >
+        <a href="home" class="header-tablet-mobile-list__item-link">
+            <i class="header-tablet-mobile__icon fas fa-home"></i>
+            Trang chủ
+        </a>
+        </li>
+        <li class="header-tablet-mobile-list__item">
+        <a href="news" class="header-tablet-mobile-list__item-link">
+            <i
+            class="header-tablet-mobile__icon fas fa-envelope-open"
+            ></i>
+            Tin tức
+        </a>
+        </li>
+        <li class="header-tablet-mobile-list__item">
+        <a href="question" class="header-tablet-mobile-list__item-link">
+            <i class="header-tablet-mobile__icon fas fa-book-open"></i>
+            Hỏi đáp
+        </a>
+        </li>
+        <li class="header-list-tablet-mobile__item">
+        <a href="contact" class="header-tablet-mobile-list__item-link">
+            <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+            Liên hệ
+        </a>
+        </li>
+    </ul>
+    <div class="form-tablet-mobile-login-register">
+        <div class="form-tablet-mobile js-login">
+        <i
+            class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
+        ></i>
+        Đăng nhập
+        </div>
+        <div class="form-tablet-mobile js-register">
+        <i
+            class="header-tablet-mobile__icon-register fas fas fa-user"
+        ></i>
+        Đăng kí
+        </div>
+    </div>
+    </nav>
+
+    <!-- </div> -->
+</div>
+</div>
+
+<!-- form register -->
+
+<label for="open__layout" class="overlay-form-login-register"></label>
+<form action="" method="post" class="form-register">
+<div class="modal-register">
+    <div for="open__layout" class="btn-close fas fa-times"></div>
+    <h1 class="form-login__name">Đăng kí</h1>
+    <div class="form__group">
+    <label for="" class="form-register__label">
+        <i class="form-register__icon fas fa-user"></i>
+        Họ và tên
+    </label>
+    <input
+        type="text"
+        name=""
+        class="form-control"
+        placeholder="VD: Phạm Văn a "
+    />
+    <div class="form-message"></div>
+    </div>
+    <div class="form__group">
+    <label for="" class="form-register__label">
+        <i class="form-register__icon fas fa-user"></i>
+        Tên đăng nhập
+    </label>
+    <input
+        type="text"
+        name=""
+        class="form-control"
+        placeholder="Tên đăng nhập"
+    />
+    <div class="form-message"></div>
+    </div>
+    <div class="form__group">
+    <label for="" class="form-register__label">
+        <i class="form-register__icon fas fa-lock"></i>
+        Mật khẩu
+    </label>
+    <input
+        type="password"
+        name=""
+        class="form-control"
+        placeholder="password"
+    />
+    <div class="form-message"></div>
+    </div>
+    <div class="form__group">
+    <label for="" class="form-register__label">
+        <i class="form-register__icon fas fa-lock"></i>
+        Nhập lại mật khẩu
+    </label>
+    <input
+        type="password"
+        name=""
+        class="form-control"
+        placeholder="Confirm password"
+    />
+    <div class="form-message"></div>
+    </div>
+    <div class="footer__form-register">
+    <a>
+        <i class="back-form-login fas fa-arrow-left"></i>
+    </a>
+    <div class="footer__form-register-dk">
+        <input type="checkbox" class="text_dk">
+        <span>Bạn có đồng ý với điều khoản của chúng tôi</span>
+    </div>
+    <input
+        type="submit"
+        name=""
+        value="Đăng kí"
+        class="btn btn-register"
+    />
+    </div>
+</div>
+</form>
+
+<!-- form login -->
+
+<form action="" class="form-login">
+<div class="modal-login">
+    <div for="open__layout" class="btn-close fas fa-times"></div>
+
+    <h1 class="form-login__name">Đăng nhập</h1>
+
+    <div class="form__group">
+    <label class="form-register__label">
+        <i class="form-register__icon fas fa-user"></i>
+        Tên đăng nhập
+    </label>
+    <input
+        type="text"
+        name=""
+        class="form-control"
+        placeholder="Tên đăng nhập"
+    />
+    </div>
+    <div class="form__group">
+    <label for="" class="form-register__label">
+        <i class="form-register__icon fas fa-lock"></i>
+        Mật khẩu
+    </label>
+    <input
+        type="password"
+        name=""
+        class="form-control"
+        placeholder="password"
+    />
+    </div>
+
+    <div class="footer__form-login">
+    <a href="#" class="footer__form-login-link"
+        >Bạn chưa có tài khoản ?</a
+    >
+    <input 
+        type="submit"
+        name=""
+        value="Đăng nhập"
+        class="btn btn-login"
+    />
+    </div>
+</div>
+</form>
