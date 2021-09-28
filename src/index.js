@@ -23,5 +23,5 @@ route(app)
 
 
 app.listen(port, () => {
-  console.log("server listening to port "+port)
+  console.log(`Example app listening at http://localhost:${port}`)
 })
