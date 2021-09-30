@@ -1,0 +1,308 @@
+.pages__news-blog {
+  margin-top: 100px; }
+
+.Reaction_wrapper-container {
+  position: fixed; }
+
+.Reaction_wrapper {
+  display: flex;
+  margin: 24px 0 0; }
+
+.Reaction_btnReact {
+  display: flex;
+  align-items: center;
+  cursor: pointer; }
+
+.Reaction_btnReact span {
+  margin-left: 10px; }
+
+.Reaction_btnReact-icon {
+  font-size: 2rem; }
+
+.Reaction_btnReact:last-child {
+  margin: 0 0 0 24px; }
+
+.news-blog__heading {
+  font-size: 4.2rem; }
+
+.news-blog__question-content-title {
+  margin-top: 100px; }
+
+.question__content-title.news-blog__question-content-title::after {
+  display: none; }
+
+.postItem__header.news-blog__postItem-header {
+  padding: 24px 0; }
+
+.postItem__author > div:last-child {
+  margin: 0 0 0 8px; }
+
+.postItem__author-img.news-blog__postItem__author-img {
+  width: 48px;
+  height: 48px; }
+
+.news-blog__postItem-span {
+  font-size: 1.6rem;
+  bottom: 6px;
+  position: relative; }
+
+.news-blog__span {
+  font-size: 1.4rem;
+  font-weight: 500; }
+
+.news-blog__question-content-title div:last-child {
+  font-size: 1.8rem; }
+
+.BlogDetail_commentBody {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: var(--white-color);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all linear 0.4s;
+  font-family: "Montserrat", sans-serif; }
+
+.checkk:checked ~ .BlogDetail_commentBody {
+  opacity: 1;
+  transform: translateX(0); }
+
+.os-content {
+  width: 100%;
+  height: auto;
+  padding: 0 40px 60px; }
+
+.btn-clos__comments {
+  color: var(--primary-color);
+  font-size: 1.8rem; }
+
+.btn-clos__comments:hover {
+  opacity: 0.4; }
+
+.Comment_blog-tittle {
+  height: 630px;
+  overflow-y: auto; }
+
+.Comment_blog-tittle::-webkit-scrollbar {
+  display: none; }
+
+.Comment_contentHeading {
+  color: var(--primary-color);
+  margin: 50px 0 0;
+  font-size: 1.8rem;
+  font-weight: 700; }
+
+.Comment_blog-tittle-body {
+  display: flex;
+  align-items: center; }
+
+.CommentBox_commentWrapper {
+  margin: 20px 0 0 0; }
+
+.Comment_reactionsCount {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 1.4rem;
+  font-weight: 700; }
+
+.Comment_reactionsCount p:last-child {
+  display: none; }
+
+.common-comment__blog-2,
+.common-comment__blog-3,
+.Comment_commentContent-text-other {
+  display: none; }
+
+.common-comment__blog-2.open,
+.common-comment__blog-3.open,
+.Comment_commentContent-text-other.open {
+  display: block; }
+
+.Comment_blog-tittle-input {
+  flex: 1;
+  margin: 16px 0 0 16px;
+  padding: 0 0 4px; }
+
+.Comment_blog-tittle-input textarea {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 1.6rem; }
+
+.CommentBox_actionWrapper {
+  text-align: right; }
+
+.CommentBox_actionWrapper button {
+  border: none;
+  font-size: 1.6rem;
+  padding: 8px 16px;
+  border-radius: 20px; }
+
+.CommentBox_actionWrapper button:first-child:hover {
+  color: #777;
+  background-color: #ebebeb; }
+
+.CommentBox_cancel {
+  cursor: pointer;
+  font-weight: 600; }
+
+.CommentBox_ok {
+  background-color: #cccccc;
+  color: var(--white-color);
+  font-weight: 600; }
+
+.CommentBox_actionWrapper.CommentBox_ok--onchange .CommentBox_ok {
+  background-color: #f26a42;
+  cursor: pointer; }
+
+.CommentBox_actionWrapper.CommentBox_ok--onchange .CommentBox_ok:hover {
+  opacity: 0.8; }
+
+.Comment_detailComment {
+  display: flex;
+  margin-top: 20px; }
+
+.Comment_commentContent-text {
+  margin: 0 0 0 8px;
+  padding: 18px 8px 18px 14px;
+  background-color: #f2f3f5;
+  border-radius: 18px;
+  font-size: 1.4rem;
+  position: relative; }
+
+.status-icon {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  right: 0;
+  background-color: var(--white-color);
+  padding: 2px 6px 2px 2px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
+.status-icon img {
+  height: 16px;
+  width: 16px;
+  cursor: pointer; }
+
+.status-icon p {
+  margin-left: 4px;
+  font-size: 1.3rem;
+  position: relative;
+  top: 1px; }
+
+.Comment_commentAuthor {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 700; }
+
+.Comment_commentTime {
+  margin-top: 18px;
+  padding: 0 0 0 10px;
+  font-size: 1.3rem;
+  display: flex; }
+
+.Comment_replyComment,
+.btn-Comment_like {
+  color: #e87a5a;
+  cursor: pointer;
+  padding: 0 8px 0 0;
+  position: relative; }
+
+.Comment_replyComment:hover,
+.btn-Comment_like:hover {
+  text-decoration: underline; }
+
+.Comment_likeComment {
+  display: inline-block; }
+
+.btn-Comment_like.Comment_likeComment--active .active-like {
+  font-weight: 600;
+  color: #f05123; }
+
+.Comment_likeComment-list {
+  position: absolute;
+  bottom: 26px;
+  left: -10px;
+  list-style: none;
+  display: flex;
+  font-size: 3rem;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  padding: 8px 12px 2px 16px;
+  animation: moveIcon linear 0.2s;
+  display: none; }
+
+.Comment_likeComment-list::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 10px; }
+
+.Comment_likeComment-item {
+  padding: 0;
+  border-radius: 50%;
+  padding: 0 8px 0 0;
+  text-align: center;
+  position: relative; }
+
+.Comment_likeComment-item div {
+  position: absolute;
+  bottom: 60px;
+  font-size: 1.2rem;
+  display: flex; }
+
+.Comment_likeComment-item img {
+  position: relative;
+  transform: scale(1);
+  top: 0;
+  transition: all linear 0.1s; }
+
+.icon-laugh,
+.icon-surprise,
+.icon-cry {
+  height: 39px;
+  width: 39px; }
+
+.Comment_likeComment-item img:hover {
+  transform: scale(1.2);
+  top: -2px; }
+
+.btn-Comment_like:hover .Comment_likeComment-list {
+  display: flex; }
+
+.Comment_createdAt-time {
+  color: #999999; }
+
+.Comment_avatarWrap {
+  display: inline-block; }
+
+.tittle-comment {
+  width: 90%; }
+
+.text-other {
+  display: flex;
+  width: 90%;
+  position: relative;
+  margin-left: auto;
+  top: 10px; }
+
+.Comment_commentTime-other {
+  position: relative;
+  left: 108px; }
+
+.Comment_blog-tittle-body-other {
+  width: 80%;
+  margin-left: auto; }

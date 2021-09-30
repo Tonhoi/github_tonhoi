@@ -1,7 +1,23 @@
 import {
     $,
     $$,
-    slideShow
+    slideShow,
+    getLinks,
+    commentBlogInput,
+    CommentBoxActionWrapper,
+    btnCloseComment,
+    overlayComment,
+    activeLike,
+    hideAndShowComments,
+    ReplyToComment,
+    reply1,
+    commoncommentblog2,
+    btnCancelComment2,
+    reply2,
+    commoncommentblog3,
+    btnCancelComment3,
+    showCommentPageNews,
+    hideCommentPageNews,
 } from './define.js'
 
 function handleActionOther() {
@@ -9,6 +25,8 @@ function handleActionOther() {
     closesearchTabletMobile()
     slideShowtext()
     handleOption()
+    getLinksnews()
+    handlecommentBlog()
 }
 
 function opensearchTabletMobile() {
@@ -44,15 +62,86 @@ function handleOption() {
     iconEllipsis.forEach((iconEllipsis, index) => {
     var menu = menus[index]
     iconEllipsis.onclick = function() {
-        overlayOption.classList.toggle('aaa')
+        overlayOption.classList.toggle('open')
         this.style.zIndex = '4'
         menu.classList.toggle('open')
         overlayOption.onclick = function() {
-        this.classList.remove('aaa')
+        this.classList.remove('open')
         menu.classList.remove('open')
         }
     }
     });
 }
+
+function getLinksnews() {
+    getLinks.forEach((getLinks) => {
+      getLinks.onclick = function(e) {
+        getLinks.setAttribute('href', 'newsBlog')
+      }
+    })
+}
+
+
+// comment blog
+function handlecommentBlog() {
+    var conttarinerCommentBlog = $('.BlogDetail_commentBody')
+    if (conttarinerCommentBlog) {
+        commentBlogInput.forEach((commentBlogInput, index) => {
+        var commentBoxActionWrapper = CommentBoxActionWrapper[index]
+        commentBlogInput.oninput = function(e) {
+            if (commentBlogInput.value === "") {
+                commentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
+            }else {
+                commentBoxActionWrapper.classList.add('CommentBox_ok--onchange')
+            }
+            }
+        })  
+        btnCloseComment.onclick = function(e) {
+            CommentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
+            commentBlogInput.value = ''
+        }
+            
+        overlayComment.onclick = function(e) {
+            CommentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
+            commentBlogInput.value = ''
+        }
+
+        activeLike.forEach((activeLike) => {
+            activeLike.onclick = function(e) {
+                activeLike.classList.toggle('Comment_likeComment--active')
+            }
+        })
+        
+        // hide and show comment
+        hideAndShowComments.onclick = function(e) {
+            ReplyToComment.classList.toggle('open')
+        }
+
+        reply1.onclick = function(e) {
+            commoncommentblog2.classList.add('open')
+        }
+        btnCancelComment2.onclick = function(e) {
+            commoncommentblog2.classList.remove('open')
+        }
+
+        reply2.onclick = function(e) {
+            commoncommentblog3.classList.add('open')
+        }
+        btnCancelComment3.onclick = function(e) {
+            commoncommentblog3.classList.remove('open')
+        }
+
+        showCommentPageNews.onclick = function(e) {
+            this.style.display = 'none'
+            hideCommentPageNews.style.display = 'block'
+        }
+
+        hideCommentPageNews.onclick = function(e) {
+            this.style.display = 'none'
+            showCommentPageNews.style.display = 'block'
+        }  
+    }
+}
+
 
 export default handleActionOther

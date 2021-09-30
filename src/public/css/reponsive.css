@@ -12,6 +12,8 @@
     display: none; }
   .show-on-tablet-mobile {
     display: block; }
+  .full-width-on-tablet-mobile {
+    width: 100%; }
   .header__icon-tablet-mobile .header-icon__down {
     display: none; }
   /* bell */

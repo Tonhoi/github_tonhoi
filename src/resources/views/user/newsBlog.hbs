@@ -1,0 +1,280 @@
+<div class="pages__news-blog">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-3">
+                <div class="Reaction_wrapper-container hide-on-tablet-mobile">
+                <h1>Name H</h1>
+                    <div class="Reaction_wrapper">
+                        <div class="Reaction_btnReact">
+                            <i class="Reaction_btnReact-icon far fa-heart"></i>
+                            <span>0</span>
+                        </div>
+                        
+
+                        <label for="checkComment" class="Reaction_btnReact">
+                            <i class="Reaction_btnReact-icon far fa-comment"></i>
+                            <span>0</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col l-7">
+                <h1 class="news-blog__heading">[Cơ bản] Tổng quan lập trình Synchronous và Asynchronous</h1>
+                <div class="overlay__option"></div>
+                <div class="question__content-title news-blog__question-content-title">
+                    <div class="postItem__header news-blog__postItem-header">
+                        <div class="postItem__author">
+                            <div>
+                                <img src="https://fullstack.edu.vn/assets/images/nobody_m.256x256.jpg" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                            </div>
+                            <div>
+                                <span class="news-blog__postItem-span">Lê thành trung</span>
+                                <div class="news-blog__span">
+                                    <span>1 giờ trước</span>
+                                    <span>.</span>
+                                    <span>3 phút đọc</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postItem__optionBtn"> 
+                            <i class="icon__ellipsis fas fa-ellipsis-h"></i>
+                            <div class="postItem__optionBtn-function">
+                                <ul class="tippy__wrapper-list">
+                                    <li>
+                                        <i class="fab fa-facebook">
+                                            <span>Chia sẻ lên facebook</span>
+                                        </i>
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-twitter">
+                                            <span>chia sẻ lên Twitter</span>
+                                        </i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-envelope">
+                                            <span>Email</span>
+                                        </i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-link">
+                                            <span>Sao chép liên kết</span>
+                                        </i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-flag">
+                                            <span>Báo cáo bài viết</span>
+                                        </i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <p>Chào mọi người 🤗🤗
+
+                            Hôm nay mình có quay một video trong khóa học ReactJS là “Tạo dự án ReactJS với Webpack và Babel”. Mình làm video này với mong muốn chia sẻ cho các bạn có thể hình dung ra dự án được tạo bởi “create-react-app” được xây dựng như thế nào. Các bạn có thể xem thêm video hướng dẫn ở đây nhé.
+
+                            Video sẽ được update sau khi mình render xong…
+
+                            👉👉 Đăng ký khóa ReactJS miễn phí của mình tại: https://fullstack.edu.vn/courses/reactjs
+                        </p>
+                    </div>
+                </div>
+                <input type="checkbox" id="checkComment" class="checkk" hidden/>
+                <label for="checkComment" class="overlay js-overlay"></label>
+                <div class="BlogDetail_commentBody full-width-on-tablet-mobile">
+                    <div class="os-content">
+                        <label for="checkComment" class="btn-close btn-clos__comments fas fa-times"></label>
+                        <div class="Comment_blog-tittle">
+                            <div class="Comment_contentHeading">Chưa có bình luận</div>
+                            <div class="Comment_blog-tittle-body">
+                                <div class="CommentBox_commentWrapper">
+                                    <img src="/img/anh.png" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                                </div>
+                                <div class="Comment_blog-tittle-input">
+                                    <textarea id="w3review" name="w3review"  placeholder="Viết bình luận của bạn..."></textarea>
+                                </div>
+                            </div>
+
+                            {{!-- change backgound of CommentBox_ok: CommentBox_ok--onchange --}}
+                            <div class="CommentBox_actionWrapper">
+                                <button class="CommentBox_cancel">Hủy</button>
+                                <button class="CommentBox_ok">Bình luạn</button>
+                            </div>
+                            
+                            {{!-- copy here --}}
+                            <div class="Comment_detailComment">
+                                <div class="Comment_avatarWrap">
+                                    <img src="/img/anh.png" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                                </div>
+
+                                <div class="Comment_commentBody">
+                                    <div class="Comment_commentContent-text">
+                                        <h5 class="Comment_commentAuthor">Tuấn Trần</h5>
+                                        <span>
+                                            em dùng create-react-app mà không hiểu. hôm nay e làm theo anh e mới hiểu. Em cảm ơn anh
+                                        </span>
+
+                                        <div class="status-icon">
+                                            <img src="/img/traitim.png" alt="">
+                                            <img src="/img/khoc.png" alt="">
+                                            <p>99</p>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div class="Comment_commentTime">
+                                        <p class="Comment_createdAt">
+                                            <span class="Comment_iconWrapper ">
+                                                <span class="Comment_likeComment">
+
+                                                    {{!-- active like: Comment_likeComment--active --}}
+                                                    <div class="btn-Comment_like">
+                                                        <span class="active-like">Thích</span>
+                                                        <ul class="Comment_likeComment-list">
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/thich.png" alt="">
+                                                            </li>
+
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/traitim.png" alt="">
+                                                            </li>
+
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/haha.png" alt="" class="icon-laugh"> 
+                                                            </li>
+
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/batngo.png" alt="" class="icon-surprise">
+                                                            </li>
+
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/khoc.png" alt="" class="icon-cry">
+                                                            </li>
+
+                                                            <li class="Comment_likeComment-item">
+                                                                <img src="/img/giandu.png" alt="">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                            <span class="Comment_replyComment js-Comment_replyComment-1">Trả lời</span>
+                                            .
+                                            <span class="Comment_createdAt-time">3 giờ trước</span>
+                                        </p>
+                                    </div>
+                                    <div class="common-comment__blog-2">
+                                        <div class="Comment_blog-tittle-body">
+                                            <div class="CommentBox_commentWrapper">
+                                                <img src="/img/anh.png" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                                            </div>
+                                            <div class="Comment_blog-tittle-input">
+                                                <textarea placeholder="Viết bình luận của bạn 2..."></textarea>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="CommentBox_actionWrapper">
+                                            <button class="CommentBox_cancel js-CommentBox_cancel-2">Hủy</button>
+                                            <button class="CommentBox_ok">Trả lời</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="Comment_reactionsCount">
+                                        <p>Xem 1 câu trả lời <i class="fas fa-chevron-down"></i></p>
+                                        <p>Ẩn câu trả lời <i class="fas fa-chevron-up"></i></p>
+                                    </div>
+
+                                <div class="Comment_commentContent-text-other">
+                                    {{!-- Trả lời bình luận --}}
+                                    <div class="Reply-to-comment">
+                                        <div class="text-other">
+                                            <div class="Comment_avatarWrap">
+                                                <img src="/img/anh.png" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                                            </div>
+                                            <div class="Comment_commentContent-text tittle-comment">
+                                                
+                                                <h5 class="Comment_commentAuthor">Tuấn Trần</h5>
+                                                <span>
+                                                    em dùng create-react-app mà không hiểu. hôm nay e làm theo anh e mới hiểu. Em cảm ơn anh
+                                                </span>
+
+                                                <div class="status-icon">
+                                                    <img src="/img/traitim.png" alt="">
+                                                    <img src="/img/khoc.png" alt="">
+                                                    <p>99</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Comment_commentTime Comment_commentTime-other">
+                                            <p class="Comment_createdAt">
+                                                <span class="Comment_iconWrapper">
+                                                    <span class="Comment_likeComment">
+
+                                                        {{!-- active like: Comment_likeComment--active --}}
+                                                        <div class="btn-Comment_like">
+                                                            <span class="active-like">Thích</span>
+                                                            <ul class="Comment_likeComment-list">
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/thich.png" alt="">
+                                                                </li>
+
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/traitim.png" alt="">
+                                                                </li>
+
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/haha.png" alt="" class="icon-laugh"> 
+                                                                </li>
+
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/batngo.png" alt="" class="icon-surprise">
+                                                                </li>
+
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/khoc.png" alt="" class="icon-cry">
+                                                                </li>
+
+                                                                <li class="Comment_likeComment-item">
+                                                                    <img src="/img/giandu.png" alt="">
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </span>
+                                                </span>
+                                                <span class="Comment_replyComment js-Comment-reply-Comment-2">Trả lời</span>
+                                                    .
+                                                <span class="Comment_createdAt-time">3 giờ trước</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {{!-- nhập bình luận muốn trả lời --}}
+                                    <div class="common-comment__blog-3">
+                                        <div class="Comment_blog-tittle-body Comment_blog-tittle-body-other">
+                                            <div class="CommentBox_commentWrapper">
+                                                <img src="/img/anh.png" alt="" class="postItem__author-img news-blog__postItem__author-img">
+                                            </div>
+                                            <div class="Comment_blog-tittle-input">
+                                                <textarea placeholder="Viết bình luận của bạn..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="CommentBox_actionWrapper">
+                                            
+                                            <button class="CommentBox_cancel js-CommentBox_cancel-3">Hủy</button>
+                                            <button class="CommentBox_ok">Trả lời</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
