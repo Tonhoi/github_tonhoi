@@ -7,7 +7,6 @@ class HomeController {
     contact(req, res) {
         res.render('user/contact')
     }
-
 }
 
 module.exports = new HomeController;

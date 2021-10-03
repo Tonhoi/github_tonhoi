@@ -50,7 +50,7 @@
   font-size: 1.4rem;
   font-weight: 500; }
 
-.news-blog__question-content-title div:last-child {
+.news-blog__question-content-title div:nth-child(2) {
   font-size: 1.8rem; }
 
 .BlogDetail_commentBody {

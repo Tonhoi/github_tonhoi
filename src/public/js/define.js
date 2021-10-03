@@ -46,9 +46,6 @@ export const line2 = str[1];
 export const line3 = str[2];
 
 
-// get Links page News
-
-export const getLinks = document.querySelectorAll('.postItem__body')
 
 
 // comments
@@ -72,8 +69,9 @@ export const btnCancelComment3 = $('.js-CommentBox_cancel-3')
 export const showCommentPageNews = $('.Comment_reactionsCount p:first-child')
 export const hideCommentPageNews = $('.Comment_reactionsCount p:last-child')
 
-// acctive like
 
+// acctive like
 export const activeLike = $$('.btn-Comment_like')
+
 
 

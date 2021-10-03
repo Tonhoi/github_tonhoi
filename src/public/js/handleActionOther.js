@@ -2,7 +2,6 @@ import {
     $,
     $$,
     slideShow,
-    getLinks,
     commentBlogInput,
     CommentBoxActionWrapper,
     btnCloseComment,
@@ -25,7 +24,6 @@ function handleActionOther() {
     closesearchTabletMobile()
     slideShowtext()
     handleOption()
-    getLinksnews()
     handlecommentBlog()
 }
 
@@ -71,14 +69,6 @@ function handleOption() {
         }
     }
     });
-}
-
-function getLinksnews() {
-    getLinks.forEach((getLinks) => {
-      getLinks.onclick = function(e) {
-        getLinks.setAttribute('href', 'newsBlog')
-      }
-    })
 }
 
 

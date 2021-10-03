@@ -11,14 +11,12 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.use(morgan('combined'))
 
 
-app.engine('hbs', handlebars({
-  extname: '.hbs'
-}))
+app.engine('hbs', handlebars({extname:'hbs', defaultLayout:'main.hbs'}));
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources/views'))
-app.set('view options', { layouts: 'other' });
 
 route(app)
+
 
 
 

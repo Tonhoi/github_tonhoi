@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const newsController = require('../app/controllers/newsController')
+const questionController = require('../app/controllers/questionController')
 
 
-router.use('/', newsController.newsBlog)
+router.use('/', questionController.newsBlog)
 module.exports = router

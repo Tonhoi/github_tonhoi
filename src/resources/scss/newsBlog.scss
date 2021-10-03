@@ -68,7 +68,7 @@
   font-weight: 500;
 }
 
-.news-blog__question-content-title div:last-child {
+.news-blog__question-content-title div:nth-child(2) {
   font-size: 1.8rem;
 }
 
@@ -365,7 +365,6 @@
   display: flex;
   width: 90%;
   position: relative;
-  // left: 44px;
   margin-left: auto;
   top: 10px;
 }
