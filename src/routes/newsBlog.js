@@ -4,5 +4,5 @@ const router = express.Router()
 const questionController = require('../app/controllers/questionController')
 
 
-router.use('/', questionController.newsBlog)
+router.get('/', questionController.newsBlog)
 module.exports = router

@@ -47,18 +47,18 @@ function handleSlide() {
             }, 6000)
     }
     // setInterval of slideShow Tabs 
-    if (slideShow)
-    {
-        setInterval(function() {
-        dem++
-        if (dem > lengh - 4) {
-            index = textSlide
-            dem = 0
-        }
-        index = index - textSlide
-        moveSlide.style = `transform:translateX(${index}px)`
-        }, 6000)
-    }
+    // if (slideShow)
+    // {
+    //     setInterval(function() {
+    //     dem++
+    //     if (dem > lengh - 4) {
+    //         index = textSlide
+    //         dem = 0
+    //     }
+    //     index = index - textSlide
+    //     moveSlide.style = `transform:translateX(${index}px)`
+    //     }, 6000)
+    // }
 };
 
 export default handleSlide

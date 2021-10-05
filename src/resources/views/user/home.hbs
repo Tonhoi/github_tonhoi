@@ -55,87 +55,20 @@
             <div class="content__block">
             <ul class="content__block-list-1">
                 <div class="row row__no-wrap preSlide">
-                    <div class="col l-3 m-6 c-12">               
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/apple-macbook.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        >MacBook Air M1 2020 7-core GPU
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/acer-nitro-5-gaming.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        > Acer Nitro 5 Gaming AN515 57 50FT i5 11400H (NH.QD8SV.003)
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                        <li class="content__block-item">
-                            <div class="content__block-img" 
-                            style="background-image: url(/img/hp-envy-13.jpg);">
+                    {{#each slideshow}}
+                        <div class="col l-3 m-6 c-12">
+                        <a href="/home/{{this.slug}}">            
+                            <div class="content__block-item">
+                                <div class="content__block-img" 
+                                style="background-image: url({{this.image}});">
+                                </div>
+                                <span class="content__block-desc"
+                                >{{this.name}}
+                                </span>
                             </div>
-                            <span class="content__block-desc"
-                            >HP Envy 13 ba1030TU i7 1165G7 (2K0B6PA)
-                            </span>
-                        </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/msi-gf66.jpg);">
+                        </a> 
                         </div>
-                        
-                        <span class="content__block-desc"
-                        >MSI Katana Gaming GF66 11UC i7 11800H (224VN)
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/dell-g3.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        >Dell Gaming G3 15 i7 10750H (P89F002BWH)
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/dell-gaming-g3500b-i7-p89f002g3500b-190921-035240-600x600.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        >Dell Gaming G3 i7 10750H (P89F002G3500B)
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/dell-inspiron-7400-i5-1135g7-16gb-512gb-600x600.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        >Dell Inspiron 7400 i5 1135G7 (N4I5134W)
-                        </span>
-                    </li>
-                    </div>
-                    <div class="col l-3 m-6 c-12">
-                    <li class="content__block-item">
-                        <div class="content__block-img" 
-                        style="background-image: url(/img/acer-swift-3-sf313-53-518y-i5-nxa4jsv003-600x600.jpg);">
-                        </div>
-                        <span class="content__block-desc"
-                        >Acer Swift 3 SF313 53 518Y i5 1135G7 (NX.A4JSV.003)
-                        </span>
-                    </li>
-                    </div>               
+                    {{/each}}             
                 </div>
             </ul>
                 <div class="btn_news">

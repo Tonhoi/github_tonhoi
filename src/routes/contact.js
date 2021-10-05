@@ -4,5 +4,5 @@ const router = express.Router()
 const HomeController = require('../app/controllers/HomeController')
 
 
-router.use('/', HomeController.contact)
+router.get('/', HomeController.contact)
 module.exports = router
