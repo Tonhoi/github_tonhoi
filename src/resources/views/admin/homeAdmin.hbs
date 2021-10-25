@@ -1,30 +1,96 @@
-<div class="content">
+<div class="page-overview">
     <div class="form__user-common handleSlide-user">
         <div class="form-user">
-            <h1 class="heading">Tạo bài viết</h1>
-            <form action="">
-                <div class="form-group">
-                    <label for="">Tên tiêu đề</label>
-                    <input type="text" placeholder="name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Hình ảnh</label>
-                    <input type="text" placeholder="Image" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Mô tả</label>
-                    <textarea id="ckeditor" rows="10" cols="80"></textarea>
-                    <script type="text/javascript">
-                        CKEDITOR.replace('ckeditor',{
-                            filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-                            filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-                            filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
-                        });
-                    </script>
-                </div>
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-6">
+                        <div class="overview__box">
+                            1
+                        </div>
+                    </div>
+                    <div class="col l-6">
+                        <div class="overview__box" style="width: 100%; height: 400px; padding: 12px">
+                            <div>
+                                <h3>Sales</h3>
+                                <span>view port</span>
+                            </div>
+                            <div>
+                                <div>
+                                    <h1>$18,230.00</h1>
+                                    <span>Sales Over Time</span>
+                                </div>
+                                <div>
+                                    <span> 33.1%</span>
+                                    <span>Since last month</span>
+                                </div>
+                            </div>
 
-                <button type="submit" class="btn">Tạo bài viết</button>
-            </form>
+                            {{!-- chart --}}
+                            <div style="display: flex; justify-content: space-between;height: 240px">
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 100%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 80%; background-color: rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 60%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 30%; background-color:rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 10%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 20%; background-color:rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 70%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 50%; background-color:rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 25%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 35%; background-color:rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 45%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 56%; background-color:rgb(206,212,218)"></div>
+                                </div>
+
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 44%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 33%; background-color:rgb(206,212,218)"></div>
+                                </div>
+                                <div style="display: flex; align-items: flex-end;">
+                                    <div style="width: 25px; height: 44%; background-color: rgb(0,123,255)"></div>
+                                    <div style="width: 25px; height: 33%; background-color:rgb(206,212,218)"></div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: end; margin: 20px 0 8px">
+                                <div style="display: flex; align-items: center; margin: 0 12px 0 0">
+                                    <div style="width: 20px; height: 20px; background-color: rgb(0,123,255); margin-right: 8px"></div>
+                                    <span>this years</span>
+                                </div>
+                                <div style="display: flex; align-items: center">
+                                    <div style="width: 20px; height: 20px; background-color: rgb(206,212,218); margin-right: 8px"></div>
+                                    <span>last years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-6">
+                        <div class="overview__box">
+                            3
+                        </div>
+                    </div>
+                    <div class="col l-6">
+                        <div class="overview__box">
+                            4
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

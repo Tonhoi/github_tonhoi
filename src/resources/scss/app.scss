@@ -345,3 +345,131 @@ input[name="r"] {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+// page post
+
+.container-post {
+  margin: 100px 0 32px;
+}
+
+.container-post__img {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.container-post__name {
+  margin-bottom: 24px;
+}
+
+.container-post__desc {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+}
+
+.container-post__advertisement {
+  height: 300px;
+  background-color: red;
+}
+
+// container system
+
+.container-system {
+  margin: 100px 0 30px;
+}
+
+.GroupField_wrapper__name,
+.GroupField_wrapper__email,
+.GroupField_wrapper__image,
+.GroupField_wrapper__password {
+  display: flex;
+  margin: 30px 0;
+}
+
+.Setting_wrapper {
+}
+
+.Setting_heading {
+  font-size: 2.2rem;
+}
+
+.GroupField_wrapper {
+}
+
+.GroupField_heading {
+  font-size: 2.2rem;
+  padding: 10px 0;
+  position: relative;
+}
+
+.GroupField_heading::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(232, 232, 232);
+}
+
+.InputField_fieldContent {
+  width: 66%;
+}
+
+.InputField_fieldContent:first-child {
+  font-size: 1.6rem;
+}
+
+.InputField_fieldContent__name {
+  display: block;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+
+.InputField_fieldContent__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 0 0 90px;
+  position: relative;
+}
+
+.InputField_fieldContentInput {
+  padding: 1px 4px 8px;
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: 1px solid rgb(246, 246, 246);
+  font-size: 1.6rem;
+}
+
+.InputField_description {
+}
+
+.InputField_description-child-3 {
+  display: flex;
+}
+
+.InputField_fieldBtn {
+  display: flex;
+  align-items: center;
+}
+
+.InputField_fieldBtn button {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.54);
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  border: none;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s, fill 0.1s;
+}
+
+.InputField_fieldBtn > button:hover {
+  color: rgba(0, 0, 0, 0.68);
+  border-color: rgba(0, 0, 0, 0.54);
+}

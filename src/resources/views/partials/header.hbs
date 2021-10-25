@@ -12,10 +12,10 @@
         <a href="/news" class="header-list__item-link">Tin tức</a>
         </li>
         <li class="header-list__item">
-        <a href="question" class="header-list__item-link">Hỏi đáp</a>
+        <a href="/question" class="header-list__item-link">Hỏi đáp</a>
         </li>
         <li class="header-list__item">
-        <a href="contact" class="header-list__item-link">Liên hệ</a>
+        <a href="/contact" class="header-list__item-link">Liên hệ</a>
         </li>
     </ul>
 
@@ -32,7 +32,7 @@
         <span class="header-pc__name">Quốc Huy</span>
         <ul class="menu-icon-down__list hide-on-tablet-mobile">
             <li class="menu-icon-down__item">
-            <a href="" class="menu-icon-down__item-link">
+            <a href="/system" class="menu-icon-down__item-link">
                 <i class="header-pc__icon-logout-setting fas fa-cog"></i>
                 Cài Đặt
             </a>
@@ -167,13 +167,13 @@
         <li
         class="header-tablet-mobile-list__item header-list__item-active"
         >
-        <a href="home" class="header-tablet-mobile-list__item-link">
+        <a href="/" class="header-tablet-mobile-list__item-link">
             <i class="header-tablet-mobile__icon fas fa-home"></i>
             Trang chủ
         </a>
         </li>
         <li class="header-tablet-mobile-list__item">
-        <a href="news" class="header-tablet-mobile-list__item-link">
+        <a href="/news" class="header-tablet-mobile-list__item-link">
             <i
             class="header-tablet-mobile__icon fas fa-envelope-open"
             ></i>
@@ -181,13 +181,13 @@
         </a>
         </li>
         <li class="header-tablet-mobile-list__item">
-        <a href="question" class="header-tablet-mobile-list__item-link">
+        <a href="/question" class="header-tablet-mobile-list__item-link">
             <i class="header-tablet-mobile__icon fas fa-book-open"></i>
             Hỏi đáp
         </a>
         </li>
         <li class="header-list-tablet-mobile__item">
-        <a href="contact" class="header-tablet-mobile-list__item-link">
+        <a href="/contact" class="header-tablet-mobile-list__item-link">
             <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
             Liên hệ
         </a>
@@ -336,3 +336,12 @@
     </div>
 </div>
 </form>
+
+<script>
+    var text = document.querySelector(".header-login-register")
+    var text1 = document.querySelector(".js-page-manager")
+
+    text1.onclick = () => {
+        text.classList.remove('hide-on-pc')
+    }
+</script>

@@ -12,6 +12,12 @@ class adminController {
             layout: 'admin'
         })
     }
+
+    handleUser(req, res) {
+        res.render('admin/handleUser', {
+            layout: 'admin'
+        })
+    }
 }
 
 module.exports = new adminController;

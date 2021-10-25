@@ -64,14 +64,17 @@ export const reply2 = $('.js-Comment-reply-Comment-2')
 export const commoncommentblog3 = $('.common-comment__blog-3')
 export const btnCancelComment3 = $('.js-CommentBox_cancel-3')
 
-    // xem câu trả lời
 
+// xem câu trả lời
 export const showCommentPageNews = $('.Comment_reactionsCount p:first-child')
 export const hideCommentPageNews = $('.Comment_reactionsCount p:last-child')
 
 
 // acctive like
 export const activeLike = $$('.btn-Comment_like')
+
+
+
 
 
 

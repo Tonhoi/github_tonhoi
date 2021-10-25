@@ -84,17 +84,21 @@ function handlecommentBlog() {
             }else {
                 commentBoxActionWrapper.classList.add('CommentBox_ok--onchange')
             }
+                btnCloseComment.onclick = function(e) {
+                    if (commentBoxActionWrapper !== "") {
+                        commentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
+                        commentBlogInput.value = ''
+                    }
+                }
+                    
+                overlayComment.onclick = function(e) {
+                    if (commentBoxActionWrapper !== "") {
+                        commentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
+                        commentBlogInput.value = ''
+                    }
+                }
             }
-        })  
-        btnCloseComment.onclick = function(e) {
-            CommentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
-            commentBlogInput.value = ''
-        }
-            
-        overlayComment.onclick = function(e) {
-            CommentBoxActionWrapper.classList.remove('CommentBox_ok--onchange')
-            commentBlogInput.value = ''
-        }
+        })
 
         activeLike.forEach((activeLike) => {
             activeLike.onclick = function(e) {

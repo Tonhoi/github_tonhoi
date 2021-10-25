@@ -20,6 +20,10 @@ class HomeController {
     contact(req, res) {
         res.render('user/contact')
     }
+
+    system(req, res) {
+        res.render('user/system')
+    }
 }
 
 module.exports = new HomeController;
