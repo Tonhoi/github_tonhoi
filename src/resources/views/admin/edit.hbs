@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="form__user-common handleSlide-user">
+        <div class="form-user">
+            <div class="view-post">
+                <h1 class="heading">Cập nhập bài viết</h1>
+                <a href="/homeAdmin/viewPosts" class="btn">Xem bài viết</a>
+            </div>
+            <form action="/homeAdmin/{{slideshow._id}}?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="">Hình ảnh</label>
+                    <input type="text" value="{{slideshow.image}}" name="image" placeholder="image" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Tên tiêu đề</label>
+                    <input type="text" value="{{slideshow.name}}" name="name" placeholder="name" class="form-control">
+                </div>
+
+                <textarea name="description" id="description" rows="10" cols="80">{{slideshow.description}}</textarea>
+                
+
+                <button type="submit" class="btn">Lưu lại</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var description = CKEDITOR.replace('description',{
+        filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+        filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+        filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+    });
+
+    var data = CKEDITOR.instances.editor1.getData();
+
+</script>

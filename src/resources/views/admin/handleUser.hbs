@@ -1,26 +1,40 @@
 <div class="content">
     <div class="form__user-common handleSlide-user">
         <div class="form-user">
-            <h1 class="heading">Tạo bài viết</h1>
-            <form action="">
-                <div class="form-group">
-                    <label for="">Tên tiêu đề</label>
-                    <input type="text" placeholder="name" class="form-control">
-                </div>
+            <div class="view-post">
+                <h1 class="heading">Tạo bài viết</h1>
+                <a href="/homeAdmin/viewPosts" class="btn">Xem bài viết</a>
+            </div>
+            <form action="/homeAdmin/store" method="POST">
                 <div class="form-group">
                     <label for="">Hình ảnh</label>
-                    <input type="text" placeholder="Image" class="form-control">
+                    <input type="text" name="image" placeholder="image" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Mô tả</label>
-                    <textarea id="editor1" rows="10" cols="80"></textarea>
-                    <script type="text/javascript">
-                        CKEDITOR.replace( 'editor1');
-                    </script>
+                    <label for="">Tên tiêu đề</label>
+                    <input type="text" name="name" placeholder="name" class="form-control">
                 </div>
+
+                {{!-- <div class="form-group">
+                    <label for="">Miêu tả</label>
+                    <input type="text" name="description" placeholder="description" class="form-control">
+                </div> --}}
+
+                <textarea name="description" id="description" rows="10" cols="80"></textarea>
+                
 
                 <button type="submit" class="btn">Tạo bài viết</button>
             </form>
         </div>
     </div>
 </div>
+
+
+<script>
+    var description = CKEDITOR.replace('description');
+
+    description.on( 'change', function( evt ) {
+    // getData() returns CKEditor's HTML content.
+    console.log( 'Total bytes: ' + evt.editor.getData() );
+});
+</script>

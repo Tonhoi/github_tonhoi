@@ -216,7 +216,7 @@
 <!-- form register -->
 
 <label for="open__layout" class="overlay-form-login-register"></label>
-<form action="" method="post" class="form-register">
+<form action="/register" method="post" class="form-register">
 <div class="modal-register">
     <div for="open__layout" class="btn-close fas fa-times"></div>
     <h1 class="form-login__name">Đăng kí</h1>
@@ -227,7 +227,7 @@
     </label>
     <input
         type="text"
-        name=""
+        name="fullname"
         class="form-control"
         placeholder="VD: Phạm Văn a "
     />
@@ -240,7 +240,7 @@
     </label>
     <input
         type="text"
-        name=""
+        name="username"
         class="form-control"
         placeholder="Tên đăng nhập"
     />
@@ -253,7 +253,7 @@
     </label>
     <input
         type="password"
-        name=""
+        name="password"
         class="form-control"
         placeholder="password"
     />
@@ -266,7 +266,6 @@
     </label>
     <input
         type="password"
-        name=""
         class="form-control"
         placeholder="Confirm password"
     />
@@ -292,7 +291,7 @@
 
 <!-- form login -->
 
-<form action="" class="form-login">
+<form action="/login" class="form-login" method="post">
 <div class="modal-login">
     <div for="open__layout" class="btn-close fas fa-times"></div>
 
@@ -305,7 +304,7 @@
     </label>
     <input
         type="text"
-        name=""
+        name="username"
         class="form-control"
         placeholder="Tên đăng nhập"
     />
@@ -317,7 +316,7 @@
     </label>
     <input
         type="password"
-        name=""
+        name="password"
         class="form-control"
         placeholder="password"
     />

@@ -8,13 +8,10 @@ const postRouter = require('./post')
 
 // page admin
 const adminHomeRouter = require('./adminHome')
-const userManagerRouter = require('./userManager')
-const handleUserRouter = require('./handleUser')
 function route(app) {
     // page admin
-    app.use('/userManager', userManagerRouter)
     app.use('/homeAdmin', adminHomeRouter)
-    app.use('/handleUser', handleUserRouter)
+
     
     app.use('/question', questionRouter)
     app.use('/news', newsRouter)

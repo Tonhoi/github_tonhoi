@@ -98,87 +98,27 @@
   border-radius: 4px;
 }
 
-// table
-.table {
-  height: auto;
-  position: relative;
-}
-
-.table::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 77.5%;
-  transform: translateX(-77.5%);
-  width: 2px;
-  height: 100%;
-  background-color: rgb(222, 226, 230);
-}
-.table__desc,
-.table__inf {
-  --color-gray: rgb(222, 226, 230);
-  display: block;
-  font-size: 1.6rem;
-  border: 1px solid var(--color-gray);
-  background-image: linear-gradient(
-    to right,
-    transparent 10%,
-    var(--color-gray) calc(10% + 2px),
-    transparent calc(10% + 2px),
-    transparent 32.5%,
-    var(--color-gray) calc(32.5% + 2px),
-    transparent calc(32.5% + 2px),
-    transparent 55%,
-    var(--color-gray) calc(55% + 3px),
-    transparent calc(55% + 3px)
-  );
-}
-.table__desc-title:first-child {
-  width: 10%;
-}
-
-.table__desc-title {
-  display: inline-block;
-  width: 22%;
-  padding: 8px 12px;
-  text-align: center;
-}
-
-.table__inf-title:first-child {
-  width: 10%;
-}
-.table__inf-title {
-  display: inline-block;
-  width: 22%;
-  padding: 20px 12px;
-  text-align: center;
-}
-
-.table__function {
-  display: inline-block;
-  width: 22.4%;
-  text-align: center;
-}
-
-.btn-delete,
 .btn-update {
-  height: auto;
-  padding: 8px 16px;
-  color: var(--white-color);
-  display: inline-block;
-  border: none;
+  background-color: rgb(39, 137, 234);
+  position: relative;
+  min-width: 100px;
   cursor: pointer;
-}
-.btn-update {
-  background-color: rgb(23, 162, 184);
-  position: relative;
+  border: none;
+  border: 1px solid rgb(39, 137, 234);
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.btn-update:hover {
-  background-color: rgb(19, 132, 150);
-}
 .btn-delete {
-  background-color: red;
+  background-color: rgb(237, 47, 47);
+  min-width: 100px;
+  cursor: pointer;
+  border: none;
+  border: 1px solid rgb(237, 47, 47);
+  border-radius: 4px;
+  position: relative;
+  bottom: 3px;
 }
 
 .only-category.ml-12 {
@@ -213,6 +153,15 @@
   outline: none;
   border: none;
   border: 1px solid #ccc;
+}
+
+.view-post {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-post a {
+  text-decoration: none;
 }
 
 // phần code giao diện model tạo mơi 1 sinh viên
@@ -324,4 +273,46 @@
 .form-btn__save {
   background-color: rgb(0, 123, 255);
   color: var(--white-color);
+}
+
+// view post
+
+table {
+  font-size: 1.8rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  border-bottom: 2px solid black;
+}
+
+thead tr th {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+thead tr th,
+tbody tr th {
+  padding: 20px 0;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.btn-delete-viewPosts,
+.btn-update-viewPosts {
+  min-width: 100px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.btn-delete-viewPosts {
+  background-color: #ed2f2f;
+}
+
+.btn-update-viewPosts {
+  background-color: #2789ea;
 }

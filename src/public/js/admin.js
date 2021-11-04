@@ -23,7 +23,6 @@ const app = {
         var gan = 0;
         var elem = document.querySelectorAll(".icon-alt");
         var fullScreen = document.querySelector('.adminheader')
-        var subMenu = document.querySelectorAll('.js-admin-category__link')
 
         elem.onclick = function(e) {
             gan++;
@@ -49,42 +48,39 @@ const app = {
         var dem = 0;
         
         // submenu
-        var submenu = document.querySelectorAll('.sub-menu__list')
-        var iconLeft = document.querySelectorAll('.icon__arrow-left')
-        var iconRight = document.querySelectorAll('.icon__arrow-down')
+        var subMenuParent = document.querySelector('.js-admin-category__link')
+        var submenu = document.querySelector('.sub-menu__list')
+        var iconLeft = document.querySelector('.icon__arrow-left')
+        var iconRight = document.querySelector('.icon__arrow-down')
 
-        subMenu.forEach((subMenu, index) => {
-            var text = submenu[index]
-            var iconleft = iconLeft[index]
-            var iconright = iconRight[index]
-            subMenu.onclick = function(e) {
-                iconleft.classList.toggle('open')
-                iconright.classList.toggle('open')
-                text.style.display = "block"
+        subMenuParent.onclick = function(e) {
+            dem++;
+            iconLeft.classList.toggle('open')
+            iconRight.classList.toggle('open')
+            submenu.style.display = "block"
 
-                // bugs
-                if (dem === 2 && text.style.display === "block") {
-                    text.style.display = "none"
-                    dem = 0
-                }
-                console.log(dem)
-                dem++;
+            // bugs
+            if (dem === 2 && submenu.style.display === "block") {
+                submenu.style.display = "none"
+                dem = 0
             }
-        })
+        }
     },
 
     addUser: function() {
         var layoutUser = document.querySelector('.layout-user')
         var addNewUser = document.querySelector('.add__new-user')
-        
         var modelContainer = document.querySelector('.model__container')
         var btnCloseUser = document.querySelector('.btn-close__user')
         var formBtnCancel = document.querySelector('.form-btn__cancel')
 
-        addNewUser.onclick = () => {
-            layoutUser.classList.add('open')
-            modelContainer.classList.add('open')
-        }
+        if(layoutUser)
+        {
+            addNewUser.onclick = () => {
+                layoutUser.classList.add('open')
+                modelContainer.classList.add('open')
+            }
+        
         btnCloseUser.onclick = () => {
             layoutUser.classList.remove('open')
             modelContainer.classList.remove('open')
@@ -94,6 +90,7 @@ const app = {
             layoutUser.classList.remove('open')
             modelContainer.classList.remove('open')
         }
+    }
     },
     start: function() {
         this.closeOpenCategory()
