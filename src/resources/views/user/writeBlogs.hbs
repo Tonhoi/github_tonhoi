@@ -1,0 +1,22 @@
+<div class="content-writeBlog" style="position:relative; top: 100px;">
+    <form action="">
+        <div class="form-group">
+            {{!-- <label for="">Tên tiêu đề</label> --}}
+            <input type="text" name="" id="" class="form-input" placeholder="Tiêu đề">
+        </div>
+
+        <textarea name="description" id="description"></textarea>
+    </form>
+</div>
+
+<script>
+    var description = CKEDITOR.replace('description', {
+        
+        editorplaceholder: 'Nội dung viết ở đây...',
+    });
+
+    description.on( 'change', function( evt ) {
+    // getData() returns CKEditor's HTML content.
+    console.log( 'Total bytes: ' + evt.editor.getData() );
+});
+</script>

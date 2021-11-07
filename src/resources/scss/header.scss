@@ -115,25 +115,61 @@
 /* header icon pc */
 
 .header-pc-function {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   position: relative;
   z-index: 1;
-  margin-right: 30px;
-  flex-shrink: 0;
+  margin-left: 20px;
   cursor: pointer;
 }
 
 .header-pc-function::after {
   content: "";
   position: absolute;
-  right: -14px;
+  left: -12px;
   top: 50%;
   transform: translateY(-50%);
   width: 2px;
   height: 80%;
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+.menu-icon-down__list {
+  position: absolute;
+  width: 230px;
+  right: 12px;
+  top: calc(100% + 4px);
+  padding: 10px;
+  background-color: var(--white-color);
+  list-style: none;
+  border-radius: 10px;
+  box-shadow: 0px -4px 32px rgba(0, 0, 0, 0.2);
+  transition: all linear 0.3s;
+  cursor: default;
+  display: none;
+}
+
+.menu-icon-down__avatar {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  position: relative;
+}
+
+.menu-icon-down__avatar::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84%;
+  height: 1px;
+  background-color: #ddd3d3;
+  box-shadow: 0 44px 0 0 #ddd3d3, 0 116px 0 0 #ddd3d3;
+}
+
+.menu-header-pc__img {
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
 .header-pc__img {
@@ -143,22 +179,31 @@
 }
 
 .header-pc__name {
-  color: var(--white-color);
-  font-size: 1.4rem;
+  color: var(--primary-color);
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
-.menu-icon-down__list {
+.menu-icon-down__item--2 {
+  margin-top: 10px;
+}
+
+.menu-icon-down__item--3 {
+  margin-top: 16px;
+}
+
+.menu-icon-down__item--2 .menu-icon-down__item-link,
+.menu-icon-down__item--3 .menu-icon-down__item-link {
+  padding: 4px 14px;
+}
+
+.menu-icon-down__list::after {
+  content: "";
   position: absolute;
-  left: 0;
-  right: -20px;
-  top: 100%;
-  padding: 10px 0 0;
-  background-color: var(--primary-color);
-  list-style: none;
-  border-radius: 3px;
-  box-sizing: 0 2px 3px rgba(0, 0, 0, 0.4);
-  display: none;
+  top: -10px;
+  right: 0;
+  width: 50px;
+  height: 10px;
 }
 
 .header-pc-function:hover .menu-icon-down__list {
@@ -167,7 +212,7 @@
 
 .menu-icon-down__item-link {
   display: flex;
-  color: var(--white-color);
+  color: rgb(102, 102, 102);
   text-decoration: none;
   padding: 12px 14px;
   font-size: 1.6rem;
@@ -175,7 +220,7 @@
 }
 
 .menu-icon-down__item-link:hover {
-  background-color: rgba(204, 204, 204, 0.4);
+  color: #292929;
 }
 .header-pc__icon-logout,
 .header-pc__icon-logout-setting {

@@ -173,6 +173,10 @@ input[name="r"] {
   user-select: none;
 }
 
+.content-block__link {
+  text-decoration: none;
+}
+
 .content__block-item {
   width: 100%;
   height: auto;
@@ -352,8 +356,9 @@ input[name="r"] {
   margin: 100px 0 32px;
 }
 
+.container-post__desc img,
 .container-post__img {
-  width: 100%;
+  width: 100% !important;
   margin-bottom: 24px;
 }
 
@@ -365,10 +370,14 @@ input[name="r"] {
   font-size: 1.8rem;
   line-height: 2.6rem;
 }
-
 .container-post__advertisement {
-  height: 300px;
-  background-color: red;
+  position: relative;
+  height: 1000px;
+}
+.container-post__advertisement img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 // container system

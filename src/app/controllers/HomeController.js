@@ -39,6 +39,12 @@ class HomeController {
 
     }
 
+    writeBlogs(req, res) {
+        res.render('user/writeBlogs', {
+            layout: 'blogs'
+        })
+    }
+
     contact(req, res) {
         res.render('user/contact')
     }
@@ -46,6 +52,8 @@ class HomeController {
     system(req, res) {
         res.render('user/system')
     }
+
+
 }
 
 module.exports = new HomeController;

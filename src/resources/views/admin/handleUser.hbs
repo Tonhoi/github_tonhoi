@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="form__user-common handleSlide-user">
+    <div class="form__user-common">
         <div class="form-user">
             <div class="view-post">
                 <h1 class="heading">Tạo bài viết</h1>
@@ -14,12 +14,7 @@
                     <label for="">Tên tiêu đề</label>
                     <input type="text" name="name" placeholder="name" class="form-control">
                 </div>
-
-                {{!-- <div class="form-group">
-                    <label for="">Miêu tả</label>
-                    <input type="text" name="description" placeholder="description" class="form-control">
-                </div> --}}
-
+                
                 <textarea name="description" id="description" rows="10" cols="80"></textarea>
                 
 
@@ -31,7 +26,9 @@
 
 
 <script>
-    var description = CKEDITOR.replace('description');
+    var description = CKEDITOR.replace('description', {
+        editorplaceholder: 'Nội dung viết ở đây...',
+    });
 
     description.on( 'change', function( evt ) {
     // getData() returns CKEditor's HTML content.

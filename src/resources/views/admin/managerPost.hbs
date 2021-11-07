@@ -1,0 +1,66 @@
+<div class="form__user-common">
+    <div class="form-user">
+        <h1>Danh sách bài viết</h1>
+        <div class="form__CRUD">
+            <div>
+                <div class="print-output-file">
+                    <span>
+                        <i class="fas fa-file-excel"></i>
+                        Xuất excel
+                    </span>
+                </div>
+                <div class="print-output-file">
+                    <span>
+                        <i class="fas fa-print"></i>
+                        In
+                    </span>
+
+                </div>
+                <div class="print-output-file">
+                    <span>
+                        <i class="fas fa-file-pdf"></i>
+                        Xuất Pdf
+                    </span>
+                </div>
+            </div>
+            <div>
+                <span>Search</span>
+                <input type="text" class="search" placeholder="Tìm kiếm ở đây">
+            </div>
+        </div>
+
+        <table style="width: 100%;" border="1">
+            <thead>
+                <th>Số thư tự</th>
+                <th>Ảnh đại diện</th>
+                <th>Tên Tài khoản</th>
+                <th>Xem chi tiết</th>
+                <th style="width: 20%;">Ngày tạo</th>
+                <th>Chức năng</th>
+            </thead>
+            <tbody>
+                {{#each loginRegister}}
+                <tr>
+                    <th>{{sum @index 1}}</th>
+                    <th>{{this.fullname}}</th>
+                    <th>{{this.username}}</th>
+                    <th>{{this.password}}</th>
+                    <th>{{this.createdAt}}</th>
+                    <th>
+                        <a href="/homeAdmin/{{this._id}}/editRegister" class="btn-update btn">
+                            <i class="fas fa-edit"></i>
+                            <span>Duyệt</span>
+                        </a>
+                        <form action="/homeAdmin/{{this._id}}?_method=DELETE" method="post" style="display: inline-block;">
+                            <button class="btn-delete btn">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Không duyệt</span>
+                            </button>
+                        </form>
+                    </th>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

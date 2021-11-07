@@ -1,7 +1,9 @@
 const slideshow = require('../model/slideshow')
 const loginRegister = require('../model/loginRegister')
 const {multipleMongooseToObject} = require('../../util/mongoose') 
-const {MongooseToObject} = require('../../util/mongoose') 
+const {MongooseToObject} = require('../../util/mongoose')
+const express = require('express');
+const router = express.Router();
 class adminController {
 
     // [GET] / news
@@ -26,8 +28,16 @@ class adminController {
         res.render('admin/handleUser', {
             layout: 'admin'
         })
-        
     }
+
+    managerPost(req, res) {
+        res.render('admin/managerPost', {
+            layout: 'admin'
+        })
+    }
+
+   
+
 
     // [GET] slide
     edit(req, res, next) {
@@ -62,24 +72,55 @@ class adminController {
 
      // [DELETE] 
     delete(req, res, next) {
-        slideshow.deleteOne({ _id: req.params.id })
+        slideshow.delete({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next)
-        loginRegister.deleteOne({ _id: req.params.id })
+        // loginRegister.delete({ _id: req.params.id })
+        // .then(() => res.redirect('back'))
+        // .catch(next)
+    }
+
+    // [DELETE]
+    forceDelete(req, res, next) {
+        slideshow.deleteOne({ _id: req.params.id })
         .then(() => res.redirect('back'))
         .catch(next)
     }
 
     
     viewPosts(req, res) {
-        slideshow.find({})
-            .then(slideshow => {
+
+        Promise.all([slideshow.find({}).sortable(req), 
+            slideshow.countDocumentsDeleted()])
+            .then(([slideshow, deletedSlide]) =>
                 res.render('admin/viewPosts', {
+                    deletedSlide,
+                    slideshow:multipleMongooseToObject(slideshow),
+                    layout: 'admin'
+                })
+            )
+            .catch(error => next(error))
+
+
+        // slideshow.find({})
+        //     .then(slideshow => {
+        //         res.render('admin/viewPosts', {
+        //             slideshow:multipleMongooseToObject(slideshow),
+        //             layout: 'admin'
+        //         })
+        //     })
+        //     .catch(error => next(error))
+    }
+
+    trashViewPosts(req, res) {
+        slideshow.findDeleted({})
+            .then(slideshow => {
+                res.render('admin/trashViewPosts', {
                     slideshow:multipleMongooseToObject(slideshow),
                     layout: 'admin'
                 })
             })
-            .catch(error => next(error))
+        .catch(error => next(error))
     }
 
     
@@ -92,6 +133,13 @@ class adminController {
         })
     }
 
+    // [PATCH] restore
+    restore(req, res, next) {
+        slideshow.restore({ _id: req.params.id })
+        .then(() => res.redirect('back'))
+        .catch(next)
+    }
+
     register(req, res, next) {
         const register = new loginRegister(req.body)
         register.save()
@@ -102,7 +150,7 @@ class adminController {
      }
 
     description(req, res, next) {
-        slideshow.findOne({ slug: req.params.slug })
+        slideshow.findOneWithDeleted({ slug: req.params.slug })
             .then(slideshow => 
                 res.render('admin/description', {
                     slideshow: MongooseToObject(slideshow),
@@ -112,6 +160,7 @@ class adminController {
             .catch(next)
             
     }
+
 }
 
 module.exports = new adminController;

@@ -74,6 +74,7 @@ export const hideCommentPageNews = $('.Comment_reactionsCount p:last-child')
 export const activeLike = $$('.btn-Comment_like')
 
 
+export const maxWidthImg = $$('.container-post__desc img')
 
 
 

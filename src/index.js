@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const handlebars = require('express-handlebars')
 const app = express()
 const methodOverride = require('method-override')
+const SortMiddleware = require('./app/middleware/sortMiddleware')
 
 const port = process.env.PORT || 3000
 const route = require('./routes')
@@ -21,15 +22,16 @@ app.use(express.json())
 
 app.use(methodOverride('_method'))
 
+// custom Middleware
+app.use(SortMiddleware)
+
 app.use(morgan('combined'))
 
 
 app.engine('hbs', handlebars({
   extname:'hbs', 
   defaultLayout:'main.hbs',
-  helpers: {
-    sum:(a, b) => a + b,
-  }
+  helpers: require('./helpers/handlebars')
 }));
 
 app.set('view engine', 'hbs')

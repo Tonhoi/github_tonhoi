@@ -26,187 +26,214 @@
     </div>
 
     <!-- show when login -->
-    <div class="header-pc__avatar">
-        <div class="header-pc-function hide-on-tablet-mobile">
-        <img src="/img/anh.png" alt="" class="header-pc__img" />
-        <span class="header-pc__name">Quốc Huy</span>
-        <ul class="menu-icon-down__list hide-on-tablet-mobile">
-            <li class="menu-icon-down__item">
-            <a href="/system" class="menu-icon-down__item-link">
-                <i class="header-pc__icon-logout-setting fas fa-cog"></i>
-                Cài Đặt
+        <div class="header-pc__avatar">
+
+            <!-- hide bell when no login on tablet mobile: header-icon-tablet-mobile-pc--no-login-->
+            <div class="header-icon-tablet-mobile-pc">
+                <i class="header-icon__bell far fa-bell">
+                    <!-- quantity -->
+                    <span class="header-icon__bell-quantity">1</span>
+
+                    <!-- order list  -->
+                    <!-- no bell : header-bell__div--no-bell -->
+                    <div class="header-bell__div">
+                    <div class="header-bell__no-bell">
+                        <img src="/img/no-bell.png" alt="" />
+                        <p>Chưa có thông báo</p>
+                    </div>
+                    <div class="header-bell__heading">
+                        <span>Thông báo</span>
+                        <span>Đánh dấu đã đọc</span>
+                    </div>
+                    <ul class="header-bell__list">
+                        <!-- đánh dấu là chưa đọc: header-bell__item-active -->
+                        <li class="header-bell__item header-bell__item-active">
+                        <img
+                            src="/img/anh.png"
+                            alt=""
+                            class="header-bell__img"
+                        />
+                        <div class="header-bell__tittle">
+                            <div class="header-bell__desc">
+                            Chào mừng bạn đến với trang web của chúng tôi, chúc
+                            bạn một ngày tốt lành ^^
+                            </div>
+
+                            <div class="time__comments">4 tháng trước</div>
+                        </div>
+                        </li>
+                    </ul>
+                    </div>
+                </i>
+                <label for="checksearch" class="icon__search fas fa-search">
+                    <input
+                    type="checkbox"
+                    id="checksearch"
+                    class="showsearch"
+                    hidden
+                    />
+                    <div class="search__div">
+                    <input type="text" />
+                    <button class="btn__search">Tìm kiém</button>
+                    </div>
+                </label>
+            </div>
+
+            {{!-- avatar --}}
+            <div class="header-pc-function hide-on-tablet-mobile">
+            <img src="/img/anh.png" alt="" class="header-pc__img" />
+                <ul class="menu-icon-down__list hide-on-tablet-mobile">
+                    <li class="menu-icon-down__item">
+                        <div class="menu-icon-down__avatar">
+                            <img src="/img/anh.png" alt="" class="menu-header-pc__img" />
+                            <span class="header-pc__name">Quốc Huy</span>
+                        </div>
+                    </li>
+
+                        <li class="menu-icon-down__item">
+                        <a href="homeAdmin" class="menu-icon-down__item-link">
+                            <span>
+                                Quản lý
+                            </span>
+                        </a>
+                        </li>
+                    <div class="menu-icon-down__item--2">
+                        <li class="menu-icon-down__item">
+                        <a href="writeBlogs" class="menu-icon-down__item-link">
+                            <span>
+                                Viết blogs
+                            </span>
+                        </a>
+                        </li>
+
+                        <li class="menu-icon-down__item">
+                        <a href="writeBlogs" class="menu-icon-down__item-link">
+                            <span>
+                                Bài viết của tôi
+                            </span>
+                        </a>
+                        </li>
+                    </div>
+                    
+                    <div class="menu-icon-down__item--3">
+                        <li class="menu-icon-down__item">
+                        <a href="/system" class="menu-icon-down__item-link">
+                            Cài Đặt
+                        </a>
+                        </li>
+
+                        <li class="menu-icon-down__item js-page-manager">
+                        <a href="" class="menu-icon-down__item-link">
+                            Đăng Xuất
+                        </a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+            <!-- show search on tablet mobile -->
+
+            <div id="showsearch" class="search__overlay">
+                <div class="form-search">
+                <h3>Tìm kiếm</h3>
+                <input type="text" />
+                </div>
+                <label class="close-btn close-search fas fa-times"></label>
+                <ul class="content__search-list">
+                <li class="content__search">
+                    <img
+                    src="https://www.tnc.com.vn/uploads/product/XUYEN_06_2021/Dell-Latitude-3420.jpg"
+                    alt=""
+                    class="content__search-img"
+                    />
+
+                    <div class="content__search-tittle">
+                    <h3 class="content__search-header">
+                        Laptop Dell Latitude 3420 L3420I5SSD sản phẩm chính
+                        hãng đến từ cửa hàng của chúng tôi Laptop Dell
+                        Latitude 3420 L3420I5SSD sản phẩm chính hãng đến sản
+                        phẩm chính hãng đến
+                    </h3>
+                    <span class="content__search-time">11/9/2021</span>
+                    </div>
+                </li>
+                </ul>
+
+                <button>XEM TẤT CẢ CÁC KẾT QUẢ</button>
+            </div>
+            </div>
+
+            <!-- icon bar -->
+            <div class="header-icon__bar-div hide-on-pc">
+            <label for="check" class="header-icon__bar fas fa-bars"></label>
+            </div>
+        </div>
+    </nav>
+
+        <!-- navbar on tablet mobie -->
+        <input type="checkbox" id="check" class="checkk" hidden />
+        <label for="check" class="overlay"></label>
+        <nav class="nav-bar-tablet-mobile">
+        <label for="check" class="close-btn fas fa-times"></label>
+
+        <!-- login success: header-tablet-mobile__avatar--no-login-->
+        <div class="header-tablet-mobile__avatar">
+            <img
+            src="/img/anh.png"
+            alt=""
+            class="header-tablet-mobile__img"
+            />
+            <span class="header-tablet-mobile__name">Quốc Huy</span>
+            <img
+            src="/img/logo.png"
+            alt=""
+            class="header__logo-tablet-mobile"
+            />
+        </div>
+        <ul class="header-tablet-mobile-list">
+            <li
+            class="header-tablet-mobile-list__item header-list__item-active"
+            >
+            <a href="/" class="header-tablet-mobile-list__item-link">
+                <i class="header-tablet-mobile__icon fas fa-home"></i>
+                Trang chủ
             </a>
             </li>
-            <li class="menu-icon-down__item">
-            <a href="homeAdmin" class="menu-icon-down__item-link">
-                <i class="fas fa-user-shield"></i>
-                <span style="margin-left: 4px;">
-                    Quản lý
-                </span>
+            <li class="header-tablet-mobile-list__item">
+            <a href="/news" class="header-tablet-mobile-list__item-link">
+                <i
+                class="header-tablet-mobile__icon fas fa-envelope-open"
+                ></i>
+                Tin tức
             </a>
             </li>
-            <li class="menu-icon-down__item js-page-manager">
-            <a href="" class="menu-icon-down__item-link">
-                <i class="header-pc__icon-logout-setting fas fa-cog"></i>
-                Đăng Xuất
+            <li class="header-tablet-mobile-list__item">
+            <a href="/question" class="header-tablet-mobile-list__item-link">
+                <i class="header-tablet-mobile__icon fas fa-book-open"></i>
+                Hỏi đáp
+            </a>
+            </li>
+            <li class="header-list-tablet-mobile__item">
+            <a href="/contact" class="header-tablet-mobile-list__item-link">
+                <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                Liên hệ
             </a>
             </li>
         </ul>
-        </div>
-
-        <!-- hide bell when no login on tablet mobile: header-icon-tablet-mobile-pc--no-login-->
-        <div class="header-icon-tablet-mobile-pc">
-        <i class="header-icon__bell far fa-bell">
-            <!-- quantity -->
-            <span class="header-icon__bell-quantity">1</span>
-
-            <!-- order list  -->
-            <!-- no bell : header-bell__div--no-bell -->
-            <div class="header-bell__div">
-            <div class="header-bell__no-bell">
-                <img src="/img/no-bell.png" alt="" />
-                <p>Chưa có thông báo</p>
-            </div>
-            <div class="header-bell__heading">
-                <span>Thông báo</span>
-                <span>Đánh dấu đã đọc</span>
-            </div>
-            <ul class="header-bell__list">
-                <!-- đánh dấu là chưa đọc: header-bell__item-active -->
-                <li class="header-bell__item header-bell__item-active">
-                <img
-                    src="/img/anh.png"
-                    alt=""
-                    class="header-bell__img"
-                />
-                <div class="header-bell__tittle">
-                    <div class="header-bell__desc">
-                    Chào mừng bạn đến với trang web của chúng tôi, chúc
-                    bạn một ngày tốt lành ^^
-                    </div>
-
-                    <div class="time__comments">4 tháng trước</div>
-                </div>
-                </li>
-            </ul>
-            </div>
-        </i>
-        <label for="checksearch" class="icon__search fas fa-search">
-            <input
-            type="checkbox"
-            id="checksearch"
-            class="showsearch"
-            hidden
-            />
-            <div class="search__div">
-            <input type="text" />
-            <button class="btn__search">Tìm kiém</button>
-            </div>
-        </label>
-
-        <!-- show search on tablet mobile -->
-
-        <div id="showsearch" class="search__overlay">
-            <div class="form-search">
-            <h3>Tìm kiếm</h3>
-            <input type="text" />
-            </div>
-            <label class="close-btn close-search fas fa-times"></label>
-            <ul class="content__search-list">
-            <li class="content__search">
-                <img
-                src="https://www.tnc.com.vn/uploads/product/XUYEN_06_2021/Dell-Latitude-3420.jpg"
-                alt=""
-                class="content__search-img"
-                />
-
-                <div class="content__search-tittle">
-                <h3 class="content__search-header">
-                    Laptop Dell Latitude 3420 L3420I5SSD sản phẩm chính
-                    hãng đến từ cửa hàng của chúng tôi Laptop Dell
-                    Latitude 3420 L3420I5SSD sản phẩm chính hãng đến sản
-                    phẩm chính hãng đến
-                </h3>
-                <span class="content__search-time">11/9/2021</span>
-                </div>
-            </li>
-            </ul>
-
-            <button>XEM TẤT CẢ CÁC KẾT QUẢ</button>
-        </div>
-        </div>
-
-        <!-- icon bar -->
-        <div class="header-icon__bar-div hide-on-pc">
-        <label for="check" class="header-icon__bar fas fa-bars"></label>
-        </div>
-    </div>
-    </nav>
-
-    <!-- navbar on tablet mobie -->
-    <input type="checkbox" id="check" class="checkk" hidden />
-    <label for="check" class="overlay"></label>
-    <nav class="nav-bar-tablet-mobile">
-    <label for="check" class="close-btn fas fa-times"></label>
-
-    <!-- login success: header-tablet-mobile__avatar--no-login-->
-    <div class="header-tablet-mobile__avatar">
-        <img
-        src="/img/anh.png"
-        alt=""
-        class="header-tablet-mobile__img"
-        />
-        <span class="header-tablet-mobile__name">Quốc Huy</span>
-        <img
-        src="/img/logo.png"
-        alt=""
-        class="header__logo-tablet-mobile"
-        />
-    </div>
-    <ul class="header-tablet-mobile-list">
-        <li
-        class="header-tablet-mobile-list__item header-list__item-active"
-        >
-        <a href="/" class="header-tablet-mobile-list__item-link">
-            <i class="header-tablet-mobile__icon fas fa-home"></i>
-            Trang chủ
-        </a>
-        </li>
-        <li class="header-tablet-mobile-list__item">
-        <a href="/news" class="header-tablet-mobile-list__item-link">
+        <div class="form-tablet-mobile-login-register">
+            <div class="form-tablet-mobile js-login">
             <i
-            class="header-tablet-mobile__icon fas fa-envelope-open"
+                class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
             ></i>
-            Tin tức
-        </a>
-        </li>
-        <li class="header-tablet-mobile-list__item">
-        <a href="/question" class="header-tablet-mobile-list__item-link">
-            <i class="header-tablet-mobile__icon fas fa-book-open"></i>
-            Hỏi đáp
-        </a>
-        </li>
-        <li class="header-list-tablet-mobile__item">
-        <a href="/contact" class="header-tablet-mobile-list__item-link">
-            <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
-            Liên hệ
-        </a>
-        </li>
-    </ul>
-    <div class="form-tablet-mobile-login-register">
-        <div class="form-tablet-mobile js-login">
-        <i
-            class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
-        ></i>
-        Đăng nhập
+            Đăng nhập
+            </div>
+            <div class="form-tablet-mobile js-register">
+            <i
+                class="header-tablet-mobile__icon-register fas fas fa-user"
+            ></i>
+            Đăng kí
+            </div>
         </div>
-        <div class="form-tablet-mobile js-register">
-        <i
-            class="header-tablet-mobile__icon-register fas fas fa-user"
-        ></i>
-        Đăng kí
-        </div>
-    </div>
     </nav>
 
     <!-- </div> -->

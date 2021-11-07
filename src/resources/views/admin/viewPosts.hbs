@@ -1,21 +1,28 @@
 
 <div class="content">
-    <div class="form__user-common handleSlide-user">
+    <div class="form__user-common">
         <div class="form-user">
-
-            <div class="form-check">
-                <input type="checkbox" class="form-check-checkbox">
-                <label class="form-check-label">
-                    Chọn tất cả
-                </label>
+            <div class="form-user__heading">
+                <h1>Bài viết của tôi</h1>
+                <a href="/homeAdmin/trashViewPosts">Thùng rác ({{deletedSlide}}) </a>
             </div>
+
             <table>
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>
+                            #
+                        </th>
                         <th style="width: 15%;">Ảnh</th>
-                        <th style="width: 40%;">Tên</th>
-                        <th style="width: 14%;">Miêu tả</th>
+                        <th style="width: 40%;">
+                            Tên laptop
+                            {{{sortable 'name' _sort}}}
+                        </th>
+                        <th style="width: 14%;">
+                            Miêu tả
+                            {{{sortable 'description' _sort}}}
+
+                        </th>
                         <th style="width: 20%;">chức năng</th>
                     </tr>
                 </thead>
@@ -23,7 +30,6 @@
                     {{#each slideshow}}
                     <tr>
                         <th scope="row">
-                            <input type="checkbox" name="" id="" class="checkbox">
                             {{sum @index 1}}
                         </th>
                         <th><img src="{{this.image}}"style="width: 50px; height: 50px; border-radius:12px;"></th>
@@ -42,6 +48,13 @@
                                     </button>
                                 </form>
                             </div>
+                        </th>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <th colspan="5" style="border-bottom: 1px solid #fff;">
+                            Bạn chưa có bài viết nào.
+                            <a href="/homeAdmin/handleUser">Đăng bài viết</a>
                         </th>
                     </tr>
                     {{/each}}

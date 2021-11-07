@@ -16,8 +16,3 @@ var app = {
 
 
 app.start()
-
-
-
-
-

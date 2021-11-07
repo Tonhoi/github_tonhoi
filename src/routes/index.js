@@ -5,12 +5,14 @@ const questionRouter = require('./question')
 const newsRouter = require('./news')
 const newsBlogRouter = require('./newsBlog')
 const postRouter = require('./post')
+const writeBlogsRouter = require('./writeBlogs')
 
 // page admin
 const adminHomeRouter = require('./adminHome')
 function route(app) {
     // page admin
     app.use('/homeAdmin', adminHomeRouter)
+    app.use('/writeBlogs', writeBlogsRouter)
 
     
     app.use('/question', questionRouter)
