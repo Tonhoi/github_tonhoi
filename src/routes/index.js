@@ -6,6 +6,7 @@ const newsRouter = require('./news')
 const newsBlogRouter = require('./newsBlog')
 const postRouter = require('./post')
 const writeBlogsRouter = require('./writeBlogs')
+const loginRouter = require('./login')
 
 // page admin
 const adminHomeRouter = require('./adminHome')
@@ -22,6 +23,8 @@ function route(app) {
     
     app.use('/contact', contactRouter)
     app.use('/system', systemRouter)
+    app.use('/login', loginRouter)
+
     app.use('/', home)
 }
 

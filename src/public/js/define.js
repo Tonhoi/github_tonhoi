@@ -11,25 +11,7 @@ export const contentBlockList = $('.content__block-list-1')
 
 
 
-// handle login register
-// ----------------
-// login register
-export const login = $$('.js-login');
-export const register = $$('.js-register')
 
-// btn close
-export const btnClose = $$(".btn-close");
-
-// modal register and login
-export const ModalRegister = $(".modal-register");
-export const modallogin = $(".modal-login");
-
-// overlay
-export const overlay = $(".overlay-form-login-register");
-
-export const noAccount = $(".footer__form-login-link");
-
-export const backformlogin = $(".back-form-login");
 
 
 // -----------------------------
@@ -74,7 +56,6 @@ export const hideCommentPageNews = $('.Comment_reactionsCount p:last-child')
 export const activeLike = $$('.btn-Comment_like')
 
 
-export const maxWidthImg = $$('.container-post__desc img')
 
 
 

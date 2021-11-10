@@ -6,7 +6,8 @@ class postController {
     post(req, res, next) {
         slideshow.findOne({ slug: req.params.slug })
             .then(slideshow => 
-                res.render('user/post', {slideshow: MongooseToObject(slideshow)})
+                res.render('user/post',
+                    {slideshow: MongooseToObject(slideshow)}),
                 )
             .catch(next)
     }

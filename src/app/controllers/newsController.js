@@ -1,7 +1,11 @@
 class newsController {
     // [GET] / news
     news(req, res) {
-        res.render('user/news')
+        const { user: { fullname, image } = {} } = req;
+        res.render('user/news', {
+            fullname,
+            image
+        })
     }
 }
 

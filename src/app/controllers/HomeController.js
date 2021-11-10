@@ -1,56 +1,120 @@
 const slideshow = require('../model/slideshow')
-const loginRegister = require('../model/loginRegister')
-const {multipleMongooseToObject} = require('../../util/mongoose') 
+const User = require('../model/loginRegister')
+const {multipleMongooseToObject} = require('../../util/mongoose')
+const {MongooseToObject} = require('../../util/mongoose')
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 class HomeController {
-
-    // [GET] / news
-    index(req, res, next) {
-        slideshow.find({})
-            .then(slideshow => {
-                res.render('user/home', {
-                    slideshow:multipleMongooseToObject(slideshow)
-                })
-            })
-            .catch(error => next(error))
-    }
 
     // [POST] register
 
     register(req, res, next) {
-        const Loginregister = new loginRegister(req.body)
-        Loginregister.save()
-        .then(() => res.redirect('/'))
-        .catch(error => {})
+        const { fullname, email, username, password, password2 } = req.body;
+        const newUser = new User({
+            fullname,
+            email,
+            username,
+            password
+            });
+    
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if (err) throw err;
+                newUser.password = hash;
+                newUser
+                .save()
+                .then(user => {
+                    req.flash(
+                    'success_msg',
+                    'You are now registered and can log in'
+                    );
+                    res.redirect('/login');
+                })
+                .catch(err => console.log(err));
+            });
+        });
     }
 
-    login(req, res, next) {
+
+    // login
+    textlogin(req, res, next) {
 
         const username = req.body.username
         const password = req.body.password
-
-        const Usename = loginRegister.findOne({username:username})
-
-        if(Usename.password === password) {
-            res.status(201).render('/')
+        if (username === 'admin' && password === 'admin') {
+            res.redirect('/homeAdmin');
         }else {
-            res.send('Mày đã nhập sai -_-')
+            passport.authenticate('local', {
+                successRedirect: '/contact',
+                failureRedirect: '/login',
+                failureFlash: true
+            })(req, res, next);
         }
+    }
 
+    logout(req, res, next) {
+        req.logout();
+        req.session.destroy();
+        res.redirect('/');
+    }
+
+     // [GET] / news
+     index(req, res, next) {
+
+        //   Promise.all([slideshow.find({}), User.findOne({})])
+        //     .then(([slideshow, user]) =>
+        //         res.render('user/home', {
+        //           user:MongooseToObject(user),
+        //           slideshow:multipleMongooseToObject(slideshow)
+        //         })
+        //     )
+        //     .catch(error => next(error))
+    
+        const { user: { fullname, image } = {} } = req;
+        slideshow.find({})
+            .then(slideshow => {
+                res.render('user/home', {
+                slideshow:multipleMongooseToObject(slideshow),
+                fullname,
+                image
+                })
+            })
+        .catch(error => next(error))   
+    
     }
 
     writeBlogs(req, res) {
+        const { user: { fullname, image } = {} } = req;
         res.render('user/writeBlogs', {
-            layout: 'blogs'
+            layout: 'blogs',
+            fullname,
+            image
         })
     }
 
     contact(req, res) {
-        res.render('user/contact')
+        const { user: { fullname, image } = {} } = req;
+        res.render('user/contact', {
+            fullname,
+            image
+        })
+        
     }
 
     system(req, res) {
-        res.render('user/system')
+        const { user: { fullname, image, email } = {} } = req;
+        res.render('user/system', {
+            fullname,
+            image,
+            email
+        })
+    }
+
+    login(req, res) {
+      res.render('user/login', {
+        layout: 'login',
+      })
     }
 
 

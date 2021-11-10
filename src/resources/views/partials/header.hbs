@@ -19,12 +19,9 @@
         </li>
     </ul>
 
-    <!-- hide when login -->
-    <div class="header-login-register hide-on-tablet-mobile hide-on-pc">
-        <div class="js-login">Đăng nhập</div>
-        <div class="js-register">Đăng kí</div>
-    </div>
-
+    
+        
+    {{#loggedIn}}
     <!-- show when login -->
         <div class="header-pc__avatar">
 
@@ -86,17 +83,9 @@
                     <li class="menu-icon-down__item">
                         <div class="menu-icon-down__avatar">
                             <img src="/img/anh.png" alt="" class="menu-header-pc__img" />
-                            <span class="header-pc__name">Quốc Huy</span>
+                                <span class="header-pc__name">{{fullname}}</span>
                         </div>
                     </li>
-
-                        <li class="menu-icon-down__item">
-                        <a href="homeAdmin" class="menu-icon-down__item-link">
-                            <span>
-                                Quản lý
-                            </span>
-                        </a>
-                        </li>
                     <div class="menu-icon-down__item--2">
                         <li class="menu-icon-down__item">
                         <a href="writeBlogs" class="menu-icon-down__item-link">
@@ -123,7 +112,7 @@
                         </li>
 
                         <li class="menu-icon-down__item js-page-manager">
-                        <a href="" class="menu-icon-down__item-link">
+                        <a href="/logout" class="menu-icon-down__item-link">
                             Đăng Xuất
                         </a>
                         </li>
@@ -161,19 +150,25 @@
 
                 <button>XEM TẤT CẢ CÁC KẾT QUẢ</button>
             </div>
-            </div>
-
+        </div>
+        {{else}}
+        <!-- hide when login -->
+        <div class="header-login-register hide-on-tablet-mobile">
+            <a href="/login">Đăng nhập</a>
+        </div>
+    {{/loggedIn}}
+            <div>
             <!-- icon bar -->
             <div class="header-icon__bar-div hide-on-pc">
-            <label for="check" class="header-icon__bar fas fa-bars"></label>
+                <label for="check" class="header-icon__bar fas fa-bars"></label>
             </div>
         </div>
     </nav>
 
         <!-- navbar on tablet mobie -->
-        <input type="checkbox" id="check" class="checkk" hidden />
-        <label for="check" class="overlay"></label>
-        <nav class="nav-bar-tablet-mobile">
+    <input type="checkbox" id="check" class="checkk" hidden />
+    <label for="check" class="overlay"></label>
+    <nav class="nav-bar-tablet-mobile">
         <label for="check" class="close-btn fas fa-times"></label>
 
         <!-- login success: header-tablet-mobile__avatar--no-login-->
@@ -221,12 +216,12 @@
             </li>
         </ul>
         <div class="form-tablet-mobile-login-register">
-            <div class="form-tablet-mobile js-login">
+            <a href="/login" class="form-tablet-mobile js-login" style="display: inline-block;">
             <i
                 class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
             ></i>
             Đăng nhập
-            </div>
+            </a>
             <div class="form-tablet-mobile js-register">
             <i
                 class="header-tablet-mobile__icon-register fas fas fa-user"
@@ -240,134 +235,3 @@
 </div>
 </div>
 
-<!-- form register -->
-
-<label for="open__layout" class="overlay-form-login-register"></label>
-<form action="/register" method="post" class="form-register">
-<div class="modal-register">
-    <div for="open__layout" class="btn-close fas fa-times"></div>
-    <h1 class="form-login__name">Đăng kí</h1>
-    <div class="form__group">
-    <label for="" class="form-register__label">
-        <i class="form-register__icon fas fa-user"></i>
-        Họ và tên
-    </label>
-    <input
-        type="text"
-        name="fullname"
-        class="form-control"
-        placeholder="VD: Phạm Văn a "
-    />
-    <div class="form-message"></div>
-    </div>
-    <div class="form__group">
-    <label for="" class="form-register__label">
-        <i class="form-register__icon fas fa-user"></i>
-        Tên đăng nhập
-    </label>
-    <input
-        type="text"
-        name="username"
-        class="form-control"
-        placeholder="Tên đăng nhập"
-    />
-    <div class="form-message"></div>
-    </div>
-    <div class="form__group">
-    <label for="" class="form-register__label">
-        <i class="form-register__icon fas fa-lock"></i>
-        Mật khẩu
-    </label>
-    <input
-        type="password"
-        name="password"
-        class="form-control"
-        placeholder="password"
-    />
-    <div class="form-message"></div>
-    </div>
-    <div class="form__group">
-    <label for="" class="form-register__label">
-        <i class="form-register__icon fas fa-lock"></i>
-        Nhập lại mật khẩu
-    </label>
-    <input
-        type="password"
-        class="form-control"
-        placeholder="Confirm password"
-    />
-    <div class="form-message"></div>
-    </div>
-    <div class="footer__form-register">
-    <a>
-        <i class="back-form-login fas fa-arrow-left"></i>
-    </a>
-    <div class="footer__form-register-dk">
-        <input type="checkbox" class="text_dk">
-        <span>Bạn có đồng ý với điều khoản của chúng tôi</span>
-    </div>
-    <input
-        type="submit"
-        name=""
-        value="Đăng kí"
-        class="btn btn-register"
-    />
-    </div>
-</div>
-</form>
-
-<!-- form login -->
-
-<form action="/login" class="form-login" method="post">
-<div class="modal-login">
-    <div for="open__layout" class="btn-close fas fa-times"></div>
-
-    <h1 class="form-login__name">Đăng nhập</h1>
-
-    <div class="form__group">
-    <label class="form-register__label">
-        <i class="form-register__icon fas fa-user"></i>
-        Tên đăng nhập
-    </label>
-    <input
-        type="text"
-        name="username"
-        class="form-control"
-        placeholder="Tên đăng nhập"
-    />
-    </div>
-    <div class="form__group">
-    <label for="" class="form-register__label">
-        <i class="form-register__icon fas fa-lock"></i>
-        Mật khẩu
-    </label>
-    <input
-        type="password"
-        name="password"
-        class="form-control"
-        placeholder="password"
-    />
-    </div>
-
-    <div class="footer__form-login">
-    <a href="#" class="footer__form-login-link"
-        >Bạn chưa có tài khoản ?</a
-    >
-    <input 
-        type="submit"
-        name=""
-        value="Đăng nhập"
-        class="btn btn-login"
-    />
-    </div>
-</div>
-</form>
-
-<script>
-    var text = document.querySelector(".header-login-register")
-    var text1 = document.querySelector(".js-page-manager")
-
-    text1.onclick = () => {
-        text.classList.remove('hide-on-pc')
-    }
-</script>

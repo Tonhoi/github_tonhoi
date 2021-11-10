@@ -1,0 +1,198 @@
+.content-login {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
+.form-login__container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/img/background-login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.form {
+  width: 900px;
+  max-width: calc(100% - 24px); }
+
+.form-login {
+  height: 600px;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative; }
+
+.form-login__left-container,
+.form-register__left-container {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  left: 0;
+  transition: all ease-in-out 0.8s;
+  background-color: var(--white-color); }
+
+.form-register__left-container {
+  opacity: 1; }
+
+.form-register__left,
+.form-login__left {
+  padding: 8px 40px;
+  margin: 32px 0; }
+
+.form-register__left-heading h1,
+.form-login__left-heading h1 {
+  font-size: 3rem;
+  color: #1a2039; }
+
+.form-register__left-heading div,
+.form-login__left-heading div {
+  height: 36px;
+  border: 2px solid #6b83ff;
+  color: #8da1fe;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px 0 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color linear 0.2s; }
+
+.form-register__left-heading div:hover,
+.form-login__left-heading div:hover {
+  background-color: rgba(107, 131, 255, 0.1); }
+
+.form-register__left-heading div span,
+.form-login__left-heading div span {
+  display: inline-block;
+  margin-left: 8px; }
+
+.form-register__left-heading p,
+.form-login__left-heading p {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row; }
+
+.form-register__left-heading p:before,
+.form-register__left-heading p:after,
+.form-login__left-heading p:before,
+.form-login__left-heading p:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto; }
+
+.form-register__left-heading p:before,
+.form-login__left-heading p:before {
+  margin-right: 10px; }
+
+.form-register__left-heading p:after,
+.form-login__left-heading p:after {
+  margin-left: 10px; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 0;
+  position: relative; }
+
+.form-label {
+  font-size: 1.4rem;
+  color: #babfd9;
+  font-weight: 700;
+  user-select: none; }
+
+.form-label-2 {
+  position: absolute;
+  padding: 0px 12px;
+  font-size: 1.6rem;
+  color: #999;
+  top: 50%;
+  pointer-events: none;
+  transition: all linear 0.2s;
+  user-select: none; }
+
+.form-input {
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  border: 2px solid #cdd1ea;
+  padding: 0px 12px;
+  font-size: 1.6rem;
+  margin-top: 4px; }
+
+.form-input:not(:placeholder-shown) ~ .form-label-2,
+.form-input:focus ~ .form-label-2 {
+  font-size: 1.4rem;
+  top: 0;
+  padding: 0;
+  color: #8ea1ff;
+  font-weight: 700; }
+
+.form-input:focus,
+.form-input:focus {
+  outline: 2px solid #6b83ff;
+  border: none; }
+
+.btn-register__container {
+  margin-top: 14px; }
+
+.btn-register {
+  width: 100%;
+  background-color: #6780ff;
+  height: 36px;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.btn-register__container p {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 1.4rem; }
+
+.btn-register__container p span {
+  display: inline-block;
+  cursor: pointer;
+  color: #6780ff; }
+
+.form-login__right-container,
+.form-register__right-container {
+  width: 60%;
+  height: 100%;
+  background-color: #141a34;
+  position: absolute;
+  right: 0;
+  left: unset;
+  transition: all ease-in-out 0.8s; }
+
+.form-register__right-container {
+  opacity: 0; }
+
+.form-login__right,
+.form-register__right {
+  padding: 8px 32px;
+  margin: 20px 0 0; }
+
+.form-login__right-heading,
+.form-register__right-heading {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #fff; }
+
+.form-login__right-content,
+.form-register__right-content {
+  margin-bottom: 12px; }
+
+.form-register__right-content,
+.form-register__right-footer,
+.form-login__right-content,
+.form-login__right-footer {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #858aa9; }

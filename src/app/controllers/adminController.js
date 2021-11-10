@@ -9,7 +9,7 @@ class adminController {
     // [GET] / news
     adminHome(req, res) {
         res.render('admin/homeAdmin', {
-            layout: 'admin'
+            layout: 'admin',
         })
     }
 

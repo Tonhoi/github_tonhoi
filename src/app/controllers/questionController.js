@@ -1,10 +1,18 @@
 class questionController {
     // [GET] / news
     question(req, res) {
-        res.render('user/question')
+        const { user: { fullname, image } = {} } = req;
+        res.render('user/question', {
+            fullname,
+            image
+        })
     }
     newsBlog(req, res) {
-        res.render('user/newsBlog')
+        const { user: { fullname, image } = {} } = req;
+        res.render('user/newsBlog', {
+            fullname,
+            image
+        })
     }
 }
 
