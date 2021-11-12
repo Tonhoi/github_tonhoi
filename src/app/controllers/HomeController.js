@@ -39,38 +39,29 @@ class HomeController {
 
     // login
     textlogin(req, res, next) {
-
         const username = req.body.username
         const password = req.body.password
         if (username === 'admin' && password === 'admin') {
             res.redirect('/homeAdmin');
         }else {
             passport.authenticate('local', {
-                successRedirect: '/contact',
+                successRedirect: '/',
                 failureRedirect: '/login',
                 failureFlash: true
             })(req, res, next);
         }
     }
 
+    // logout
     logout(req, res, next) {
-        req.logout();
+        // req.logout();
         req.session.destroy();
         res.redirect('/');
     }
 
      // [GET] / news
      index(req, res, next) {
-
-        //   Promise.all([slideshow.find({}), User.findOne({})])
-        //     .then(([slideshow, user]) =>
-        //         res.render('user/home', {
-        //           user:MongooseToObject(user),
-        //           slideshow:multipleMongooseToObject(slideshow)
-        //         })
-        //     )
-        //     .catch(error => next(error))
-    
+         
         const { user: { fullname, image } = {} } = req;
         slideshow.find({})
             .then(slideshow => {

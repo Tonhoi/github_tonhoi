@@ -1,27 +1,27 @@
 <div class="header">
 <div class="grid wide">
     <nav class="nav-bar">
-    <a href="/"
-        ><img src="/img/logo1.png" alt="" class="header__logo"
-    /></a>
-    <ul class="header-list hide-on-tablet-mobile">
-        <li class="header-list__item">
-        <a href="/" class="header-list__item-link">Trang chủ </a>
-        </li>
-        <li class="header-list__item">
-        <a href="/news" class="header-list__item-link">Tin tức</a>
-        </li>
-        <li class="header-list__item">
-        <a href="/question" class="header-list__item-link">Hỏi đáp</a>
-        </li>
-        <li class="header-list__item">
-        <a href="/contact" class="header-list__item-link">Liên hệ</a>
-        </li>
-    </ul>
+        <a href="/"
+            ><img src="/img/logo1.png" alt="" class="header__logo"
+        /></a>
+        <ul class="header-list hide-on-tablet-mobile">
+            <li class="header-list__item">
+            <a href="/" class="header-list__item-link">Trang chủ </a>
+            </li>
+            <li class="header-list__item">
+            <a href="/news" class="header-list__item-link">Tin tức</a>
+            </li>
+            <li class="header-list__item">
+            <a href="/question" class="header-list__item-link">Hỏi đáp</a>
+            </li>
+            <li class="header-list__item">
+            <a href="/contact" class="header-list__item-link">Liên hệ</a>
+            </li>
+        </ul>
 
     
         
-    {{#loggedIn}}
+    {{#if loggedIn}}
     <!-- show when login -->
         <div class="header-pc__avatar">
 
@@ -156,13 +156,13 @@
         <div class="header-login-register hide-on-tablet-mobile">
             <a href="/login">Đăng nhập</a>
         </div>
-    {{/loggedIn}}
-            <div>
+        {{/if}}
+            {{!-- <div> --}}
             <!-- icon bar -->
             <div class="header-icon__bar-div hide-on-pc">
                 <label for="check" class="header-icon__bar fas fa-bars"></label>
             </div>
-        </div>
+        {{!-- </div> --}}
     </nav>
 
         <!-- navbar on tablet mobie -->
@@ -171,64 +171,81 @@
     <nav class="nav-bar-tablet-mobile">
         <label for="check" class="close-btn fas fa-times"></label>
 
+        {{#if loggedIn}}
         <!-- login success: header-tablet-mobile__avatar--no-login-->
-        <div class="header-tablet-mobile__avatar">
+        <div class="header-tablet-mobile__avatar header-tablet-mobile__avatar--no-login">
             <img
             src="/img/anh.png"
             alt=""
             class="header-tablet-mobile__img"
             />
-            <span class="header-tablet-mobile__name">Quốc Huy</span>
-            <img
-            src="/img/logo.png"
-            alt=""
-            class="header__logo-tablet-mobile"
-            />
+            <span class="header-tablet-mobile__name">{{fullname}}</span>
+            
         </div>
-        <ul class="header-tablet-mobile-list">
-            <li
-            class="header-tablet-mobile-list__item header-list__item-active"
-            >
-            <a href="/" class="header-tablet-mobile-list__item-link">
-                <i class="header-tablet-mobile__icon fas fa-home"></i>
-                Trang chủ
-            </a>
-            </li>
-            <li class="header-tablet-mobile-list__item">
-            <a href="/news" class="header-tablet-mobile-list__item-link">
-                <i
-                class="header-tablet-mobile__icon fas fa-envelope-open"
-                ></i>
-                Tin tức
-            </a>
-            </li>
-            <li class="header-tablet-mobile-list__item">
-            <a href="/question" class="header-tablet-mobile-list__item-link">
-                <i class="header-tablet-mobile__icon fas fa-book-open"></i>
-                Hỏi đáp
-            </a>
-            </li>
-            <li class="header-list-tablet-mobile__item">
-            <a href="/contact" class="header-tablet-mobile-list__item-link">
-                <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
-                Liên hệ
-            </a>
-            </li>
-        </ul>
-        <div class="form-tablet-mobile-login-register">
-            <a href="/login" class="form-tablet-mobile js-login" style="display: inline-block;">
-            <i
-                class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
-            ></i>
-            Đăng nhập
-            </a>
-            <div class="form-tablet-mobile js-register">
-            <i
-                class="header-tablet-mobile__icon-register fas fas fa-user"
-            ></i>
-            Đăng kí
+        <div class="mt-104">
+        {{else}}
+            <div class="header-tablet-mobile__avatar">
+                <img
+                    src="/img/logo1.png"
+                    alt=""
+                    class="header__logo-tablet-mobile"
+                    />
             </div>
+            <div class="form-tablet-mobile-login-register">
+                <a href="/login" class="form-tablet-mobile js-login" style="display: inline-block;">
+                <i
+                    class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
+                ></i>
+                Đăng nhập
+                </a>
+            </div>
+        {{/if}}
+            <ul class="header-tablet-mobile-list">
+                <li
+                class="header-tablet-mobile-list__item header-list__item-active"
+                >
+                <a href="/" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-home"></i>
+                    Trang chủ
+                </a>
+                </li>
+                <li class="header-tablet-mobile-list__item">
+                <a href="/news" class="header-tablet-mobile-list__item-link">
+                    <i
+                    class="header-tablet-mobile__icon fas fa-envelope-open"
+                    ></i>
+                    Tin tức
+                </a>
+                </li>
+                <li class="header-tablet-mobile-list__item">
+                <a href="/question" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-book-open"></i>
+                    Hỏi đáp
+                </a>
+                </li>
+                <li class="header-list-tablet-mobile__item">
+                <a href="/contact" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                    Liên hệ
+                </a>
+                </li>
+                {{#if loggedIn}}
+                    <li class="header-list-tablet-mobile__item">
+                    <a href="writeBlogs" class="header-tablet-mobile-list__item-link">
+                        <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                        Viết blogs
+                    </a>
+                    </li>
+                    <li class="header-list-tablet-mobile__item">
+                    <a href="/logout" class="header-tablet-mobile-list__item-link">
+                        <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                        Đăng xuất
+                    </a>
+                    </li>
+                {{/if}}
+            </ul>
         </div>
+        
     </nav>
 
     <!-- </div> -->

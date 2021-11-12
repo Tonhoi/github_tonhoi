@@ -4,6 +4,8 @@ const {multipleMongooseToObject} = require('../../util/mongoose')
 const {MongooseToObject} = require('../../util/mongoose')
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 class adminController {
 
     // [GET] / news
@@ -80,6 +82,12 @@ class adminController {
         // .catch(next)
     }
 
+    deleteUser(req, res, next) {
+        loginRegister.deleteOne({ _id: req.params.id })
+        .then(() => res.redirect('back'))
+        .catch(next)
+    }
+
     // [DELETE]
     forceDelete(req, res, next) {
         slideshow.deleteOne({ _id: req.params.id })
@@ -100,16 +108,6 @@ class adminController {
                 })
             )
             .catch(error => next(error))
-
-
-        // slideshow.find({})
-        //     .then(slideshow => {
-        //         res.render('admin/viewPosts', {
-        //             slideshow:multipleMongooseToObject(slideshow),
-        //             layout: 'admin'
-        //         })
-        //     })
-        //     .catch(error => next(error))
     }
 
     trashViewPosts(req, res) {
@@ -141,12 +139,32 @@ class adminController {
     }
 
     register(req, res, next) {
-        const register = new loginRegister(req.body)
-        register.save()
-         .then(() => res.redirect('/homeAdmin/userManager'))
-         .catch(error => {
- 
-         })
+        // const register = new loginRegister(req.body)
+        // register.save()
+        //  .then(() => res.redirect('/homeAdmin/userManager'))
+        //  .catch(error => {
+        //  })
+
+        const { fullname, email, username, password} = req.body;
+        const newUser = new loginRegister({
+            fullname,
+            email,
+            username,
+            password
+            });
+    
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if (err) throw err;
+                newUser.password = hash;
+                newUser
+                .save()
+                .then(user => {
+                    res.redirect('/homeAdmin/userManager');
+                })
+                .catch(err => console.log(err));
+            });
+        });
      }
 
     description(req, res, next) {
@@ -157,8 +175,18 @@ class adminController {
                     layout: 'admin',
                 })
                 )
-            .catch(next)
-            
+            .catch(next)     
+    }
+
+    infoUser(req, res, next) {
+        loginRegister.findOne({ infoUser: req.params.infoUser })
+            .then(loginRegister => 
+                res.render('admin/infoUser', {
+                    loginRegister: MongooseToObject(loginRegister),
+                    layout: 'admin',
+                })
+                )
+            .catch(next)     
     }
 
 }

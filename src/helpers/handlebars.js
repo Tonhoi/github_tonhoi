@@ -10,9 +10,9 @@ module.exports = {
         const sortType = field === sort.column ? sort.type : 'default'
 
         const icons = {
-            default: 'fas fa-sort',
-            asc: 'fas fa-sort-amount-down-alt',
-            desc: 'fas fa-sort-amount-down'
+            default: 'default fas fa-sort',
+            asc: 'sort-up fas fa-sort-amount-down-alt',
+            desc: 'sort-down fas fa-sort-amount-down'
         }
 
         const types = {

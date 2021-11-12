@@ -9,6 +9,7 @@ const loginRegister = new Schema({
     password: { type: String },
     password2: { type: String },
     image: { type: String },
+    infoUser: {type: String, slug: 'email', unique: true }
 }, {
     timestamps: true,
 });

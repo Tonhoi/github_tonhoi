@@ -162,6 +162,7 @@
 }
 
 .btn-register {
+  display: inline-block;
   width: 100%;
   background-color: #6780ff;
   height: 36px;
@@ -172,13 +173,13 @@
   align-items: center;
 }
 
-.btn-register__container p {
+.btn-register__container .no-accout {
   margin-top: 12px;
   text-align: center;
   font-size: 1.4rem;
 }
 
-.btn-register__container p span {
+.btn-register__container .no-accout span {
   display: inline-block;
   cursor: pointer;
   color: rgb(103, 128, 255);

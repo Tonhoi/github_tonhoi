@@ -14,32 +14,36 @@ import {
 function handleAnimation() {
     animationLine()
     arrowUp()
-    scrollFunction()
 }
 
 
 // line
 function animationLine() {
+var rect = line1.getBoundingClientRect().y;
+var rect2 = line2.getBoundingClientRect().y;
+var rect3 = line3.getBoundingClientRect().y;
+
     if (productName1) {
-        if (document.body.scrollTop > 1000 ||
-            document.documentElement.scrollTop > 1000) {
+        if (document.body.scrollTop >= rect ||
+            document.documentElement.scrollTop >= rect) {
             line1.style.width = productName1.offsetWidth + 'px'
             }else {
             line1.style.width = 0
             }
-        if (document.body.scrollTop > 1500 ||
-            document.documentElement.scrollTop > 1500) {
+        if (document.body.scrollTop >= rect2 ||
+            document.documentElement.scrollTop >= rect2) {
             line2.style.width = productName2.offsetWidth + 'px'
             }else {
             line2.style.width = 0
             }
-        if (document.body.scrollTop > 2000 ||
-            document.documentElement.scrollTop > 2000) {
+        if (document.body.scrollTop >= rect3 ||
+            document.documentElement.scrollTop >= rect3) {
             line3.style.width = productName3.offsetWidth + 'px'
             }else {
             line3.style.width = 0
             }
     }
+
 };
 
 function arrowUp() {
@@ -56,27 +60,6 @@ if (
     arrowup.style.transform = 'scale(0)'
 }
 };
-
-
-// animation navbar
-function scrollFunction() {
-
-if (slideShow)
-{
-    if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-    ) {
-    $(".header").style.backgroundColor = "rgb(21, 150, 147)";
-    $(".header").style.top = "0";
-    } else {
-    $(".header").style.backgroundColor =
-        "transparent";
-    $(".header").style.top = "20px";
-    }
-}
-};
-
 
 
 export default handleAnimation

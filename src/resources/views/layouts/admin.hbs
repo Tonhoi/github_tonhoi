@@ -23,13 +23,16 @@
 </head>
 <body>
     <div class="adminheader">
+        {{!-- {{#if loggedIn}} --}}
         <header>
             {{> headerAdmin}}
         </header>
         {{{body}}}
+        {{!-- {{/if}} --}}
 
     </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script src="/js/admin.js"></script>
 </body>
 </html>

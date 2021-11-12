@@ -377,7 +377,7 @@
   left: 0;
   right: 0;
   top: calc(100% + 22px);
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--white-color);
 }
 
 .header-tablet-mobile__img {
@@ -409,7 +409,7 @@
   right: 0;
   bottom: 0;
   width: 320px;
-  background-color: var(--primary-color);
+  background-color: rgb(21, 150, 147);
   box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.8);
   transform: translateX(100%);
   opacity: 0;

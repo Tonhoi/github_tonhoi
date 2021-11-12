@@ -1,8 +1,8 @@
 .header {
   height: var(--navbar-height);
-  background-color: transparent;
+  background-color: #159693;
   position: fixed;
-  top: 20px;
+  top: 0;
   width: 100%;
   transition: all linear 0.3s;
   z-index: 9; }
@@ -34,8 +34,7 @@
 
 .header-login-register {
   font-size: 1.4rem;
-  font-weight: 600;
-  flex-basis: 20%; }
+  font-weight: 600; }
 
 .header-list__item-link {
   text-decoration: none;
@@ -49,8 +48,14 @@
   user-select: none; }
 
 .header-list__item-link:hover {
-  background-color: var(--white-color);
-  color: var(--primary-color); }
+  background-color: #e5e5e5;
+  color: var(--primary-color);
+  border-radius: 8px; }
+
+.header-list__item-link.active {
+  background-color: #e5e5e5;
+  color: var(--primary-color);
+  border-radius: 8px; }
 
 .header-login-register {
   display: flex; }
@@ -66,7 +71,8 @@
 
 .header-login-register a:hover {
   background-color: var(--white-color);
-  color: var(--primary-color); }
+  color: var(--primary-color);
+  border-radius: 8px; }
 
 /*header on tablet mobile */
 .overlay {
@@ -535,7 +541,7 @@
   left: 0;
   right: 0;
   top: calc(100% + 22px);
-  border: 1px solid var(--text-color); }
+  border: 1px solid var(--white-color); }
 
 .header-tablet-mobile__img {
   height: 60px;
@@ -554,7 +560,7 @@
   display: block; }
 
 .header__logo-tablet-mobile {
-  height: 90px; }
+  height: 200px; }
 
 .nav-bar-tablet-mobile {
   position: fixed;
@@ -563,7 +569,7 @@
   right: 0;
   bottom: 0;
   width: 320px;
-  background-color: var(--primary-color);
+  background-color: #159693;
   box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.8);
   transform: translateX(100%);
   opacity: 0;
@@ -574,8 +580,13 @@
   transform: translateX(0);
   opacity: 1; }
 
+.mt-104 {
+  margin-top: 104px; }
+
+.form-tablet-mobile-login-register {
+  margin-top: 104px; }
+
 .header-tablet-mobile-list {
-  margin-top: 104px;
   list-style-type: none; }
 
 .header-tablet-mobile-list__item-link {
@@ -602,7 +613,8 @@
   display: flex;
   align-items: center;
   font-weight: 600;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none; }
 
 .header-tablet-mobile__icon-register,
 .header-tablet-mobile__icon-login {

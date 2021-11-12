@@ -34,13 +34,12 @@
             </div>
         </div>
 
-        <table style="width: 100%;" border="1">
+        <table style="width: 100%;">
             <thead>
-                <th>Số thư tự</th>
-                <th>Họ và tên</th>
-                <th>Tài khoản</th>
-                <th>Mật khẩu</th>
-                <th style="width: 20%;">Ngày tạo</th>
+                <th style="width: 8%;">#</th>
+                <th style="width: 14%;">Họ và tên</th>
+                <th style="width: 14%;">Tài khoản</th>
+                <th style="width: 8%;">Email</th>
                 <th>Chức năng</th>
             </thead>
             <tbody>
@@ -49,14 +48,17 @@
                     <th>{{sum @index 1}}</th>
                     <th>{{this.fullname}}</th>
                     <th>{{this.username}}</th>
-                    <th>{{this.password}}</th>
-                    <th>{{this.createdAt}}</th>
+                    <th>{{this.email}}</th>
                     <th>
+                        <a href="/homeAdmin/user/{{this.infoUser}}" class="btn-view btn">
+                            <i class="fas fa-eye"></i>
+                            <span>Xem</span>
+                        </a>
                         <a href="/homeAdmin/{{this._id}}/editRegister" class="btn-update btn">
                             <i class="fas fa-edit"></i>
                             <span>Sửa</span>
                         </a>
-                        <form action="/homeAdmin/{{this._id}}?_method=DELETE" method="post" style="display: inline-block;">
+                        <form action="/homeAdmin/{{this._id}}/user?_method=DELETE" method="post" style="display: inline-block;">
                             <button class="btn-delete btn">
                                 <i class="fas fa-trash-alt"></i>
                                 <span>Xóa</span>
@@ -81,6 +83,13 @@
                     <div class="form-group__sub-div">
                         <i class="form-icon__user fas fa-user-friends"></i>
                         <input type="text" name="fullname" id="" class="form-input__user" placeholder="Họ và tên">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label__user">email</label>
+                    <div class="form-group__sub-div">
+                        <i class="form-icon__user fas fa-user-friends"></i>
+                        <input type="text" name="email" id="" class="form-input__user" placeholder="email">
                     </div>
                 </div>
                 <div class="form-group">

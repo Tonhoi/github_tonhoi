@@ -1,6 +1,8 @@
 .form__user-common {
   margin: 30px 0 0 261px;
-  padding: 0 12px;
+  padding: 0 12px; }
+
+.pb-30 {
   padding-bottom: 30px; }
 
 .form__user-common.open {
@@ -91,6 +93,17 @@
   border: none;
   border: 1px solid #ced4da;
   border-radius: 4px; }
+
+.btn-view {
+  background-color: #1cc88a;
+  position: relative;
+  min-width: 100px;
+  cursor: pointer;
+  border: none;
+  border: 1px solid #1cc88a;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block; }
 
 .btn-update {
   background-color: #2789ea;
@@ -256,15 +269,28 @@ tbody tr th {
 tbody tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.4); }
 
-.btn-delete-viewPosts,
-.btn-update-viewPosts {
-  min-width: 100px;
-  font-size: 1.6rem;
-  text-decoration: none;
-  border-radius: 8px; }
-
-.btn-delete-viewPosts {
-  background-color: #ed2f2f; }
-
 .btn-update-viewPosts {
   background-color: #2789ea; }
+
+.sort-down,
+.sort-up,
+.default {
+  color: blue; }
+
+.form-user__heading h1 {
+  line-height: 50px;
+  padding: 0 12px;
+  color: #4e73df;
+  font-size: 2.4rem; }
+
+.info__user {
+  font-size: 3.2rem;
+  color: #858796;
+  margin: 8px 0; }
+
+.info__user div p {
+  min-width: 400px; }
+
+.info__user div span {
+  display: inline-block;
+  margin-right: 8px; }

@@ -59,6 +59,8 @@ function handleSlide() {
         moveSlide.style = `transform:translateX(${index}px)`
         }, 6000)
     }
+
+    
 };
 
 export default handleSlide

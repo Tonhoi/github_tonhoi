@@ -1,7 +1,6 @@
 import {
     $,
     $$,
-    slideShow,
     commentBlogInput,
     CommentBoxActionWrapper,
     btnCloseComment,
@@ -22,9 +21,9 @@ import {
 function handleActionOther() {
     opensearchTabletMobile()
     closesearchTabletMobile()
-    slideShowtext()
     handleOption()
     handlecommentBlog()
+    acctiveNav()
 }
 
 function opensearchTabletMobile() {
@@ -44,13 +43,6 @@ close.onclick = function(e) {
 }
 }
 
-function slideShowtext() {
-    if (!slideShow)
-    {
-    $(".header").style.backgroundColor = "rgb(21, 150, 147)";
-    $(".header").style.top = "0";
-    }
-}
 
 // handle Option
 function handleOption() { 
@@ -135,6 +127,18 @@ function handlecommentBlog() {
             showCommentPageNews.style.display = 'block'
         }  
     }
+}
+
+function acctiveNav() {
+    var currentLocation = location.href
+    var navItem = $$('a.header-list__item-link')
+    navItem.forEach((navItem, index) => {
+        if (navItem.href === currentLocation)
+        {
+            navItem.className = 'header-list__item-link active'
+
+        }
+    })
 }
 
 
