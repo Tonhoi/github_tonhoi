@@ -4,7 +4,7 @@
             <div class="form-login">
                 {{!-- register --}}
                  <div class="form-register__left-container">
-                    <form action="/register" method="post">
+                    <form action="/register" method="post" id="form1">
                         <div class="form-register__left">
                             <div class="form-register__left-heading">
                                 <h1>Đăng kí</h1>
@@ -23,40 +23,63 @@
                                     <span>Đăng nhập với google</span>
                                 </div>
                                 <p>or</p>
+                                <span class="show-notification"></span>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-input" name="fullname" placeholder=" ">
+                                <input type="text" class="form-input js-form-input__register" name="fullname" placeholder=" ">
+                                <i class="icon-warning fas fa-exclamation-triangle"></i>
                                 <label for="" class="form-label-2">Họ và tên</label>
                                 <div class="form-message"></div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Email</label>
-                                <input type="email" class="form-input" name="email" placeholder=" ">
+                                <input type="text" class="form-input js-form-input__register" name="email" placeholder=" ">
+                                <i class="icon-warning fas fa-exclamation-triangle"></i>
                                 <label for="" class="form-label-2">Email</label>
                                 <div class="form-message"></div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Tên tài khoản</label>
-                                <input type="text" class="form-input" name="username" placeholder=" ">
+                                <input type="text" class="form-input js-form-input__register" name="username" placeholder=" ">
+                                <i class="icon-warning fas fa-exclamation-triangle"></i>
                                 <label for="" class="form-label-2">Tên tài khoản</label>
                                 <div class="form-message"></div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Mật khẩu</label>
-                                <input type="password" class="form-input" name="password" placeholder=" ">
+                                <input type="password" class="form-input js-form-input__register" name="password" placeholder=" ">
+                                <i class="icon-warning fas fa-exclamation-triangle"></i>
                                 <label for="" class="form-label-2">Mật khẩu</label>
                                 <div class="form-message"></div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Nhập lại mật khẩu</label>
-                                <input type="password" class="form-input" name="password2" placeholder=" ">
+                                <input type="password" class="form-input js-form-input__register" name="password2" placeholder=" ">
+                                <i class="icon-warning fas fa-exclamation-triangle"></i>
                                 <label for="" class="form-label-2">Nhập lại mật khẩu</label>
                                 <div class="form-message"></div>
                             </div>
 
                             <div class="btn-register__container">
-                                <button class="btn btn-register" type="submit">Đăng kí</button>
+                                <button class="btn btn-register js-btn-register" type="submit">
+                                    <p>Đăng kí</p>
+                                    <div class="load-wrapp">
+                                        <div class="load-3">
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="check-container">
+                                        <div class="check-background">
+                                            <svg viewBox="0 0 65 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 25L27.3077 44L58.5 7" stroke="white" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="check-shadow"></div>
+                                    </div>
+                                </button>
                                 <p class="no-accout">Bạn đã có tài khoản? <span class="js-login">đăng Nhập</span></p>
                             </div>
                         </div> 
@@ -65,7 +88,7 @@
 
                 {{!-- login --}}
                 <div class="form-login__left-container">
-                    <form action="/textlogin" method="post">
+                    <form action="/textlogin" method="post" id="form2">
                         <div class="form-login__left">
                             <div class="form-login__left-heading">
                                 <h1>Đăng nhập</h1>
@@ -99,7 +122,7 @@
                             </div>
 
                             <div class="btn-register__container">
-                                <button class="btn btn-register" type="submit">
+                                <button class="btn btn-register js-btn-login" type="submit">
                                     <p>Đăng nhập</p>
                                     <div class="load-wrapp">
                                         <div class="load-3">
@@ -107,6 +130,15 @@
                                             <div class="line"></div>
                                             <div class="line"></div>
                                         </div>
+                                    </div>
+
+                                    <div class="check-container">
+                                        <div class="check-background">
+                                            <svg viewBox="0 0 65 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 25L27.3077 44L58.5 7" stroke="white" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="check-shadow"></div>
                                     </div>
                                 </button>
                                 <p class="no-accout">Bạn chưa có tài khoản? <span class="js-register">đăng ký</span></p>
@@ -143,14 +175,13 @@
     var text2 = document.querySelector('.form-login__right-container')
     var text6 = document.querySelector('.form-register__right-container')
     var text3 = document.querySelector('.btn-register__container p span.js-register')
-    console.log(text3)
     var text4 = document.querySelector('.btn-register__container p span.js-login')
-    console.log(text4)
     text3.onclick = () => {
         text2.setAttribute('style', 'right: 40%;opacity:0;')
         text6.setAttribute('style', 'right: 40%;opacity:1;')
         text5.setAttribute('style', 'left: 60%;opacity:1; z-index:1')
         text1.setAttribute('style', 'left: 60%;opacity:0; z-index:0')
+        {{!-- showNotification.style.display = 'none' --}}
     }
 
     text4.onclick = () => {

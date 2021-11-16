@@ -42,6 +42,10 @@
   display: block;
   margin-top: 120px; }
 
+.content-blogs img {
+  width: 100% !important;
+  border-radius: 8px; }
+
 .question__content-title {
   position: relative;
   width: 90%;

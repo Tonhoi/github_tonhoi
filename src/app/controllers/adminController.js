@@ -1,5 +1,6 @@
 const slideshow = require('../model/slideshow')
 const loginRegister = require('../model/loginRegister')
+const blogUser = require('../model/blogUser')
 const {multipleMongooseToObject} = require('../../util/mongoose') 
 const {MongooseToObject} = require('../../util/mongoose')
 const express = require('express');
@@ -33,12 +34,17 @@ class adminController {
     }
 
     managerPost(req, res) {
-        res.render('admin/managerPost', {
-            layout: 'admin'
+
+        blogUser.find({})
+        .then(blogUser => {
+            res.render('admin/managerPost', {
+                blogUser:multipleMongooseToObject(blogUser),
+                layout: 'admin'
+            })
         })
+        .catch(error => next(error))
     }
 
-   
 
 
     // [GET] slide
@@ -47,6 +53,16 @@ class adminController {
             .then(slideshow => res.render('admin/edit', {
                 layout: 'admin',
                 slideshow:MongooseToObject(slideshow)
+            }))
+
+            .catch(next)
+    }
+
+    editPost(req, res, next) {
+        blogUser.findById(req.params.id)
+            .then(blogUser => res.render('admin/editPost', {
+                layout: 'admin',
+                blogUser:MongooseToObject(blogUser)
             }))
 
             .catch(next)
@@ -70,6 +86,9 @@ class adminController {
         loginRegister.updateOne({ _id: req.params.id }, req.body)
         .then(() => res.redirect('/homeAdmin/userManager'))
         .catch(next)
+        blogUser.updateOne({ _id: req.params.id }, req.body)
+        .then(() => res.redirect('/homeAdmin/managerPost'))
+        .catch(next)
     }
 
      // [DELETE] 
@@ -77,9 +96,12 @@ class adminController {
         slideshow.delete({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next)
-        // loginRegister.delete({ _id: req.params.id })
-        // .then(() => res.redirect('back'))
-        // .catch(next)
+    }
+
+    deletePosts(req, res, next) {
+        blogUser.deleteOne({ _id: req.params.id })
+        .then(() => res.redirect('back'))
+        .catch(next)
     }
 
     deleteUser(req, res, next) {
@@ -126,9 +148,7 @@ class adminController {
        const slide = new slideshow(req.body)
        slide.save()
         .then(() => res.redirect('/homeAdmin'))
-        .catch(error => {
-
-        })
+        .catch(error => {})
     }
 
     // [PATCH] restore
@@ -139,12 +159,6 @@ class adminController {
     }
 
     register(req, res, next) {
-        // const register = new loginRegister(req.body)
-        // register.save()
-        //  .then(() => res.redirect('/homeAdmin/userManager'))
-        //  .catch(error => {
-        //  })
-
         const { fullname, email, username, password} = req.body;
         const newUser = new loginRegister({
             fullname,
@@ -183,6 +197,17 @@ class adminController {
             .then(loginRegister => 
                 res.render('admin/infoUser', {
                     loginRegister: MongooseToObject(loginRegister),
+                    layout: 'admin',
+                })
+                )
+            .catch(next)     
+    }
+
+    infodescription(req, res, next) {
+        blogUser.findOne({ slug: req.params.slug })
+            .then(blogUser => 
+                res.render('admin/infodescription', {
+                    blogUser: MongooseToObject(blogUser),
                     layout: 'admin',
                 })
                 )

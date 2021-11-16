@@ -51,12 +51,10 @@ const app = {
         var subMenuParent = document.querySelector('.js-admin-category__link')
         var submenu = document.querySelector('.sub-menu__list')
         var iconLeft = document.querySelector('.icon__arrow-left')
-        var iconRight = document.querySelector('.icon__arrow-down')
 
         subMenuParent.onclick = function(e) {
             dem++;
             iconLeft.classList.toggle('open')
-            iconRight.classList.toggle('open')
             submenu.style.display = "block"
 
             // bugs
@@ -169,7 +167,20 @@ const app = {
         });
     
     },
+    activeCategory: function() {
+        var currentHref = location.href
+        var activeCate = document.querySelectorAll('.js-active-category')
+        console.log(activeCate)
+
+        activeCate.forEach(activeCate => {
+            console.log(activeCate)
+            if (activeCate.href === currentHref) {
+                activeCate.className = 'admin-category__link active'
+            }
+        })
+    },
     start: function() {
+        this.activeCategory()
         this.closeOpenCategory()
         this.handleCategory()
         this.addUser()

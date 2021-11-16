@@ -159,7 +159,8 @@
   float: right; }
 
 .right {
-  display: flex; }
+  display: flex;
+  margin-left: 100px; }
 
 .header-icon__bell {
   color: var(--white-color);
@@ -348,7 +349,7 @@
 
 .nav-bar-tablet-mobile {
   position: fixed;
-  z-index: 10;
+  z-index: 10000;
   top: 0;
   right: 0;
   bottom: 0;
@@ -441,7 +442,12 @@
   color: var(--primary-color);
   font-size: 1.4rem;
   font-weight: 700;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 30px;
+  z-index: 100;
+  position: fixed;
+  top: 16px;
+  right: 180px; }
 
 .form-input {
   background-color: transparent;

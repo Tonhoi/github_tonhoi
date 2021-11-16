@@ -39,6 +39,7 @@
                 <div class="overlay__option"></div>
                 <div class="question__content-separate hide-on-tablet-mobile"></div>
                 {{!-- copy here --}}
+                {{#each blogUser}}
                 <div class="col l-8 c-12">
                     <div class="question__content-title">
                         <div class="postItem__header">
@@ -47,7 +48,7 @@
                                     <img src="https://fullstack.edu.vn/assets/images/nobody_m.256x256.jpg" alt="" class="postItem__author-img">
                                 </a>
                                 <a href="">
-                                    <span>Lê thành trung</span>
+                                    <span>{{this.username}}</span>
                                 </a>
                             </div>
                             <div class="postItem__optionBtn"> 
@@ -83,22 +84,23 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="newsBlog" class="postItem__body wrap__reverse-mobile">
+                        <a href="/{{this.slug}}" class="postItem__body wrap__reverse-mobile js-active">
                             <div class="postItem__info">
-                                <h1 class="postItem__info-title">C#(.NET) - Tương tác với file Excel C#(.NET)</h1>
-                                <span>Bạn có kiến thức ngôn ngữ C#! Bạn muốn thực hiện tương tác với file excel. muốn thực hiện tương tác với file excel. muốn asdasd</span>
+                                <h1 class="postItem__info-title">{{this.tittle}}</h1>
+                                <span>{{{this.tittle}}}</span>
                                 <div class="postItem__info-time">
                                     <span>13 giờ trước</span>
                                     <span>·</span>
                                     <span>5 phút đọc</span>
-                                </div>     
+                                </div> 
                             </div>
                             <div class="postItem__thumb">
-                                <img src="https://cdn.fullstack.edu.vn/f8-learning/blog_posts/309/614182e1e2cdc.jpg" alt="" class="postItem__thumb-img">
+                                <img src="{{this.image}}" alt="" class="postItem__thumb-img">
                             </div>
                         </a>
                     </div>
                 </div>
+                {{/each}}
             </div>
         </div>
     </div>

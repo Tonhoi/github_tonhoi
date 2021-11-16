@@ -18,7 +18,7 @@
 }
 
 .admin-category.open {
-  width: 57px;
+  width: 54px;
   overflow: hidden;
 }
 .admin-nav__common.open {
@@ -106,7 +106,7 @@
 }
 
 .admin-category__list {
-  padding: 0 8px;
+  padding: 0 0 0 8px;
   margin-top: 20px;
   list-style: none;
 }
@@ -117,17 +117,54 @@
 .admin-category__link {
   display: flex;
   align-items: center;
-  padding: 12px 6px;
+  padding: 12px 0 12px 6px;
   font-size: 1.6rem;
   color: var(--white-color);
   text-decoration: none;
   cursor: pointer;
   color: rgb(194, 199, 208);
+  position: relative;
+  border-radius: 12px 0 0 12px;
+}
+
+.admin-category__link.active:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-100%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(52, 58, 64);
+  box-shadow: 10px 10px 0 0 rgb(244, 246, 249);
+  z-index: 1;
+}
+
+.admin-category__link.active:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(52, 58, 64);
+  box-shadow: 10px -10px 0 0 rgb(244, 246, 249);
+  z-index: 1;
 }
 
 .admin-category__link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--white-color);
+  background-color: rgb(244, 246, 249);
+  color: var(--primary-color);
+  z-index: 2;
+}
+
+.admin-category__link.active {
+  background-color: rgb(244, 246, 249);
+  color: var(--primary-color);
+  border-radius: 12px;
 }
 
 .admin-category__icon {
@@ -144,23 +181,15 @@
 }
 
 // arrow left, down
-.arrow-down,
 .icon__arrow-left {
-  margin-left: auto;
+  margin: 0 12px 0 auto;
   position: relative;
   top: 2px;
-}
-
-i.icon__arrow-down {
-  display: none;
-}
-.icon__arrow-down.open {
-  display: block;
-  margin-left: auto;
+  transition: transform linear 0.1s;
 }
 
 .icon__arrow-left.open {
-  display: none;
+  transform: rotate(-90deg);
 }
 
 .sub-menu__list {
@@ -170,15 +199,30 @@ i.icon__arrow-down {
   display: none;
 }
 
+.sub-menu__list a {
+  color: rgb(194, 199, 208);
+  text-decoration: none;
+}
+
 .sub-menu__item {
   padding: 12px 6px;
   display: flex;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .sub-menu__item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--white-color);
+  background-color: rgb(244, 246, 249);
+  color: var(--primary-color);
+}
+
+.admin-category__link.active {
+  color: var(--primary-color);
+}
+
+.admin-category__link.active .sub-menu__item {
+  padding: 4px 6px;
 }
 
 .sub-menu__item p {

@@ -127,7 +127,9 @@
   bottom: 3px; }
 
 .only-category.ml-12 {
-  margin-left: 22px !important; }
+  margin-left: 10px !important;
+  position: relative;
+  left: 12px; }
 
 .handleSlide-user {
   margin-top: 100px; }

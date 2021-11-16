@@ -1,5 +1,6 @@
 const slideshow = require('../model/slideshow')
 const User = require('../model/loginRegister')
+const blogUser = require('../model/blogUser')
 const {multipleMongooseToObject} = require('../../util/mongoose')
 const {MongooseToObject} = require('../../util/mongoose')
 const bcrypt = require('bcryptjs');
@@ -84,6 +85,25 @@ class HomeController {
         })
     }
 
+    blogusers(req, res, next) {
+       const blog = new blogUser(req.body)
+       blog.save()
+        .then(() => res.redirect('/'))
+        .catch(error => {})
+    }
+
+    blogs(req, res, next) {
+        const { user: { fullname, image } = {} } = req;
+        blogUser.findOne({ slug: req.params.slug })
+            .then(blogUser => 
+                res.render('user/newsBlog', {
+                    blogUser: MongooseToObject(blogUser),
+                    fullname,
+                })
+                )
+            .catch(next)     
+    }
+
     contact(req, res) {
         const { user: { fullname, image } = {} } = req;
         res.render('user/contact', {
@@ -107,7 +127,6 @@ class HomeController {
         layout: 'login',
       })
     }
-
 
 }
 

@@ -29,32 +29,32 @@
             </div>
         </div>
 
-        <table style="width: 100%;" border="1">
+        <table style="width: 100%;" border="0">
             <thead>
-                <th>Số thư tự</th>
-                <th>Ảnh đại diện</th>
-                <th>Tên Tài khoản</th>
-                <th>Xem chi tiết</th>
-                <th style="width: 20%;">Ngày tạo</th>
+                <th style="10%;">#</th>
+                <th style="15%;">Ảnh bài viết</th>
+                <th style="30%;">Họ và tên</th>
                 <th>Chức năng</th>
             </thead>
             <tbody>
-                {{#each loginRegister}}
+                {{#each blogUser}}
                 <tr>
                     <th>{{sum @index 1}}</th>
-                    <th>{{this.fullname}}</th>
+                    <th><img src="{{this.image}}" alt="" style="width: 50px; height: 50px; border-radius:12px;"></th>
                     <th>{{this.username}}</th>
-                    <th>{{this.password}}</th>
-                    <th>{{this.createdAt}}</th>
                     <th>
-                        <a href="/homeAdmin/{{this._id}}/editRegister" class="btn-update btn">
+                        <a href="/homeAdmin/user/blog/{{this.slug}}" class="btn-view btn">
                             <i class="fas fa-edit"></i>
-                            <span>Duyệt</span>
+                            <span>xem</span>
                         </a>
-                        <form action="/homeAdmin/{{this._id}}?_method=DELETE" method="post" style="display: inline-block;">
-                            <button class="btn-delete btn">
+                        <a href="/homeAdmin/{{this._id}}/editPost" class="btn-update btn">
+                            <i class="fas fa-edit"></i>
+                            <span>sửa</span>
+                        </a>
+                        <form action="/homeAdmin/{{this._id}}/posts?_method=DELETE" method="post" style="display: inline-block; position: relative; top:0px" class="btn btn-delete">
+                            <button style="background-color: transparent; border: none; color: var(--white-color);font-size: 1.6rem;font-weight: 600; cursor: pointer;width: 100%; height: 25px;">
                                 <i class="fas fa-trash-alt"></i>
-                                <span>Không duyệt</span>
+                                <span>xóa</span>
                             </button>
                         </form>
                     </th>

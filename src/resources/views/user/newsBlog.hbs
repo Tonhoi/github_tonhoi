@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col l-3">
                 <div class="Reaction_wrapper-container hide-on-tablet-mobile">
-                <h1>Name H</h1>
+                <h1>{{blogUser.username}}</h1>
                     <div class="Reaction_wrapper">
                         <div class="Reaction_btnReact">
                             <i class="Reaction_btnReact-icon far fa-heart"></i>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="col l-7">
-                <h1 class="news-blog__heading">[Cơ bản] Tổng quan lập trình Synchronous và Asynchronous</h1>
+                <h1 class="news-blog__heading">{{blogUser.tittle}}</h1>
                 <div class="overlay__option"></div>
                 <div class="question__content-title news-blog__question-content-title">
                     <div class="postItem__header news-blog__postItem-header">
@@ -29,7 +29,7 @@
                                 <img src="https://fullstack.edu.vn/assets/images/nobody_m.256x256.jpg" alt="" class="postItem__author-img news-blog__postItem__author-img">
                             </div>
                             <div>
-                                <span class="news-blog__postItem-span">Lê thành trung</span>
+                                <span class="news-blog__postItem-span">{{blogUser.username}}</span>
                                 <div class="news-blog__span">
                                     <span>1 giờ trước</span>
                                     <span>.</span>
@@ -71,13 +71,8 @@
                         </div>
                     </div>
 
-                    <div class="">
-                        <p>Chào mọi người 🤗🤗
-
-                            Hôm nay mình có quay một video trong khóa học ReactJS là “Tạo dự án ReactJS với Webpack và Babel”. Mình làm video này với mong muốn chia sẻ cho các bạn có thể hình dung ra dự án được tạo bởi “create-react-app” được xây dựng như thế nào. Các bạn có thể xem thêm video hướng dẫn ở đây nhé.
-
-                            Video sẽ được update sau khi mình render xong…
-                        </p>
+                    <div class="content-blogs">
+                        <p>{{{blogUser.description}}}</p>
                     </div>
                     <div class="Reaction_wrapper">
                         <div class="Reaction_btnReact">

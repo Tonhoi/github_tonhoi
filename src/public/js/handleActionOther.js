@@ -131,8 +131,8 @@ function handlecommentBlog() {
 
 function acctiveNav() {
     var currentLocation = location.href
-    var navItem = $$('a.header-list__item-link')
-    navItem.forEach((navItem, index) => {
+    var navItem = $$('a.js-active')
+    navItem.forEach((navItem) => {
         if (navItem.href === currentLocation)
         {
             navItem.className = 'header-list__item-link active'
