@@ -28,18 +28,22 @@ function handleActionOther() {
 
 function opensearchTabletMobile() {
 var show = $('.icon__search');
-show.onclick = function(e) {
-    $("#showsearch").style.width = "100%";
-    $("#showsearch").style.opacity = "1";
+if (show) {
+    show.onclick = function(e) {
+        $("#showsearch").style.width = "100%";
+        $("#showsearch").style.opacity = "1";
+    }
 }
 };
 
 function closesearchTabletMobile() {
 var close = $('.close-btn');
-close.onclick = function(e) {
-    $("#showsearch").style.width = "0%";
-    $("#showsearch").style.opacity = "0";
-
+if(close) {
+    close.onclick = function(e) {
+        $("#showsearch").style.width = "0%";
+        $("#showsearch").style.opacity = "0";
+    
+    }
 }
 }
 
@@ -131,7 +135,8 @@ function handlecommentBlog() {
 
 function acctiveNav() {
     var currentLocation = location.href
-    var navItem = $$('a.js-active')
+    var navItem = $$('.header-list__item-link')
+
     navItem.forEach((navItem) => {
         if (navItem.href === currentLocation)
         {
@@ -140,6 +145,7 @@ function acctiveNav() {
         }
     })
 }
+
 
 
 export default handleActionOther

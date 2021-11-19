@@ -60,19 +60,33 @@ class HomeController {
         res.redirect('/');
     }
 
-     // [GET] / news
+     // [GET] / Index
      index(req, res, next) {
          
         const { user: { fullname, image } = {} } = req;
-        slideshow.find({})
-            .then(slideshow => {
+        Promise.all([
+            slideshow.find({classify: 1}),
+            slideshow.find({classify: 21}),
+            slideshow.find({classify: 22}),
+            slideshow.find({classify: 31}),
+            slideshow.find({classify: 32}),
+            slideshow.find({classify: 41}),
+            slideshow.find({classify: 42})
+        ])
+            .then(([slideshow, slideshow21, slideshow22, slideshow31, slideshow32, slideshow41, slideshow42]) =>
                 res.render('user/home', {
-                slideshow:multipleMongooseToObject(slideshow),
-                fullname,
-                image
+                    slideshow:multipleMongooseToObject(slideshow),
+                    slideshow21:multipleMongooseToObject(slideshow21),
+                    slideshow22:multipleMongooseToObject(slideshow22),
+                    slideshow31:multipleMongooseToObject(slideshow31),
+                    slideshow32:multipleMongooseToObject(slideshow32),
+                    slideshow41:multipleMongooseToObject(slideshow41),
+                    slideshow42:multipleMongooseToObject(slideshow42),
+                    fullname,
+                    image
                 })
-            })
-        .catch(error => next(error))   
+            )
+            .catch(error => next(error))
     
     }
 
@@ -101,7 +115,7 @@ class HomeController {
                     fullname,
                 })
                 )
-            .catch(next)     
+            .catch(next)
     }
 
     contact(req, res) {

@@ -16,67 +16,25 @@
 
         <div class="row">
             <div class="col l-8 m-12 c-12">
-                <div class="news-block">
-                    <div class="row full-width-on-mobile">
-                        <div class="col l-4 m-4 c-12">
-                            <img src="https://vitrangreview.com/wp-content/uploads/2021/09/truc-tiep-ra-mat-iphone-13-hinh-anh-1-300x161.png"
-                            alt="" class="news-block__img">
-                        </div>
-                        <div class="col l-8 m-8 c-12">
-                            <div class="news-block-text">
-                                <h1 class="news-block__heading">Trực tiếp ra mắt Iphone 13 vào 00h ngày 15/9/2021</h1>
-                                <span class="news-block__title">Đêm nay sự kiện trực tiếp ra mắt Iphone 13 sẽ diễn ra vào lúc [...] 
-                                </span>
+                {{#each slideshow5}}
+                    <a href="/home/{{this.slug}}" class="news-block">
+                        <div class="row full-width-on-mobile">
+                            <div class="col l-4 m-4 c-12">
+                                <img src="{{this.image}}"
+                                alt="" class="news-block__img">
+                            </div>
+                            <div class="col l-8 m-8 c-12">
+                                <div class="news-block-text">
+                                    <h1 class="news-block__heading">{{this.name}}</h1>
+                                    <span class="news-block__title">{{{this.description}}}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <div class="row full-width-on-mobile">
-                        <div class="col l-4 m-4 c-12">
-                            <img src="https://vitrangreview.com/wp-content/uploads/2021/06/Windows-11-co-gi-moi-hinh-1-300x169.jpg"
-                            alt="" class="news-block__img">
-                        </div>
-                        <div class="col l-8 m-8 c-12">
-                            <div class="news-block-text">
-                                <h1 class="news-block__heading">Trực tiếp ra mắt Iphone 13 vào 00h ngày 15/9/2021</h1>
-                                <span class="news-block__title">Đêm nay sự kiện trực tiếp ra mắt Iphone 13 sẽ diễn ra vào lúc [...] 
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <div class="row full-width-on-mobile">
-                        <div class="col l-4 m-4 c-12">
-                            <img src="https://vitrangreview.com/wp-content/uploads/2021/09/truc-tiep-ra-mat-iphone-13-hinh-anh-1-300x161.png"
-                            alt="" class="news-block__img">
-                        </div>
-                        <div class="col l-8 m-8 c-12">
-                            <div class="news-block-text">
-                                <h1 class="news-block__heading">Trực tiếp ra mắt Iphone 13 vào 00h ngày 15/9/2021</h1>
-                                <span class="news-block__title">Đêm nay sự kiện trực tiếp ra mắt Iphone 13 sẽ diễn ra vào lúc [...] 
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <div class="row full-width-on-mobile">
-                        <div class="col l-4 m-4 c-12">
-                            <img src="https://vitrangreview.com/wp-content/uploads/2021/09/truc-tiep-ra-mat-iphone-13-hinh-anh-1-300x161.png"
-                            alt="" class="news-block__img">
-                        </div>
-                        <div class="col l-8 m-8 c-12">
-                            <div class="news-block-text">
-                                <h1 class="news-block__heading">Trực tiếp ra mắt Iphone 13 vào 00h ngày 15/9/2021</h1>
-                                <span class="news-block__title">Đêm nay sự kiện trực tiếp ra mắt Iphone 13 sẽ diễn ra vào lúc [...] 
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                {{/each}}
             </div>
+            
             <div class="col l-4 m-12 c-12">
                     <h1 class="news-post__h1">Bài viết mới nhất</h1>
                 <div class="news-post">

@@ -147,12 +147,18 @@
   margin: 0 0 8px;
   font-weight: 700; }
 
+#classify,
 .form-control {
   width: 100%;
   padding: 12px;
   outline: none;
   border: none;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.6rem; }
+
+#classify {
+  cursor: pointer; }
 
 .view-post {
   display: flex;

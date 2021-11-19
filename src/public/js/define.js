@@ -14,6 +14,7 @@ export const contentBlockList = $('.content__block-list-1')
 
 
 
+
 // -----------------------------
 
 
@@ -54,6 +55,7 @@ export const hideCommentPageNews = $('.Comment_reactionsCount p:last-child')
 
 // acctive like
 export const activeLike = $$('.btn-Comment_like')
+
 
 
 

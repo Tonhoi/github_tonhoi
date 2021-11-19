@@ -9,6 +9,7 @@ const slideshow = new Schema({
     name: { type: String },
     description: { type: String },
     deleteAt: { type: Date },
+    classify: {type: String},
     slug: {type: String, slug: 'name', unique: true }
 }, {
     timestamps: true,

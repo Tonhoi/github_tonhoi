@@ -7,6 +7,7 @@ const blogUser = new Schema({
     tittle: { type: String },
     description: { type: String },
     image: { type: String },
+    classify: { type: String },
     slug: {type: String, slug: 'tittle', unique: true }
 }, {
     timestamps: true,

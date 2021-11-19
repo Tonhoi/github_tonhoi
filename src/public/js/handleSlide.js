@@ -1,11 +1,18 @@
 import {
     $,
+    $$,
     lengh,
     moveSlide,
     preslide,
     nextslide,
     contentBlockList,
+    slideShow,
 } from './define.js'
+
+function animationSlide() {
+    handleSlide()
+    handleAnimation()
+}
 function handleSlide() {
     var dem = 0;
     var index = 0
@@ -34,7 +41,6 @@ function handleSlide() {
         })
     }
     var count = 1;
-    var slideShow = $('.slidershow')
 
     if (slideShow)
     {
@@ -63,4 +69,45 @@ function handleSlide() {
     
 };
 
-export default handleSlide
+
+function handleAnimation() {
+    if (slideShow) {
+
+        var jsAnimation = $('.row.js-animation')
+        var jsAnimationDiv = $('.js-first__animation').offsetWidth
+        var jsAnimationDiv2 = $$('.js-animation > div').length
+        
+        
+        var sum = 0;
+        var firstCount = 0;
+
+        setInterval(function() {
+            sum++
+            if (sum > jsAnimationDiv2 - 3) {
+                sum = 0
+                firstCount = jsAnimationDiv
+            }
+            firstCount = firstCount - jsAnimationDiv
+            jsAnimation.style = `transition: transform linear 1s;flex-wrap: nowrap;transform:translateX(${firstCount}px)`
+        }, 5000)
+
+
+        var jsAnimationProduct= $('.js-animation__product')
+        var jsFirstProduct= $('.js-first__product').offsetWidth
+        var jsAnimationDiv3 = $$('.js-animation__product li').length
+        var sum1 = 0;
+        var firstCount1 = 0;
+        setInterval(function() {
+            sum1++
+            if (sum1 > jsAnimationDiv3 - 2) {
+                sum1 = 0
+                firstCount1 = jsFirstProduct
+            }
+            firstCount1 = firstCount1 - jsFirstProduct
+            jsAnimationProduct.style = `transition: transform linear 1s;flex-wrap: nowrap;transform:translateX(${firstCount1}px)`
+
+        }, 5000)
+    }
+}
+
+export default animationSlide
