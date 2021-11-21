@@ -17,13 +17,26 @@ class adminController {
     }
 
     userManager(req, res) {
-        loginRegister.find({})
-        .then(loginRegister => {
-            res.render('admin/userManager', {
-                loginRegister:multipleMongooseToObject(loginRegister),
-                layout: 'admin'
+        Promise.all([loginRegister.find({}).sortable(req), 
+            loginRegister.countDocumentsDeleted()])
+            .then(([loginRegister, deleteusers]) =>
+                res.render('admin/userManager', {
+                    deleteusers,
+                    loginRegister:multipleMongooseToObject(loginRegister),
+                    layout: 'admin'
+                })
+            )
+            .catch(error => next(error))
+    }
+
+    trashUserManager(req, res) {
+        loginRegister.findDeleted({})
+            .then(loginRegister => {
+                res.render('admin/trashUserManager', {
+                    loginRegister:multipleMongooseToObject(loginRegister),
+                    layout: 'admin'
+                })
             })
-        })
         .catch(error => next(error))
     }
 
@@ -35,13 +48,26 @@ class adminController {
 
     managerPost(req, res) {
 
-        blogUser.find({})
-        .then(blogUser => {
-            res.render('admin/managerPost', {
-                blogUser:multipleMongooseToObject(blogUser),
-                layout: 'admin'
+        Promise.all([blogUser.find({}).sortable(req), 
+            blogUser.countDocumentsDeleted()])
+            .then(([blogUser, deleteblogs]) =>
+                res.render('admin/managerPost', {
+                    deleteblogs,
+                    blogUser:multipleMongooseToObject(blogUser),
+                    layout: 'admin'
+                })
+            )
+            .catch(error => next(error))
+    }
+
+    trashManagerPost(req, res) {
+        blogUser.findDeleted({})
+            .then(blogUser => {
+                res.render('admin/trashManagerPost', {
+                    blogUser:multipleMongooseToObject(blogUser),
+                    layout: 'admin'
+                })
             })
-        })
         .catch(error => next(error))
     }
 
@@ -93,33 +119,29 @@ class adminController {
 
      // [DELETE] 
     delete(req, res, next) {
-        slideshow.delete({ _id: req.params.id })
-            .then(() => res.redirect('back'))
-            .catch(next)
-    }
 
-    deletePosts(req, res, next) {
-        blogUser.deleteOne({ _id: req.params.id })
-        .then(() => res.redirect('back'))
-        .catch(next)
-    }
-
-    deleteUser(req, res, next) {
-        loginRegister.deleteOne({ _id: req.params.id })
-        .then(() => res.redirect('back'))
-        .catch(next)
+        Promise.all([slideshow.delete({ _id: req.params.id }), 
+            blogUser.delete({ _id: req.params.id }),
+            loginRegister.delete({ _id: req.params.id })])
+            .then(([slideshow, blogUser, loginRegister]) =>
+                res.redirect('back')
+            )
+            .catch(error => next(error))
     }
 
     // [DELETE]
     forceDelete(req, res, next) {
-        slideshow.deleteOne({ _id: req.params.id })
-        .then(() => res.redirect('back'))
-        .catch(next)
+        Promise.all([slideshow.deleteOne({ _id: req.params.id }), 
+            blogUser.deleteOne({ _id: req.params.id }),
+            loginRegister.deleteOne({ _id: req.params.id })])
+            .then(([slideshow, blogUser, loginRegister]) =>
+                res.redirect('back')
+            )
+            .catch(error => next(error))
     }
 
     
     viewPosts(req, res) {
-
         Promise.all([slideshow.find({}).sortable(req), 
             slideshow.countDocumentsDeleted()])
             .then(([slideshow, deletedSlide]) =>
@@ -153,9 +175,14 @@ class adminController {
 
     // [PATCH] restore
     restore(req, res, next) {
-        slideshow.restore({ _id: req.params.id })
-        .then(() => res.redirect('back'))
-        .catch(next)
+
+        Promise.all([slideshow.restore({ _id: req.params.id }), 
+            blogUser.restore({ _id: req.params.id }),
+            loginRegister.restore({ _id: req.params.id })])
+            .then(([slideshow, deletedSlide, loginRegister]) =>
+                res.redirect('back')
+            )
+            .catch(error => next(error))
     }
 
     register(req, res, next) {
@@ -189,7 +216,7 @@ class adminController {
                     layout: 'admin',
                 })
                 )
-            .catch(next)     
+            .catch(next)
     }
 
     infoUser(req, res, next) {

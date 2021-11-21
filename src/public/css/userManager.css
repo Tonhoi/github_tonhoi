@@ -66,23 +66,6 @@
   justify-content: space-between;
   margin-bottom: 4px; }
 
-.form__CRUD > div:first-child {
-  display: flex;
-  border-radius: 4px;
-  background-color: #17a2b8;
-  font-weight: 600; }
-
-.print-output-file {
-  padding: 8px 12px;
-  font-size: 1.6rem; }
-
-.print-output-file:hover {
-  background-color: #5a6268;
-  cursor: pointer; }
-
-.print-output-file span {
-  color: var(--white-color); }
-
 .form__CRUD > div:last-child {
   margin-top: 8px;
   font-size: 1.6rem; }

@@ -71,9 +71,10 @@ class HomeController {
             slideshow.find({classify: 31}),
             slideshow.find({classify: 32}),
             slideshow.find({classify: 41}),
-            slideshow.find({classify: 42})
+            slideshow.find({classify: 42}),
+            slideshow.find({classify: 5})
         ])
-            .then(([slideshow, slideshow21, slideshow22, slideshow31, slideshow32, slideshow41, slideshow42]) =>
+            .then(([slideshow, slideshow21, slideshow22, slideshow31, slideshow32, slideshow41, slideshow42, slideshow5]) =>
                 res.render('user/home', {
                     slideshow:multipleMongooseToObject(slideshow),
                     slideshow21:multipleMongooseToObject(slideshow21),
@@ -82,6 +83,7 @@ class HomeController {
                     slideshow32:multipleMongooseToObject(slideshow32),
                     slideshow41:multipleMongooseToObject(slideshow41),
                     slideshow42:multipleMongooseToObject(slideshow42),
+                    slideshow5:multipleMongooseToObject(slideshow5),
                     fullname,
                     image
                 })

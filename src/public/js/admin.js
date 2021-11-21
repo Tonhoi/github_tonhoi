@@ -18,53 +18,6 @@ const app = {
         
     },
 
-    // full screen
-    handleCategory: function() {
-        var gan = 0;
-        var elem = document.querySelectorAll(".icon-alt");
-        var fullScreen = document.querySelector('.adminheader')
-
-        elem.onclick = function(e) {
-            gan++;
-            if (fullScreen.requestFullscreen) {
-                fullScreen.requestFullscreen();
-            } else if (fullScreen.webkitRequestFullscreen) { /* Safari */
-                fullScreen.webkitRequestFullscreen();
-            } else if (fullScreen.msRequestFullscreen) { /* IE11 */
-                fullScreen.msRequestFullscreen();
-            }
-
-            if (gan === 2) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
-                gan = 0
-            }
-        }
-        var dem = 0;
-        
-        // submenu
-        var subMenuParent = document.querySelector('.js-admin-category__link')
-        var submenu = document.querySelector('.sub-menu__list')
-        var iconLeft = document.querySelector('.icon__arrow-left')
-
-        subMenuParent.onclick = function(e) {
-            dem++;
-            iconLeft.classList.toggle('open')
-            submenu.style.display = "block"
-
-            // bugs
-            if (dem === 2 && submenu.style.display === "block") {
-                submenu.style.display = "none"
-                dem = 0
-            }
-        }
-    },
-
     addUser: function() {
         var layoutUser = document.querySelector('.layout-user')
         var addNewUser = document.querySelector('.add__new-user')
@@ -182,7 +135,6 @@ const app = {
     start: function() {
         this.activeCategory()
         this.closeOpenCategory()
-        this.handleCategory()
         this.addUser()
         this.text()
     }

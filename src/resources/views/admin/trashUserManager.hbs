@@ -1,0 +1,63 @@
+<div class="form__user-common">
+    <div  class="form-user">
+        <div class="form__CRUD">
+            <div style="margin-bottom: 10px;" class="form-user__heading">
+                <a href="/homeAdmin/userManager">Danh sách Người dùng</a>
+                <h1>Người dùng đã xóa</h1>
+            </div>
+            <div>
+                <span>Search</span>
+                <input type="text" class="search" placeholder="Tìm kiếm ở đây">
+            </div>
+        </div>
+
+        <table style="width: 100%;">
+            <thead>
+                <th style="width: 8%;">#</th>
+                <th style="width: 14%;">Họ và tên</th>
+                <th style="width: 14%;">Tài khoản</th>
+                <th style="width: 8%;">
+                    Email
+                </th>
+                <th>Chức năng</th>
+            </thead>
+            <tbody>
+                {{#each loginRegister}}
+                <tr>
+                    <th>{{sum @index 1}}</th>
+                    <th>{{this.fullname}}</th>
+                    <th>{{this.username}}</th>
+                    <th>{{this.email}}</th>
+                    <th>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;padding: 0 12px; grid-column-gap: 12px; grid-row-gap: 8px;">
+                            <a href="/homeAdmin/user/blog/{{this.slug}}" class="btn-view btn">
+                                <i class="fas fa-edit"></i>
+                                <span>xem</span>
+                            </a>
+                            <form action="/homeAdmin/{{this._id}}/restore?_method=PATCH" method="post">
+                                <button class="btn btn-update" style="min-width: 150px; border-radius: 8px;">
+                                    <i class="far fa-trash-alt"></i>
+                                    <span>Khôi phục</span>
+                                </button>
+                            </form>
+                            
+                            <form action="/homeAdmin/{{this._id}}/force?_method=DELETE" method="post" style="position: relative; top: 3px">
+                                <button class="btn btn-delete" style="min-width: 150px; border-radius: 8px;">
+                                    <i class="far fa-trash-alt"></i>
+                                    <span>Xóa vĩnh viễn</span>
+                                </button>
+                            </form>
+                        </div>
+                    </th>
+                </tr>
+                {{else}}
+                 <tr>
+                    <th colspan="5" style="border-bottom: 1px solid #fff;">
+                        Bạn chưa xóa người dùng nào.
+                    </th>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

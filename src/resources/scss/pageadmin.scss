@@ -180,43 +180,6 @@
   margin-left: 8px;
 }
 
-// arrow left, down
-.icon__arrow-left {
-  margin: 0 12px 0 auto;
-  position: relative;
-  top: 2px;
-  transition: transform linear 0.1s;
-}
-
-.icon__arrow-left.open {
-  transform: rotate(-90deg);
-}
-
-.sub-menu__list {
-  list-style: none;
-  font-size: 1.6rem;
-  color: rgb(194, 199, 208);
-  display: none;
-}
-
-.sub-menu__list a {
-  color: rgb(194, 199, 208);
-  text-decoration: none;
-}
-
-.sub-menu__item {
-  padding: 12px 6px;
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-}
-
-.sub-menu__item:hover {
-  background-color: rgb(244, 246, 249);
-  color: var(--primary-color);
-}
-
 .admin-category__link.active {
   color: var(--primary-color);
 }

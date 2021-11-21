@@ -82,90 +82,23 @@
                 <h1 class="content__block-item-2">Tin tức nổi bật</h1>
                 <div style="width: 100%; height: auto; overflow: hidden;position: relative; z-index: 1">
                     <div class="row js-animation" style="flex-wrap: nowrap;">
-                        <div class="col l-4 m-6 c-12 js-first__animation">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col l-4 m-6 c-12">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col l-4 m-6 c-12">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col l-4 m-6 c-12">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger 1'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col l-4 m-6 c-12">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger 2'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col l-4 m-6 c-12">
-                            <li>
-                                <div
-                                    class="img" style="
-                                    background-image: url('https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL0Jhc3MtUmVldmVzLTIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2MDAsImhlaWdodCI6MzM3fX19');
-                                    "
-                                >
-                                    <span>
-                                    Bass Reeves: Baddest Marshal in the Old West, Original
-                                    'Lone Ranger 3'
-                                    </span>
-                                </div>
-                            </li>
-                        </div>
+                        {{#each slideshow5}}
+                        <a href="/home/{{this.slug}}" class="col l-4 m-6 c-12 js-first__animation">
+                            <div>
+                                <li>
+                                    <div
+                                        class="img" style="
+                                        background-image: url({{this.image}});
+                                        "
+                                    >
+                                        <span>
+                                        {{this.name}}
+                                        </span>
+                                    </div>
+                                </li>
+                            </div>
+                        </a>
+                        {{/each}}
                     </div>
 
                 <!-- end row -->

@@ -22,17 +22,21 @@ router.delete('/:id', adminController.delete)
 
 // quản lý người dùng
 router.get('/:id/editRegister', adminController.editRegister)
-router.delete('/:id/user', adminController.deleteUser)
+// router.delete('/:id/user', adminController.deleteUser)
 router.get('/userManager', adminController.userManager)
 // method create
 router.post('/register', adminController.register)
+router.get('/trashUserManager', adminController.trashUserManager)
+
 
 
 
 // quản lý bài viết
-router.delete('/:id/posts', adminController.deletePosts)
+// router.delete('/:id/posts', adminController.deletePosts)
 router.get('/managerPost', adminController.managerPost)
 router.get('/:id/editPost', adminController.editPost)
+router.get('/trashManagerPost', adminController.trashManagerPost)
+
 
 
 

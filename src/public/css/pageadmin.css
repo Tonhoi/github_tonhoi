@@ -150,36 +150,6 @@
 .admin-category__link p {
   margin-left: 8px; }
 
-.icon__arrow-left {
-  margin: 0 12px 0 auto;
-  position: relative;
-  top: 2px;
-  transition: transform linear 0.1s; }
-
-.icon__arrow-left.open {
-  transform: rotate(-90deg); }
-
-.sub-menu__list {
-  list-style: none;
-  font-size: 1.6rem;
-  color: #c2c7d0;
-  display: none; }
-
-.sub-menu__list a {
-  color: #c2c7d0;
-  text-decoration: none; }
-
-.sub-menu__item {
-  padding: 12px 6px;
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  z-index: 2; }
-
-.sub-menu__item:hover {
-  background-color: #f4f6f9;
-  color: var(--primary-color); }
-
 .admin-category__link.active {
   color: var(--primary-color); }
 
