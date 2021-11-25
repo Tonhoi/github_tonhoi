@@ -62,7 +62,6 @@ app.use(function(req, res, next) {
 });
 
 
-
 app.engine('hbs', handlebars({
   extname:'hbs', 
   defaultLayout:'main.hbs',

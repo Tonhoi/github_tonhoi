@@ -5,6 +5,7 @@ const {multipleMongooseToObject} = require('../../util/mongoose')
 const {MongooseToObject} = require('../../util/mongoose')
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const nodemailer = require('nodemailer')
 
 class HomeController {
 
@@ -126,9 +127,35 @@ class HomeController {
             fullname,
             image
         })
-        
     }
+    sendmail(req, res, next) {
+        console.log(req.body)
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'quocloi21072007@gmail.com',
+                pass: 'tonthathoi'
+            }
+        })
+        const mailOptions = {
+            from: req.body.email,
+            to: 'quocloi21072007@gmail.com',
+            subject: `Message from ${req.body.email}: ${req.body.subject}`,
+            text: req.body.description
 
+        }
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if(error) {
+                console.log(error)
+                res.send('error')
+            }else {
+                console.log('email. sent: ' + info.response)
+                res.send('success')
+            }
+
+        })
+    }
     system(req, res) {
         const { user: { fullname, image, email } = {} } = req;
         res.render('user/system', {
@@ -143,6 +170,8 @@ class HomeController {
         layout: 'login',
       })
     }
+
+    
 
 }
 

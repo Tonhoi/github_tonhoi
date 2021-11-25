@@ -5,6 +5,7 @@ const { forwardAuthenticated } = require('../config/db/auth');
 
 const HomeController = require('../app/controllers/HomeController')
 
+router.post('/sendmail', HomeController.sendmail)
 router.post('/blogusers', HomeController.blogusers)
 
 router.get('/logout', HomeController.logout)

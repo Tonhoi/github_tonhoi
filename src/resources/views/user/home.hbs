@@ -1,290 +1,366 @@
 <div id="slidershow"></div>
 <div class="container">
-    <div class="slidershow">
-        <div class="slides">
-        <input type="radio" name="r" class="r1" id="r1" checked />
-        <input type="radio" name="r" class="r2" id="r2" />
-        <input type="radio" name="r" class="r3" id="r3" />
-        <input type="radio" name="r" class="r4" id="r4" />
-        <input type="radio" name="r" class="r5" id="r5" />
+  <div class="slidershow">
+    <div class="slides">
+      <input type="radio" name="r" class="r1" id="r1" checked />
+      <input type="radio" name="r" class="r2" id="r2" />
+      <input type="radio" name="r" class="r3" id="r3" />
+      <input type="radio" name="r" class="r4" id="r4" />
+      <input type="radio" name="r" class="r5" id="r5" />
 
-        <div class="slide s1">
-            <div class="img img-1"></div>
-        </div>
-        <div class="slide">
-            <div class="img img-2"></div>
-        </div>
-        <div class="slide">
-            <div class="img img-3"></div>
-        </div>
-        <div class="slide">
-            <div class="img img-4"></div>
-        </div>
-        <div class="slide">
-            <div class="img img-5"></div>
-        </div>
+      <div class="slide s1">
+        <div class="img img-1"></div>
+      </div>
+      <div class="slide">
+        <div class="img img-2"></div>
+      </div>
+      <div class="slide">
+        <div class="img img-3"></div>
+      </div>
+      <div class="slide">
+        <div class="img img-4"></div>
+      </div>
+      <div class="slide">
+        <div class="img img-5"></div>
+      </div>
 
-        <div class="navigation-auto">
-            <div class="nav-1"></div>
-            <div class="nav-2"></div>
-            <div class="nav-3"></div>
-            <div class="nav-4"></div>
-            <div class="nav-5"></div>
-        </div>
-        </div>
-
-        <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>
-        <label for="r5" class="bar"></label>
-        </div>
+      <div class="navigation-auto">
+        <div class="nav-1"></div>
+        <div class="nav-2"></div>
+        <div class="nav-3"></div>
+        <div class="nav-4"></div>
+        <div class="nav-5"></div>
+      </div>
     </div>
 
-    <div class="content">
-        <div class="grid wide">
-            <div class="content__slogen">
-                <h2 class="content__slogen-header">Blog hàng tuần của chúng tôi</h2>
-                <span class="content__slogen-tittle">
-                    Blog của chúng tôi dành riêng cho tất cả những thứ tò mò và sáng tạo. Tham gia với chúng tôi mỗi tuần để tham gia các 
-                    hoạt động đặc biệt của nhóm chúng tôi, nghiên cứu hàng đầu trong lĩnh vực sáng tạo và tò mò, và nhiều hơn thế nữa!
-                </span>
-            </div>
+    <div class="navigation">
+      <label for="r1" class="bar"></label>
+      <label for="r2" class="bar"></label>
+      <label for="r3" class="bar"></label>
+      <label for="r4" class="bar"></label>
+      <label for="r5" class="bar"></label>
+    </div>
+  </div>
 
-            <div class="content__block">
-            <ul class="content__block-list-1">
-                <div class="row row__no-wrap preSlide">
-                    {{#each slideshow}}
-                        <div class="col l-3 m-6 c-12">
-                        <a href="/home/{{this.slug}}" class="content-block__link">            
-                            <div class="content__block-item">
-                                <div class="content__block-img" 
-                                style="background-image: url({{this.image}});">
-                                </div>
-                                <span class="content__block-desc"
-                                >{{this.name}}
-                                </span>
-                            </div>
-                        </a> 
-                        </div>
-                    {{/each}}             
-                </div>
-            </ul>
-                <div class="btn_news">
-                <i class="icon__arrow fas fa-chevron-left"></i>
-                <i class="icon__arrow fas fa-chevron-right"></i>
-            </div>
-            </div>
-        </div>
-        <ul class="content__block-list-2">
-            <div class="grid wide">
-                <h1 class="content__block-item-2">Tin tức nổi bật</h1>
-                <div style="width: 100%; height: auto; overflow: hidden;position: relative; z-index: 1">
-                    <div class="row js-animation" style="flex-wrap: nowrap;">
-                        {{#each slideshow5}}
-                        <a href="/home/{{this.slug}}" class="col l-4 m-6 c-12 js-first__animation">
-                            <div>
-                                <li>
-                                    <div
-                                        class="img" style="
-                                        background-image: url({{this.image}});
-                                        "
-                                    >
-                                        <span>
-                                        {{this.name}}
-                                        </span>
-                                    </div>
-                                </li>
-                            </div>
-                        </a>
-                        {{/each}}
+  <div class="content">
+    <div class="grid wide">
+      <div class="content__slogen">
+        <h2 class="content__slogen-header">Blog hàng tuần của chúng tôi</h2>
+        <span class="content__slogen-tittle">
+          Blog của chúng tôi dành riêng cho tất cả những thứ tò mò và sáng tạo.
+          Tham gia với chúng tôi mỗi tuần để tham gia các hoạt động đặc biệt của
+          nhóm chúng tôi, nghiên cứu hàng đầu trong lĩnh vực sáng tạo và tò mò,
+          và nhiều hơn thế nữa!
+        </span>
+      </div>
+
+      <div class="content__block">
+        <ul class="content__block-list-1">
+          <div class="row row__no-wrap preSlide">
+            {{#each slideshow}}
+              <div class="col l-3 m-6 c-12">
+                <a href="/home/{{this.slug}}" class="content-block__link" style="text-decoration: none;">
+                  <div class="content__block-item">
+                    <div
+                      class="content__block-img"
+                      style="background-image: url({{this.image}});"
+                    >
                     </div>
-
-                <!-- end row -->
-                </div>
-                <!-- end grid -->
-            </div>
-
-            <li>
-                <div class="ocean">
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                </div>
-            </li>
+                    <span class="content__block-desc">{{this.name}}
+                    </span>
+                  </div>
+                </a>
+              </div>
+            {{/each}}
+          </div>
         </ul>
-
-        <div class="content__product">
-            <div class="grid wide">
-                <h2 class="product__name">Laptop chơi game</h2>
-                <div class="product__name-line">
-                <div class="product__name-line-text"></div>
-                </div>
-                <div class="content__product-item">
-                <div class="row">
-                    <div class="col l-6 text">
-                    <div class="content__product-item-big">
-                        <div class="content__product-item-big-img" style="background-image: url(/img/img_1.jpg);"></div>
-                        <div class="content__product-text">
-                        <h3  class="content__product-text-heading">
-                            Acer Aspire 7 A715 41G R150 R7 (NH.Q8SSV.004)
-                        </h3>
-                        <span>Acer Aspire sở hữu bộ vi xử lý 3750H từ nhà AMD với tốc độ CPU 2.30 GHz và ép xung nhờ Turbo Boost lên đến 4.0 GHz, 
-                            được sản xuất trên tiến trình 12 nm cho tốc độ xử lý nhanh chóng ở mọi tác vụ công việc học tập văn phòng cho đến đồ hoạ và chơi game. 
-                        </span>
-                        </div>
-                    </div>
-                    </div>
-                    
-                    <div class="col l-6 m-12 c-12">
-                    <ul class="text-wrap">
-                        <div style="width: 100%; height: auto; overflow: hidden;">
-                            <div class="row  row__no-wrap js-animation__product">
-                                {{#each slideshow21}}
-                                <a href="/home/{{this.slug}}" class="col l-6 m-6 c-6 js-first__product">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="
-                                            background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">{{this.name}}</h3>
-                                        </div>
-                                    </li>
-                                </a>
-                                {{/each}}
-                            </div>
-                        </div>
-                    </ul>
-                    <ul class="text-wrap-2">
-                        <div class="row row__no-wrap">
-                            {{#each slideshow22}}
-                                <a href="/home/{{this.slug}}" class="col l-6 m-6 c-6">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">{{this.name}}</h3>
-                                        </div>
-                                    </li>
-                                </a>
-                            {{/each}}
-                        </div>
-                    </ul>
-                    </div>
-                </div>
-                </div>
-                <!-- product 2 -->
-                <h2 class="product__name">Laptop Văn Phòng</h2>
-                <div class="product__name-line">
-                <div class="product__name-line-text"></div>
-                </div>
-                <div class="content__product-item">
-                <div class="row">
-                    <div class="col l-6 c-12 m-12">
-                    <ul class="text-wrap">
-                        <div class="row  row__no-wrap">
-                            {{#each slideshow31}}
-                                <a href="/home/{{this.slug}}" class="col l-6 c-6">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">{{this.name}}</h3>
-                                        </div>
-                                    </li>
-                                </a>
-                            {{/each}}
-                        </div>
-                    </ul>
-                    <ul class="text-wrap-2">
-                        <div class="row row__no-wrap">
-                            {{#each slideshow32}}
-                                <a href="/home/{{this.slug}}" class="col l-6 m-6 c-6" style="display: inline-block;">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">
-                                            {{this.name}}
-                                        </h3>
-                                        </div>
-                                    </li>
-                                </a>
-                            {{/each}}
-                        </div>
-                    </ul>
-                    </div>
-
-                    <div class="col l-6">
-                    <div class="content__product-item-big">
-                        <div class="content__product-item-big-img" style="background-image: url(/img/img_10.jpg);">
-                        </div>
-                        <div class="content__product-text">
-                        <h3  class="content__product-text-heading">Laptop MSI Prestige 14 EVO 089VN</h3>
-                        <span> Laptop MSI Prestige 14 được trang bị bộ vi xử lý Intel® thế hệ mới nhất, 
-                            bộ nhớ RAM DDR4 và ổ lưu trữ SSD tốc độ cao đem đến khả năng xử lý đa nhiệm một cách nhanh chóng, thời gian khởi động và truy xuất dữ liệu dường như ngay tức thì.
-                        </span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- product 3 -->
-
-                <h2 class="product__name">Mỏng nhẹ thời trang</h2>
-                <div class="product__name-line">
-                <div class="product__name-line-text"></div>
-                </div>
-                <div class="content__product-item">
-                <div class="row">
-                    <div class="col l-6">
-                    <div class="content__product-item-big">
-                        <div class="content__product-item-big-img" style="background-image: url(/img/img_11.png);">
-                        </div>
-                        <div class="content__product-text">
-                        <h3  class="content__product-text-heading">Laptop LG Gram 2021 14Z90P-G.AH75A5</h3>
-                        <span>Laptop LG   gram 14Z90P-G.AH75A5 là mẫu laptop cao cấp có xuất sứ từ Hàn Quốc, Được trang bị hàng loạt tính năng hiện đại 
-                            cùng ngoại hình bắt mắt. Laptop LG gram 14Z90P-G.AH75A5 chắc chắn kiến bất kỳ vị khách nào khó tính cũng phải hài lòng
-                        </span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col l-6 c-12 m-12">
-                    <ul class="text-wrap">
-                        <div class="row  row__no-wrap">
-                            {{#each slideshow41}}
-                                <a href="/home/{{this.slug}}" class="col l-6 c-6 m-6" style="display: inline-block;">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">{{this.name}}</h3>
-                                        </div>
-                                    </li>
-                                </a>
-                            {{/each}}
-                        </div>
-                    </ul>
-                    <ul class="text-wrap-2">
-                        <div class="row row__no-wrap">
-                            {{#each slideshow42}}
-                                <a href="/home/{{this.slug}}" class="col l-6 c-6 m-6">
-                                    <li>
-                                        <div class="content__product-item-small">
-                                        <div class="content__product-item-smaill-img" style="background-image: url({{this.image}});">
-                                        </div>
-                                        <h3 class="content__product-text-heading-small">{{this.name}}</h3>
-                                        </div>
-                                    </li>
-                                </a>
-                            {{/each}}
-                        </div>
-                    </ul>
-                    </div>
-                </div>
-                </div>
-            </div>
+        <div class="btn_news">
+          <i class="icon__arrow fas fa-chevron-left"></i>
+          <i class="icon__arrow fas fa-chevron-right"></i>
         </div>
+      </div>
     </div>
+    <ul class="content__block-list-2">
+      <div class="grid wide">
+        <h1 class="content__block-item-2">Tin tức nổi bật</h1>
+        <div
+          style="width: 100%; height: auto; overflow: hidden;position: relative; z-index: 1"
+        >
+          <div class="row js-animation" style="flex-wrap: nowrap;">
+            {{#each slideshow5}}
+              <a
+                href="/home/{{this.slug}}"
+                class="col l-4 m-6 c-12 js-first__animation"
+              style="text-decoration: none;">
+                <div>
+                  <li>
+                    <div
+                      class="img"
+                      style="background-image: url({{this.image}});"
+                    >
+                      <span>
+                        {{this.name}}
+                      </span>
+                    </div>
+                  </li>
+                </div>
+              </a>
+            {{/each}}
+          </div>
+
+          <!-- end row -->
+        </div>
+        <!-- end grid -->
+      </div>
+
+      <li>
+        <div class="ocean">
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="content__product">
+      <div class="grid wide">
+        <h2 class="product__name">Laptop chơi game</h2>
+        <div class="product__name-line">
+          <div class="product__name-line-text"></div>
+        </div>
+        <div class="content__product-item">
+          <div class="row">
+            <div class="col l-6 text">
+              <div class="content__product-item-big">
+                <div
+                  class="content__product-item-big-img"
+                  style="background-image: url(/img/img_1.jpg);"
+                ></div>
+                <div class="content__product-text">
+                  <h3 class="content__product-text-heading">
+                    Acer Aspire 7 A715 41G R150 R7 (NH.Q8SSV.004)
+                  </h3>
+                  <span>Acer Aspire sở hữu bộ vi xử lý 3750H từ nhà AMD với tốc
+                    độ CPU 2.30 GHz và ép xung nhờ Turbo Boost lên đến 4.0 GHz,
+                    được sản xuất trên tiến trình 12 nm cho tốc độ xử lý nhanh
+                    chóng ở mọi tác vụ công việc học tập văn phòng cho đến đồ
+                    hoạ và chơi game.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col l-6 m-12 c-12">
+              <ul class="text-wrap">
+                <div style="width: 100%; height: auto; overflow: hidden;">
+                  <div class="row row__no-wrap js-animation__product">
+                    {{#each slideshow21}}
+                      <a
+                        href="/home/{{this.slug}}"
+                        class="col l-6 m-6 c-6 js-first__product" style="text-decoration: none;"
+                      >
+                        <li>
+                          <div class="content__product-item-small">
+                            <div
+                              class="content__product-item-smaill-img"
+                              style="
+                                            background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3
+                              class="content__product-text-heading-small"
+                            >{{this.name}}</h3>
+                          </div>
+                        </li>
+                      </a>
+                    {{/each}}
+                  </div>
+                </div>
+              </ul>
+              <ul class="text-wrap-2">
+                <div style="width: 100%; height: auto; overflow: hidden;">
+                  <div class="row row__no-wrap">
+                    {{#each slideshow22}}
+                      <a href="/home/{{this.slug}}" class="col l-6 m-6 c-6" style="text-decoration: none;">
+                        <li>
+                          <div class="content__product-item-small">
+                            <div
+                              class="content__product-item-smaill-img"
+                              style="background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3
+                              class="content__product-text-heading-small"
+                            >{{this.name}}</h3>
+                          </div>
+                        </li>
+                      </a>
+                    {{/each}}
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- product 2 -->
+        <h2 class="product__name">Laptop Văn Phòng</h2>
+        <div class="product__name-line">
+          <div class="product__name-line-text"></div>
+        </div>
+        <div class="content__product-item">
+          <div class="row">
+            <div class="col l-6 c-12 m-12">
+              <ul class="text-wrap">
+                  <div style="width: 100%; height: auto; overflow: hidden;">
+                    <div class="row row__no-wrap">
+                    {{#each slideshow31}}
+                        <a href="/home/{{this.slug}}" class="col l-6 c-6" style="text-decoration: none;">
+                        <li>
+                            <div class="content__product-item-small">
+                            <div
+                                class="content__product-item-smaill-img"
+                                style="background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3
+                                class="content__product-text-heading-small"
+                            >{{this.name}}</h3>
+                            </div>
+                        </li>
+                        </a>
+                    {{/each}}
+                    </div>
+                  </div>
+              </ul>
+              <ul class="text-wrap-2">
+                  <div style="width: 100%; height: auto; overflow: hidden;">
+                    <div class="row row__no-wrap">
+                    {{#each slideshow32}}
+                        <a
+                        href="/home/{{this.slug}}"
+                        class="col l-6 m-6 c-6"
+                        style="display: inline-block; text-decoration: none;"
+                        >
+                        <li>
+                            <div class="content__product-item-small">
+                            <div
+                                class="content__product-item-smaill-img"
+                                style="background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3 class="content__product-text-heading-small">
+                                {{this.name}}
+                            </h3>
+                            </div>
+                        </li>
+                        </a>
+                    {{/each}}
+                    </div>
+                  </div>
+              </ul>
+            </div>
+
+            <div class="col l-6">
+              <div class="content__product-item-big">
+                <div
+                  class="content__product-item-big-img"
+                  style="background-image: url(/img/img_10.jpg);"
+                >
+                </div>
+                <div class="content__product-text">
+                  <h3 class="content__product-text-heading">Laptop MSI Prestige
+                    14 EVO 089VN</h3>
+                  <span>
+                    Laptop MSI Prestige 14 được trang bị bộ vi xử lý Intel® thế
+                    hệ mới nhất, bộ nhớ RAM DDR4 và ổ lưu trữ SSD tốc độ cao đem
+                    đến khả năng xử lý đa nhiệm một cách nhanh chóng, thời gian
+                    khởi động và truy xuất dữ liệu dường như ngay tức thì.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- product 3 -->
+
+        <h2 class="product__name">Mỏng nhẹ thời trang</h2>
+        <div class="product__name-line">
+          <div class="product__name-line-text"></div>
+        </div>
+        <div class="content__product-item">
+          <div class="row">
+            <div class="col l-6">
+              <div class="content__product-item-big">
+                <div
+                  class="content__product-item-big-img"
+                  style="background-image: url(/img/img_11.png);"
+                >
+                </div>
+                <div class="content__product-text">
+                  <h3 class="content__product-text-heading">Laptop LG Gram 2021
+                    14Z90P-G.AH75A5</h3>
+                  <span>Laptop LG gram 14Z90P-G.AH75A5 là mẫu laptop cao cấp có
+                    xuất sứ từ Hàn Quốc, Được trang bị hàng loạt tính năng hiện
+                    đại cùng ngoại hình bắt mắt. Laptop LG gram 14Z90P-G.AH75A5
+                    chắc chắn kiến bất kỳ vị khách nào khó tính cũng phải hài
+                    lòng
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col l-6 c-12 m-12">
+              <ul class="text-wrap">
+                  <div style="width: 100%; height: auto; overflow: hidden;">
+                    <div class="row row__no-wrap">
+                    {{#each slideshow41}}
+                        <a
+                        href="/home/{{this.slug}}"
+                        class="col l-6 c-6 m-6"
+                        style="display: inline-block; text-decoration: none;"
+                        >
+                        <li>
+                            <div class="content__product-item-small">
+                            <div
+                                class="content__product-item-smaill-img"
+                                style="background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3
+                                class="content__product-text-heading-small"
+                            >{{this.name}}</h3>
+                            </div>
+                        </li>
+                        </a>
+                    {{/each}}
+                    </div>
+                </div>
+              </ul>
+              <ul class="text-wrap-2">
+                  <div style="width: 100%; height: auto; overflow: hidden;">
+                    <div class="row row__no-wrap">
+                    {{#each slideshow42}}
+                        <a href="/home/{{this.slug}}" class="col l-6 c-6 m-6" style="text-decoration: none;">
+                        <li>
+                            <div class="content__product-item-small">
+                            <div
+                                class="content__product-item-smaill-img"
+                                style="background-image: url({{this.image}});"
+                            >
+                            </div>
+                            <h3
+                                class="content__product-text-heading-small"
+                            >{{this.name}}</h3>
+                            </div>
+                        </li>
+                        </a>
+                    {{/each}}
+                    </div>
+                  </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
