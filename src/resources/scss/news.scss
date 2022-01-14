@@ -14,11 +14,14 @@
 }
 
 .news-block {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   margin: 36px 0;
   text-decoration: none;
   color: var(--primary-color);
+  height: 146px;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .news-block__img {

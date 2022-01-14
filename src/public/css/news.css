@@ -11,11 +11,12 @@
   left: 64% !important; }
 
 .news-block {
-  display: flex;
-  align-items: center;
   margin: 36px 0;
   text-decoration: none;
-  color: var(--primary-color); }
+  color: var(--primary-color);
+  height: 146px;
+  display: inline-block;
+  overflow: hidden; }
 
 .news-block__img {
   width: 100%;

@@ -1,0 +1,110 @@
+<div class="container-system">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-12">
+                <div class="Setting_wrapper">
+                    <h1 class="Setting_heading">Cài đặt</h1>
+
+                    {{!-- change username --}}
+                    <div class="GroupField_wrapper">
+                        <h3 class="GroupField_heading">Thông tin cá nhân</h3>
+                        <div class="GroupField_wrapper__name">
+                            <div class="InputField_fieldContent">
+                                <span class="InputField_fieldContent__name">Họ tên</span>
+                                <span class="InputField_description">
+                                    <input type="text" value="{{fullname}}" name="fullnamee" class="InputField_fieldContentInput" style="pointer-events: none;"></input>
+                                    {{!-- <span>
+                                        Tên của bạn xuất hiện trên trang cá nhân và bên cạnh các bình luận của bạn.
+                                    </span> --}}
+                                </span>
+                            </div>
+                            <div class="InputField_fieldBtn">
+                                <button>Chỉnh sửa</button>
+                                <div class="InputField_fieldBtn__subBtn" style="display: none;">
+                                    <button type="submit">Lưu</button>
+                                    <button>Hủy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- change email --}}
+                        <div class="GroupField_wrapper__email">
+                            <div class="InputField_fieldContent">
+                                <span class="InputField_fieldContent__name">Email</span>
+                                    <span class="InputField_description">
+                                        <input type= "text" value = "{{email}}" class="InputField_fieldContentInput" disabled></input>
+                                    </span>
+                            </div>
+                            <div class="InputField_fieldBtn">
+                                <button>Chỉnh sửa</button>
+                                <div class="InputField_fieldBtn__subBtn" style="display: none;">
+                                    <button>Lưu</button>
+                                    <button>Hủy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- change avatar --}}
+                        <div class="GroupField_wrapper__image">
+                            <div class="InputField_fieldContent">
+                                <span class="InputField_fieldContent__name">Avatar</span>
+                                <span class="InputField_description InputField_description-child-3">
+                                    <span>
+                                        Nên là ảnh vuông, chấp nhận các tệp: JPG, PNG hoặc GIF.
+                                    </span> 
+                                    {{!-- <img src="/img/anh.png" class="InputField_fieldContent__img img"> --}}
+                                    <div class="InputField_fieldContent__img img" style="background-image: url(/img/anh.png)">
+                                        {{!-- <input type="file" style="position: absolute; bottom: 0; background-color:transparent;
+                                        border:none; outline:none;"> --}}
+                                        <input type="file" class="fas fa-camera" style="position: absolute; bottom: 0; background-color:rgba(0, 0, 0, 0);
+                                        border:none; outline:none"></input>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="InputField_fieldBtn">
+                                <button>Chỉnh sửa</button>
+                                <div class="InputField_fieldBtn__subBtn" style="display: none;">
+                                    <button>Lưu</button>
+                                    <button>Hủy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- change password --}}
+                        <div class="GroupField_wrapper__password">
+                            <div class="InputField_fieldContent">
+                                <span class="InputField_fieldContent__name">Đặt lại mật khẩu</span>
+                                <span class="InputField_description">
+                                {{!-- <input type="password" placeholder="Mật khẩu hiện tại" class="InputField_fieldContentInput"></input>
+                                <input type="password" placeholder="Mật khẩu mới" class="InputField_fieldContentInput"></input> --}}
+
+                                </span>
+                            </div>
+                            <div class="InputField_fieldBtn">
+                                <button>Chỉnh sửa</button>
+                                <div class="InputField_fieldBtn__subBtn" style="display: none;">
+                                    <button>Lưu</button>
+                                    <button>Hủy</button>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            var img = document.querySelector('.img');
+            img.onload = () => {
+                URL.revokeObjectURL(img.src);  // no longer needed, free memory
+            }
+
+            img.src = URL.createObjectURL(this.files[0]);
+        }
+    });
+    });
+</script>

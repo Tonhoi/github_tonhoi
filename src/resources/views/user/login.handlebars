@@ -1,0 +1,152 @@
+<div class="content__login">
+    <div class="form-content__login">
+        <form action="/textlogin" method="post" id="form-login" class="form-login">
+            <span class="form-content__heading">Đăng nhập</span>
+
+            {{#if error}}
+                <div class="error">
+                    <span>Tài khoản hoặc mật khẩu không chính xác</span>
+                </div>
+            {{/if}}
+            <div class="form-group">
+                <input type="text" name="username" id="username" class="form-input" placeholder="Tên tài khoản">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-input" placeholder="Mật khẩu">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+            <div class="form-button">
+                <p>Bạn đã có tài khoản?<span href="">đăng ký</span></p>
+                <button class="btn login-button">Đăng nhập</button>
+            </div>
+
+            <p class="line">or</p>
+            <div>
+                <button class="btn btn-google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                        <g transform="">
+                            <g fill-rule="evenodd">
+                                <path d="m17.64 9.2a10.341 10.341 0 0 0 -.164-1.841h-8.476v3.481h4.844a4.14 4.14 0 0 1 -1.8 2.716v2.264h2.909a8.777 8.777 0 0 0 2.687-6.62z" fill="#4285f4"/>
+                                <path d="m9 18a8.592 8.592 0 0 0 5.956-2.18l-2.909-2.258a5.43 5.43 0 0 1 -8.083-2.852h-3.007v2.332a9 9 0 0 0 8.043 4.958z" fill="#34a853"/>
+                                <path d="m3.964 10.71a5.321 5.321 0 0 1 0-3.42v-2.332h-3.007a9.011 9.011 0 0 0 0 8.084z" fill="#fbbc05"/>
+                                <path d="m9 3.58a4.862 4.862 0 0 1 3.44 1.346l2.581-2.581a8.649 8.649 0 0 0 -6.021-2.345 9 9 0 0 0 -8.043 4.958l3.007 2.332a5.364 5.364 0 0 1 5.036-3.71z" fill="#ea4335"/>
+                            </g>
+                            <path d="m0 0h18v18h-18z" fill="none"/>
+                        </g>
+                    </svg>
+                    Đăng nhập với google
+                </button>
+                <button class="btn btn-facebook">
+                    <i class="fab fa-facebook"></i>
+                    Đăng nhập với facebook
+                </button>
+            </div>
+        </form>
+
+
+        {{!--  form đăng ký --}}
+        <form action="/register" method="post" id="form-register" class="form-register">
+            <span class="form-content__heading">Đăng Ký</span>
+            {{#if success_msg}}
+                <h1>thành công</h1>
+            {{/if}}
+            <div class="form-group">
+                <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Họ và tên">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="email" id="email" class="form-input" placeholder="Email">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="username" id="username1" class="form-input" placeholder="Tên tài khoản">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" id="password1" class="form-input" placeholder="Mật khẩu">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password2" id="password-confirm" class="form-input" placeholder="Nhập lại mật khẩu">
+                <i class="icon-warning fas fa-exclamation-triangle"></i>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-button">
+                <p>Bạn đã có tài khoản?<span>Đăng nhập</span> </p>
+                <button class="btn login-button">Đăng ký</button>
+            </div>
+        </form>
+
+        <a href="/introduce" class="introduce">Giới thiệu về GHBLOGS</a>
+
+    </div>
+</div>
+
+<script src="/js/handleForm.js"></script>
+<script>
+    handleForm({ 
+        form: '#form-register',
+        rules: [
+            handleForm.isRequired('#fullname'),
+            handleForm.minLength('#fullname', 5),
+            handleForm.isCharacter('#fullname'),
+
+            handleForm.isRequired('#email'),
+            handleForm.isEmail('#email', 'trường này phải là email'),
+
+            handleForm.isRequired('#username1'),
+            handleForm.minLength('#username1', 5),
+            handleForm.isCharacter('#username1'),
+
+            handleForm.isRequired('#password1'),
+            handleForm.minLength('#password1', 5),
+            handleForm.isCharacter('#password1'),
+
+            handleForm.isRequired('#password-confirm'),
+            handleForm.isConfirmed('#password-confirm', function() {
+                return document.querySelector('#form-register #password1').value
+            }, 'Mật khẩu không trùng khớp'),
+        ]
+    })
+    handleForm({ 
+        form: '#form-login',
+        rules: [
+
+            handleForm.isRequired('#username'),
+
+            handleForm.isRequired('#password'),
+        ]
+    })
+    
+</script>
+
+<script>
+    var formLogin = document.querySelector('.form-login')
+    var btnLogin = document.querySelectorAll('.form-button p span')[0]
+
+    var formRegister = document.querySelector('.form-register')
+    var btnRegister = document.querySelectorAll('.form-button p span')[1]
+    btnLogin.onclick = (e) => {
+        formRegister.style.display = 'block'
+        formLogin.style.display = 'none'
+    }
+
+    btnRegister.onclick = (e) => {
+        formLogin.style.display = 'block'
+        formRegister.style.display = 'none'
+    }
+
+
+</script>

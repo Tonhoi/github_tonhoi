@@ -40,9 +40,10 @@
   height: 50px;
   border-radius: 50px;
   background-color: #2096f4;
-  margin: 0 52px 20px auto;
+  margin: 0 70px 20px auto;
   transform: rotate(280deg);
-  cursor: pointer; }
+  cursor: pointer;
+  display: block; }
 
 .container__contact-icon:hover {
   opacity: 0.8; }

@@ -58,27 +58,22 @@ app.use(function(req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
-  next();
-});
-
-
-app.engine('hbs', handlebars({
-  extname:'hbs', 
-  defaultLayout:'main.hbs',
-  helpers: require('./helpers/handlebars')
-}));
-
-app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'resources', 'views'))
-
-app.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   next();
 });
+
+
+app.engine('handlebars', handlebars({
+  extname:'handlebars', 
+  defaultLayout:'main.handlebars',
+  helpers: require('./helpers/handlebars')
+}));
+
+app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, 'resources', 'views'))
+
+
 route(app)
-
-
-
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)

@@ -249,6 +249,9 @@ table {
 thead tr {
   border-bottom: 2px solid black; }
 
+tbody.test.hidden {
+  display: none; }
+
 thead tr th {
   font-size: 2.4rem;
   font-weight: 500; }
@@ -259,6 +262,40 @@ tbody tr th {
 
 tbody tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.4); }
+
+.div-btn {
+  margin-top: 20px;
+  text-align: center; }
+
+.btn__pagination {
+  width: 58px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #ccc; }
+
+.btn__pagination:hover {
+  cursor: pointer; }
+
+.btn__pagination:hover .pagination {
+  color: var(--white-color);
+  background-color: #698aff;
+  border-radius: 8px; }
+
+.pagination.pagination__active {
+  background-color: #698aff;
+  color: var(--white-color);
+  border-radius: 8px; }
+
+.pagination {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #a0aacc;
+  line-height: 50px; }
+
+.btn__pagination.btn__pagination--hidden {
+  display: none !important; }
 
 .btn-update-viewPosts {
   background-color: #2789ea; }

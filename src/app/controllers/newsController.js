@@ -3,21 +3,30 @@ const {multipleMongooseToObject} = require('../../util/mongoose')
 class newsController {
     // [GET] / news
     news(req, res) {
-        const { user: { fullname, image } = {} } = req;
-        // res.render('user/news', {
-        //     fullname,
-        //     image
-        // })
+        const { user: { fullname, image, role } = {} } = req;
 
-        slideshow.find({classify: 5})
-            .then(slideshow5 => {
-                res.render('user/news', {
-                    slideshow5:multipleMongooseToObject(slideshow5),
-                    fullname,
-                    image,
+        if (role === 'admin') {
+            slideshow.find({classify: 5})
+                .then(slideshow5 => {
+                    res.render('user/news', {
+                        slideshow5:multipleMongooseToObject(slideshow5),
+                        fullname,
+                        image,
+                        role,
+                    })
                 })
-            })
-        .catch(error => next(error))
+            .catch(error => next(error))
+        }else {
+            slideshow.find({classify: 5})
+                .then(slideshow5 => {
+                    res.render('user/news', {
+                        slideshow5:multipleMongooseToObject(slideshow5),
+                        fullname,
+                        image,
+                    })
+                })
+            .catch(error => next(error))
+        }
     }
 }
 

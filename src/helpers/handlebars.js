@@ -30,5 +30,5 @@ module.exports = {
             </a>`
         return new Handlebars.SafeString(output)
     
-    }
+    },
 }

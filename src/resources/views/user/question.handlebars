@@ -1,0 +1,108 @@
+<div id="slidershow"></div>
+<div class="question__page">
+    <div class="grid wide">
+        <div class="question__content">
+            <div class="row wrap__reverse-tablet-mobile">
+                <div class="col l-8">
+                    <div class="blog__tabs" >
+                        <h1 class="blog__tabs-tittle">Phù hợp với bạn</h1>
+                        <div class="product__name-line road">
+                            <div class="product__name-line-text road__line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-4">
+                    <div class="RecommendedTopics">
+                        <h1 class="blog__tabs-tittle">Các chủ đề được đề xuất</h1>
+                        <ul class="RecommendedTopics_topics">
+                            <li>
+                                <a href="#">Laptop gaming</a>
+                            </li>
+                             <li>
+                                <a href="#">Laptop văn phòng</a>
+                            </li>
+                             <li>
+                                <a href="#">Laptop mỏng nhẹ</a>
+                            </li>
+                             <li>
+                                <a href="#">Máy tính bảng</a>
+                            </li>
+                             <li>
+                                <a href="#">Phụ kiện laptop</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="overlay__option"></div>
+                <div class="question__content-separate hide-on-tablet-mobile"></div>
+                {{!-- copy here --}}
+                {{#each blogUser}}
+                <div class="col l-8 c-12 test">
+                    <div class="question__content-title">
+                        <div class="postItem__header">
+                            <div class="postItem__author">
+                                <a href="" class="">
+                                    <img src="https://fullstack.edu.vn/assets/images/nobody_m.256x256.jpg" alt="" class="postItem__author-img">
+                                </a>
+                                <a href="">
+                                    <span>{{this.username}}</span>
+                                </a>
+                            </div>
+                            <div class="postItem__optionBtn"> 
+                                <i class="icon__ellipsis fas fa-ellipsis-h"></i>
+                                <div class="postItem__optionBtn-function">
+                                    <ul class="tippy__wrapper-list">
+                                        <li>
+                                            <i class="fab fa-facebook">
+                                                <span>Chia sẻ lên facebook</span>
+                                            </i>
+                                        </li>
+                                        <li>
+                                            <i class="fab fa-twitter">
+                                                <span>chia sẻ lên Twitter</span>
+                                            </i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope">
+                                                <span>Email</span>
+                                            </i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-link">
+                                                <span>Sao chép liên kết</span>
+                                            </i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-flag">
+                                                <span>Báo cáo bài viết</span>
+                                            </i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/blogs/{{this.slug}}" class="postItem__body wrap__reverse-mobile js-active">
+                            <div class="postItem__info">
+                                <h1 class="postItem__info-title">{{this.tittle}}</h1>
+                                <span>{{{this.tittle}}}</span>
+                                <div class="postItem__info-time">
+                                    <span>13 giờ trước</span>
+                                    <span>·</span>
+                                    <span>5 phút đọc</span>
+                                </div> 
+                            </div>
+                            <div class="postItem__thumb">
+                                <img src="{{this.image}}" alt="" class="postItem__thumb-img">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,12 +4,28 @@ class postController {
 
     // [GET] / home / :slug
     post(req, res, next) {
-        slideshow.findOne({ slug: req.params.slug })
-            .then(slideshow => 
-                res.render('user/post',
-                    {slideshow: MongooseToObject(slideshow)}),
-                )
-            .catch(next)
+        const { user: { fullname, image, role } = {} } = req;
+        if (role === 'admin') {
+            slideshow.findOne({ slug: req.params.slug })
+                .then(slideshow => 
+                    res.render('user/post', {
+                            slideshow: MongooseToObject(slideshow),
+                            fullname,
+                            role
+                        }),  
+                    )
+                .catch(next)
+        }else {
+            slideshow.findOne({ slug: req.params.slug })
+                .then(slideshow => 
+                    res.render('user/post',
+                        {
+                            slideshow: MongooseToObject(slideshow),
+                            fullname
+                        }),  
+                    )
+                .catch(next)
+        }
     }
 }
 

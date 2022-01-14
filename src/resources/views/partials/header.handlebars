@@ -1,0 +1,341 @@
+<div class="header">
+<div class="grid wide">
+    <nav class="nav-bar">
+        <a href="/"
+            ><img src="/img/logo1.png" alt="" class="header__logo"
+        /></a>
+        <ul class="header-list hide-on-tablet-mobile">
+            <li class="header-list__item">
+            <a href="/" class="header-list__item-link">Trang chủ </a>
+            </li>
+            <li class="header-list__item">
+            <a href="/news" class="header-list__item-link">Tin tức</a>
+            </li>
+            <li class="header-list__item">
+            <a href="/question" class="header-list__item-link">Hỏi đáp</a>
+            </li>
+            <li class="header-list__item">
+            <a href="/contact" class="header-list__item-link">Liên hệ</a>
+            </li>
+
+            {{!-- search --}}
+            <div class="search__div">
+                <input type="text" placeholder="Nhập từ khóa cần tìm kiếm" class="checkinput" onkeyup="sendData(this)"/>
+                <ul class="search__list">
+                    
+                </ul>
+            </div>
+        </ul>
+
+    
+        
+    {{#if loggedIn}}
+    <!-- show when login -->
+        <div class="header-pc__avatar">
+
+            <!-- hide bell when no login on tablet mobile: header-icon-tablet-mobile-pc--no-login-->
+            {{!-- <div class="header-icon-tablet-mobile-pc"> --}}
+                <i class="header-icon__bell far fa-bell">
+                    <!-- quantity -->
+                    <span class="header-icon__bell-quantity">1</span>
+
+                    <!-- order list  -->
+                    <!-- no bell : header-bell__div--no-bell -->
+                    <div class="header-bell__div">
+                    <div class="header-bell__no-bell">
+                        <img src="/img/no-bell.png" alt="" />
+                        <p>Chưa có thông báo</p>
+                    </div>
+                    <div class="header-bell__heading">
+                        <span>Thông báo</span>
+                        <span>Đánh dấu đã đọc</span>
+                    </div>
+                    <ul class="header-bell__list">
+                        <!-- đánh dấu là chưa đọc: header-bell__item-active -->
+                        <li class="header-bell__item header-bell__item-active">
+                        <img
+                            src="/img/anh.png"
+                            alt=""
+                            class="header-bell__img"
+                        />
+                        <div class="header-bell__tittle">
+                            <div class="header-bell__desc">
+                            Chào mừng bạn đến với trang web của chúng tôi, chúc
+                            bạn một ngày tốt lành ^^
+                            </div>
+
+                            <div class="time__comments">4 tháng trước</div>
+                        </div>
+                        </li>
+                    </ul>
+                    </div>
+                </i>
+
+                <div class="icon__search">
+                    <i class="fas fa-search"></i>
+                </div> 
+            {{!-- </div> --}}
+
+            {{!-- avatar --}}
+            <div class="header-pc-function hide-on-tablet-mobile">
+            <img src="/img/anh.png" alt="" class="header-pc__img" />
+                <ul class="menu-icon-down__list hide-on-tablet-mobile">
+                    <li class="menu-icon-down__item">
+                        <div class="menu-icon-down__avatar">
+                            <img src="/img/anh.png" alt="" class="menu-header-pc__img" />
+                                <span class="header-pc__name">{{fullname}}</span>
+                        </div>
+                    </li>
+                    <div class="menu-icon-down__item--2">
+                        <li class="menu-icon-down__item">
+                        <a href="/writeBlogs" class="menu-icon-down__item-link">
+                            <span>
+                                Viết blogs
+                            </span>
+                        </a>
+                        </li>
+
+                        <li class="menu-icon-down__item">
+                        <a href="/me/myblogs" class="menu-icon-down__item-link">
+                            <span>
+                                Bài viết của tôi
+                            </span>
+                        </a>
+                        </li>
+                    </div>
+                    
+                    <div class="menu-icon-down__item--3">
+                        <li class="menu-icon-down__item">
+                        <a href="/system" class="menu-icon-down__item-link">
+                            Cài Đặt
+                        </a>
+                        </li>
+
+                        <li class="menu-icon-down__item js-page-manager">
+                        <a href="/logout" class="menu-icon-down__item-link">
+                            Đăng Xuất
+                        </a>
+                        </li>
+                    </div>
+
+                    {{#if role}}
+                    <li class="menu-icon-down__item">
+                        <a href="/homeAdmin" class="menu-icon-down__item-link">
+                            <span>
+                                Quản lí
+                            </span>
+                        </a>
+                        </li>
+                   {{/if}}
+                </ul>
+            </div>
+
+            <!-- show search on tablet mobile -->
+
+            <div id="showsearch" class="search__overlay">
+                <div class="form-search">
+                <h3>Tìm kiếm</h3>
+                <input type="text" />
+                </div>
+                <label class="close-btn close-search fas fa-times"></label>
+                <ul class="content__search-list">
+                <li class="content__search">
+                    <img
+                    src="https://www.tnc.com.vn/uploads/product/XUYEN_06_2021/Dell-Latitude-3420.jpg"
+                    alt=""
+                    class="content__search-img"
+                    />
+
+                    <div class="content__search-tittle">
+                    <h3 class="content__search-header">
+                        Laptop Dell Latitude 3420 L3420I5SSD sản phẩm chính
+                        hãng đến từ cửa hàng của chúng tôi Laptop Dell
+                        Latitude 3420 L3420I5SSD sản phẩm chính hãng đến sản
+                        phẩm chính hãng đến
+                    </h3>
+                    <span class="content__search-time">11/9/2021</span>
+                    </div>
+                </li>
+                </ul>
+
+                <button>XEM TẤT CẢ CÁC KẾT QUẢ</button>
+            </div>
+        </div>
+        {{else}}
+        <!-- hide when login -->
+        <div class="header-login-register hide-on-tablet-mobile">
+            <a href="/login">Đăng nhập</a>
+        </div>
+        {{/if}}
+            {{!-- <div> --}}
+            <!-- icon bar -->
+            <div class="header-icon__bar-div hide-on-pc">
+                <label for="check" class="header-icon__bar fas fa-bars"></label>
+            </div>
+        {{!-- </div> --}}
+    </nav>
+
+        <!-- navbar on tablet mobie -->
+    <input type="checkbox" id="check" class="checkk" hidden />
+    <label for="check" class="overlay"></label>
+    <nav class="nav-bar-tablet-mobile">
+        <label for="check" class="close-btn fas fa-times"></label>
+
+        {{#if loggedIn}}
+        <!-- login success: header-tablet-mobile__avatar--no-login-->
+        <div class="header-tablet-mobile__avatar header-tablet-mobile__avatar--no-login">
+            <img
+            src="/img/anh.png"
+            alt=""
+            class="header-tablet-mobile__img"
+            />
+            <span class="header-tablet-mobile__name">{{fullname}}</span>
+            
+        </div>
+        <div class="mt-104">
+        {{else}}
+            <div class="header-tablet-mobile__avatar">
+                <img
+                    src="/img/logo1.png"
+                    alt=""
+                    class="header__logo-tablet-mobile"
+                    />
+            </div>
+            <div class="form-tablet-mobile-login-register">
+                <a href="/login" class="form-tablet-mobile js-login" style="display: inline-block;">
+                <i
+                    class="header-tablet-mobile__icon-login fas fa-sign-in-alt"
+                ></i>
+                Đăng nhập
+                </a>
+            </div>
+        {{/if}}
+            <ul class="header-tablet-mobile-list">
+                <li
+                class="header-tablet-mobile-list__item header-list__item-active"
+                >
+                <a href="/" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-home"></i>
+                    Trang chủ
+                </a>
+                </li>
+                <li class="header-tablet-mobile-list__item">
+                <a href="/news" class="header-tablet-mobile-list__item-link">
+                    <i
+                    class="header-tablet-mobile__icon fas fa-envelope-open"
+                    ></i>
+                    Tin tức
+                </a>
+                </li>
+                <li class="header-tablet-mobile-list__item">
+                <a href="/question" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-book-open"></i>
+                    Hỏi đáp
+                </a>
+                </li>
+                <li class="header-list-tablet-mobile__item">
+                <a href="/contact" class="header-tablet-mobile-list__item-link">
+                    <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                    Liên hệ
+                </a>
+                </li>
+                {{#if loggedIn}}
+                    <li class="header-list-tablet-mobile__item">
+                    <a href="/writeBlogs" class="header-tablet-mobile-list__item-link">
+                        <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                        Viết blogs
+                    </a>
+                    </li>
+                    <li class="header-list-tablet-mobile__item">
+                    <a href="/me/myblogs" class="header-tablet-mobile-list__item-link">
+                        <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                        Bài viết của tôi
+                    </a>
+                    </li>
+                    <li class="header-list-tablet-mobile__item">
+                    <a href="/logout" class="header-tablet-mobile-list__item-link">
+                        <i class="header-tablet-mobile__icon fas fa-pen-nib"></i>
+                        Đăng xuất
+                    </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+        
+    </nav>
+
+    <!-- </div> -->
+</div>
+</div>
+
+<script>
+    function sendData(e) {
+        const searchResults = document.querySelector('.search__list')
+        
+        var match = e.value.match(/^[a-zA-Z0-9 ]*/) 
+        var match2 = e.value.match(/\s*/)
+        if (match2[0] === e.value) {
+            searchResults.innerHTML = ''
+            return
+        }
+
+        if (match[0] === e.value) {
+            fetch('getPost', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body:JSON.stringify({payload: e.value})
+            }).then(res => res.json()).then(data => {
+
+                let payload = data.payload
+                searchResults.innerHTML = ''
+                if(payload.length < 1) {
+                    searchResults.innerHTML = `
+                        <li class="search__item">
+                            <a href="#" class="search__link">không có kết quả tìm kiếm</a>
+                        </li>`
+                    return
+                }
+                payload.forEach((item, index) => {          
+                    searchResults.innerHTML += 
+                    `
+                        <li class="search__item">
+                            <a href="/blogs/${item.slug}" class="search__link">${item.tittle}</a>
+                        </li>
+                    `
+                })
+            
+        })
+        return
+
+        }
+    }
+</script>
+<script>
+    var iconSearch = document.querySelector('.header-pc__avatar .icon__search')
+    var logo = document.querySelector('.header__logo')
+    var navBar = document.querySelectorAll('.header-list__item')
+    var search = document.querySelector('.search__div')
+    var headerList = document.querySelector('.header-list')
+
+    var searchList = document.querySelector('.search__list')
+    searchList.onmousedown = (e) => {
+        e.preventDefault()
+    }
+    
+    function hidden() {
+            logo.classList.toggle('toggle')
+            search.classList.toggle('toggle')
+            headerList.classList.toggle('toggle')
+        navBar.forEach(navBar => {
+            navBar.classList.toggle('toggle')
+        })
+
+        iconSearch.style.backgroundColor = 'yello'
+    }
+    iconSearch.addEventListener('click', hidden)
+</script>
+
+
+
+
+

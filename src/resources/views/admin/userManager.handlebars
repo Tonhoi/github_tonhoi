@@ -1,0 +1,184 @@
+<div class="form__user-common">
+    <p>Quản lý người dùng</p>
+    <button class="add__new-user">
+        <i class="fas fa-plus"></i>
+        Thêm mới
+    </button>
+    <div  class="form-user">
+        <span>Thông tin cá nhân</span>
+        <div class="form__CRUD">
+            <div class="form-user__heading">
+                <a href="/homeAdmin/trashUsermanager">Thùng rác ({{deleteusers}}) </a>
+            </div>
+            <div>
+                <span>Search</span>
+                <input type="text" class="search" placeholder="Tìm kiếm ở đây" onkeyup="sendData(this)">
+            </div>
+        </div>
+
+        <table style="width: 100%;">
+            {{!-- <thead> --}}
+                <th style="width: 8%;"></th>
+                <th style="width: 20%;">
+                    Họ và tên
+                    {{{sortable 'fullname' _sort}}}
+                </th>
+                <th style="width: 14%;">
+                    Tài khoản
+                    {{{sortable 'username' _sort}}}
+                </th>
+                <th style="width: 8%;">
+                    Email
+                    {{{sortable 'email' _sort}}}
+                </th>
+                <th>Chức năng</th>
+            {{!-- </thead> --}}
+            {{!-- <tbody> --}}
+                {{#each loginRegister}}
+                <tbody class="test">
+                    <tr>
+                        <th class="demo">{{sum @index 1}}</th>
+                        <th class="demo">{{this.fullname}}</th>
+                        <th class="demo">{{this.username}}</th>
+                        <th class="demo">{{this.email}}</th>
+                        <th>
+                            <a href="/homeAdmin/user/{{this.infoUser}}" class="btn-view btn">
+                                <i class="fas fa-eye"></i>
+                                <span>Xem</span>
+                            </a>
+                            <a href="/homeAdmin/{{this._id}}/editRegister" class="btn-update btn">
+                                <i class="fas fa-edit"></i>
+                                <span>Sửa</span>
+                            </a>
+                            <form action="/homeAdmin/{{this._id}}?_method=DELETE" method="post" style="display: inline-block; position: relative; top:0px" class="btn btn-delete">
+                                <button style="background-color: transparent; border: none; color: var(--white-color);font-size: 1.6rem;font-weight: 600; cursor: pointer;width: 100%; height: 25px;">
+                                    <i class="fas fa-trash-alt"></i>
+                                    <span>xóa</span>
+                                </button>
+                            </form>
+                        </th>
+                    </tr>
+                </tbody>
+                <tbody id="test2">
+                </tbody>
+                {{else}}
+                 <tr>
+                    <th colspan="5" style="border-bottom: 1px solid var(--white-color);">
+                        Bạn chưa có Người dùng nào.
+                    </th>
+                </tr>
+                {{/each}}
+            {{!-- </tbody> --}}
+        </table>
+    </div>
+
+    
+    <div class="layout-user"></div>
+    <div class="model__container">
+        <div class="model__user">
+            <div class="btn-close__user">&times;</div>
+            <form action="/homeAdmin/register" method="post">
+                <div class="form-group">
+                    <label for="" class="form-label__user">Họ và tên</label>
+                    <div class="form-group__sub-div">
+                        <i class="form-icon__user fas fa-user-friends"></i>
+                        <input type="text" name="fullname" class="form-input__user" placeholder="Họ và tên">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label__user">email</label>
+                    <div class="form-group__sub-div">
+                        <i class="form-icon__user fas fa-user-friends"></i>
+                        <input type="text" name="email" class="form-input__user" placeholder="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label__user">Tên tài khoản</label>
+                    <div class="form-group__sub-div">
+                        <i class="form-icon__user fas fa-user"></i>
+                        <input type="text" name="username" class="form-input__user" placeholder="Tên tài khoản">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label__user">Mật khẩu</label>
+                    <div class="form-group__sub-div">
+                        <i class="form-icon__user fas fa-lock"></i>
+                        <input type="password" name="password" class="form-input__user" placeholder="Mật khẩu">
+                    </div>
+                </div>
+
+                <div class="form-btn">
+                    <input type="button" value="Hủy" class="form-btn__cancel">
+                    <input type="submit" value="Lưu" class="form-btn__save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendData(e) {
+        const currentList = document.querySelectorAll('.test')
+        const searchResults = document.getElementById('test2')
+        
+        var match = e.value.match(/^[a-zA-Z0-9 ]*/) 
+        var match2 = e.value.match(/\s*/)
+        if (match2[0] === e.value) {
+            searchResults.innerHTML = ''
+            currentList.forEach(currentList => {
+                currentList.classList.remove('hidden')
+            })
+            return
+        }
+
+        if (match[0] === e.value) {
+            fetch('getUser', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body:JSON.stringify({payload: e.value})
+            }).then(res => res.json()).then(data => {
+
+                let payload = data.payload
+                searchResults.innerHTML = ''
+                if(payload.length < 1) {
+                    currentList.innerHTML = '<p>sorry. nothing found.</p>'
+                    return
+                }
+                currentList.forEach(currentList => {
+                    currentList.classList.add('hidden')
+                })
+                payload.forEach((item, index) => {          
+                    searchResults.innerHTML += `
+                    <table style="width: 100%;">
+                        <tr id = "test2">
+                            <th>{{sum @index 1}}</th>
+                            <th>${item.fullname}</th>
+                            <th>${item.username}</th>
+                            <th>${item.email}</th>
+                            <th>
+                                <a href="/homeAdmin/user/${item.infoUser}" class="btn-view btn">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Xem</span>
+                                </a>
+                                <a href="/homeAdmin/${item._id}/editRegister" class="btn-update btn">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Sửa</span>
+                                </a>
+                                <form action="/homeAdmin/${item._id}?_method=DELETE" method="post" style="display: inline-block; position: relative; top:0px" class="btn btn-delete">
+                                    <button style="background-color: transparent; border: none; color: var(--white-color);font-size: 1.6rem;font-weight: 600; cursor: pointer;width: 100%; height: 25px;">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <span>xóa</span>
+                                    </button>
+                                </form>
+                            </th>
+                        </tr>
+                    </table>
+                `
+                })
+            
+        })
+        return
+
+        }
+    }
+</script>

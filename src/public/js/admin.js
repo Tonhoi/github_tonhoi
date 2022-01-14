@@ -123,10 +123,8 @@ const app = {
     activeCategory: function() {
         var currentHref = location.href
         var activeCate = document.querySelectorAll('.js-active-category')
-        console.log(activeCate)
 
         activeCate.forEach(activeCate => {
-            console.log(activeCate)
             if (activeCate.href === currentHref) {
                 activeCate.className = 'admin-category__link active'
             }

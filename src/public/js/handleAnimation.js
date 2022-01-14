@@ -19,11 +19,10 @@ function handleAnimation() {
 
 // line
 function animationLine() {
-var rect = line1.getBoundingClientRect().y;
-var rect2 = line2.getBoundingClientRect().y;
-var rect3 = line3.getBoundingClientRect().y;
-
     if (productName1) {
+        var rect = line1.getBoundingClientRect().y;
+        var rect2 = line2.getBoundingClientRect().y;
+        var rect3 = line3.getBoundingClientRect().y;
         if (document.body.scrollTop >= rect ||
             document.documentElement.scrollTop >= rect) {
             line1.style.width = productName1.offsetWidth + 'px'

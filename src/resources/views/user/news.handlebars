@@ -1,0 +1,51 @@
+<div id="slidershow"></div>
+<div class="news-container">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-12">
+                <h1 class="news-heading">Đồ công nghệ</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col l-12">
+                <div class="question__content-separate news__separate hide-on-tablet-mobile"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col l-8 m-12 c-12">
+                {{#each slideshow5}}
+                    <a href="/home/{{this.slug}}" class="news-block">
+                        <div class="row full-width-on-mobile">
+                            <div class="col l-4 m-4 c-12">
+                                <img src="{{this.image}}"
+                                alt="" class="news-block__img">
+                            </div>
+                            <div class="col l-8 m-8 c-12">
+                                <div class="news-block-text">
+                                    <h1 class="news-block__heading">{{this.name}}</h1>
+                                    {{!-- <span class="news-block__title" style="font-size: 1.6rem !important;">{{{this.description}}}
+                                    </span> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {{/each}}
+            </div>
+            
+            <div class="col l-4 m-12 c-12">
+                    <h1 class="news-post__h1">Bài viết mới nhất</h1>
+                <div class="news-post">
+                    <a href="#" class="news-post__title">Trực tiếp ra mắt Iphone 13 vào 00h ngày 15/9/2021</a>
+                    <a href="#" class="news-post__title">Review top 7 loại viên uống collagen tốt nhất và được tin dùng hiện nay</a>
+                    <a href="#" class="news-post__title">Review top 6 hãng quạt điều hoà hot nhất – mỗi gia đình đều nên có!</a>
+                    <a href="#" class="news-post__title">Nên mua quạt điều hòa loại nào tốt nhất hiện nay 2021?</a>
+                    <a href="#" class="news-post__title">Bàn là hơi nước cầm tay loại nào tốt và được ưa chuộng nhất?</a>
+                    <a href="#" class="news-post__title">Review kem trị mụn A313 có tốt không? Có nên mua không?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

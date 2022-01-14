@@ -1,0 +1,183 @@
+
+<div class="content">
+    <div class="form__user-common">
+        <div class="form-user">
+            <div class="form-user__heading">
+                <h1>Bài viết của tôi</h1>
+                <a href="/homeAdmin/trashViewPosts">Thùng rác ({{deletedSlide}}) </a>
+                 <input type="text" class="search" placeholder="Tìm kiếm ở đây" onkeyup="sendData(this)">
+            </div>
+
+            <table>
+                <tr>
+                    <th style="width: 10%;">
+                        ID
+                        {{{sortable '_id' _sort}}}
+                    </th>
+                    <th style="width: 10%;">Ảnh</th>
+                    <th style="width: 40%;">
+                        Tên laptop
+                        {{{sortable 'name' _sort}}}
+                    </th>
+                    <th style="width: 15%;">chức năng</th>
+                </tr>
+                {{#each slideshow}}
+                <tbody class="test">
+                    <tr>
+                        <th scope="row">
+                            {{this._id}}
+                        </th>
+                        <th><img src="{{this.image}}"style="width: 50px; height: 50px; border-radius:12px;"></th>
+                        <th>{{this.name}}</th>
+                        <th>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;padding: 0 12px; grid-column-gap: 12px; grid-row-gap: 8px; align-items: center">
+                                <a href="/homeAdmin/{{this.slug}}" class="btn btn-view">
+                                    <i class="fas fa-eye"></i>
+                                    <span>xem</span>
+                                </a>
+                                <a href="/homeAdmin/{{this._id}}/edit" class="btn btn-update">
+                                    <i class="fas fa-edit"></i>
+                                    <span>sửa</span>
+                                </a>
+                                <form action="/homeAdmin/{{this._id}}/deleteSlide?_method=DELETE" method="post" class="btn btn-delete" style="position: relative; top: 0">
+                                    <button style="background-color: transparent; border: none;font-size: 1.8rem;font-weight: 600;color: var(--white-color);">
+                                        <i class="far fa-trash-alt"></i>
+                                        <span>Xóa</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+
+                <tbody id="test2">
+                </tbody>
+
+                {{else}}
+                <tr>
+                    <th colspan="5" style="border-bottom: 1px solid #fff;">
+                        Bạn chưa có bài viết nào.
+                        <a href="/homeAdmin/handleUser">Đăng bài viết</a>
+                    </th>
+                </tr>
+                {{/each}}
+            </table>
+                <div class="div-btn"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    fetch('GetViewPosts', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+    })
+        .then(res => res.json())
+        .then(data => {
+            var text1 = data.length
+            var KQ = Math.ceil(text1 / 4)
+
+            var i = 1
+
+            var html = ''
+            html += `
+                <button class="btn__pagination"><a href="viewPosts?page=${i}" class="pagination">First</a></button>
+            `
+            var check = false
+            for(i; i <= KQ; i++) {
+                html += 
+                `
+                    <button class="btn__pagination"><a href="viewPosts?page=${i}" class="pagination">${i}</a></button>
+                `
+
+            }    
+            html += `
+                <button class="btn__pagination btn__pagination--last"><a href="viewPosts?page=${i - 1}" class="pagination pagination2">Last</a></button>
+            `
+
+
+            document.querySelector('.div-btn').innerHTML = html
+            var currentLocation = location.href
+            var page = document.querySelectorAll('.pagination')
+            page.forEach((page, index) => {
+                if (page.href === currentLocation)
+                {
+                    page.className = 'pagination pagination__active'
+
+                }
+            })
+        })
+        .catch('có lỗi')
+</script>
+
+<script>
+    function sendData(e) {
+        const currentList = document.querySelectorAll('.test')
+        const searchResults = document.getElementById('test2')
+        var match = e.value.match(/^[a-zA-Z0-9 ]*/) 
+        var match2 = e.value.match(/\s*/)
+        if (match2[0] === e.value) {
+            searchResults.innerHTML = ''
+            currentList.forEach(currentList => {
+                currentList.classList.remove('hidden')
+            })
+            return
+        }
+
+        if (match[0] === e.value) {
+            fetch('getSlide', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body:JSON.stringify({payload: e.value})
+            }).then(res => res.json()).then(data => {
+                var count = 1
+
+                let payload = data.payload
+                searchResults.innerHTML = ''
+                if(payload.length < 1) {
+                    currentList.innerHTML = '<tbody><tr><th>sorry. nothing found.</th></tr></tbody>'
+                    return
+                }
+                currentList.forEach(currentList => {
+                    currentList.classList.add('hidden')
+                })
+                payload.forEach((item, index) => {          
+                    searchResults.innerHTML += `
+                    <table style="width: 100%;">
+                        <tr class="test">
+                            <th scope="row">
+                                ${item._id}
+                            </th>
+                            <th><img src="${item.image}"style="width: 50px; height: 50px; border-radius:12px;"></th>
+                            <th>${item.name}</th>
+                            <th>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;padding: 0 12px; grid-column-gap: 12px; grid-row-gap: 8px; align-items: center">
+                                    <a href="/homeAdmin/${item.slug}" class="btn btn-view">
+                                        <i class="fas fa-eye"></i>
+                                        <span>xem</span>
+                                    </a>
+                                    <a href="/homeAdmin/${this._id}/edit" class="btn btn-update">
+                                        <i class="fas fa-edit"></i>
+                                        <span>sửa</span>
+                                    </a>
+                                    <form action="/homeAdmin/${item._id}?_method=DELETE" method="post" class="btn btn-delete" style="position: relative; top: 0">
+                                        <button style="background-color: transparent; border: none;font-size: 1.8rem;font-weight: 600;color: var(--white-color);">
+                                            <i class="far fa-trash-alt"></i>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                `
+                })
+            
+        })
+        return
+
+        }
+    }
+</script>
+
+

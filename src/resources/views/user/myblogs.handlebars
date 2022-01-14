@@ -1,0 +1,75 @@
+<div class="myblogs" style="position:relative; top: 100px;">
+    <div class="grid wide">
+        <h1 class="myBlog-header" style="font-size: 3.3rem; margin-bottom: 20px;">Bài viết của tôi</h1>
+        <div class="myBlog-content">
+            <span style="font-size: 1.8rem;">Đã xuất bản</span>
+            <div style="width: 100%; height: 2px; background-color: rgb(229,229,229); margin-top: 12px;"></div>
+
+            {{#each myBlogs}}
+            <div style="margin: 36px 0 12px; position: relative; text-align: center;">
+                <a href="/blogs/{{this.slug}}" style="height: auto; display: inline-flex; width: 70%; text-decoration: none; color: black;">
+                    <img
+                    src="{{this.image}}"
+                    alt=""
+                    style="width: 200px; object-fit: contain; border-radius: 12px"
+                    />
+                    <span style="width: 66%; font-size: 1.8rem; margin-left: 12px; display: inline-block; text-align: left;">{{this.tittle}}</span>
+                </a>
+                <div class="overlay__option"></div>
+                <div class="postItem__optionBtn" style="display: inline-block; position: absolute; top:30%;"> 
+                    <i class="icon__ellipsis fas fa-ellipsis-v" style="padding: 0 16px; margin: 0 -16px"></i>
+                    <div class="postItem__optionBtn-function">
+                        <ul class="tippy__wrapper-list" style="text-align: left;">
+                            <a href="/me/myblogs/{{this._id}}/editMyBlogs" style="display: block; text-decoration: none; color: black">
+                                <li>
+                                    <span style="font-size: 1.6rem; font-weight: 700;">Chỉnh sửa bài viết</span>
+                                </li>
+                            </a>
+                            <form action="/me/myblogs/{{this._id}}/forceDestroy?_method=DELETE" method="post">
+                                <button style="width: 100%; background-color: transparent; border: none; text-align: left;">
+                                    <li>
+                                        <span style="font-size: 1.6rem; color: rgb(112,112,112); font-weight: 700;">xóa bài viết</span>
+                                    </li>
+                                </button>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <h1 style="font-size: 1.4rem; margin: 39px 0 19px;">chưa có bài viết nào</h1>
+            <h1 style="font-size: 1.4rem;">
+                Bạn có thể 
+                <a href="/writeBlogs" style="display: inline-block; color:rgb(91,158,116)">viết bài mới</a> 
+                hoặc 
+                <a href="/question" style="display: inline-block; color:rgb(91,158,116)">đọc bài viết</a> 
+                khác trên GHBLOGS nhé.
+            </h1>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $ = document.querySelector.bind(document)
+    var $$ = document.querySelectorAll.bind(document)
+    function handleOption() { 
+    var iconEllipsis = $$('.icon__ellipsis')
+    var menus = $$('.postItem__optionBtn-function')
+    var overlayOption = $('.overlay__option')
+    iconEllipsis.forEach((iconEllipsis, index) => {
+    var menu = menus[index]
+    iconEllipsis.onclick = function() {
+        overlayOption.classList.toggle('open')
+        this.style.zIndex = '4'
+        menu.classList.toggle('open')
+        overlayOption.onclick = function() {
+        this.classList.remove('open')
+        menu.classList.remove('open')
+        }
+    }
+    });
+}
+handleOption()
+</script>

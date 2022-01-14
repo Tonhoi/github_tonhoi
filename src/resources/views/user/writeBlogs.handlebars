@@ -1,0 +1,32 @@
+<div class="content-writeBlog" style="position:relative; top: 100px;">
+    <form action="/blogusers" method="post">
+        <div class="form-group">
+            {{!-- <label for="">Tên tiêu đề</label> --}}
+            <input type="text" name="username" value="{{fullname}}" id="" class="form-input" placeholder="Tiêu đề" hidden>
+            <input type="text" name="image" id="" class="form-input" placeholder="Hình ảnh" style="border-bottom: 1px solid black;" required>
+            <input type="text" name="tittle" id="" class="form-input" placeholder="Tiêu đề" required>
+            {{!-- <select name="classify" id="" style="width: 100%; height: 30px">
+                <option value="1">Laptop Gaming</option>
+                <option value="2">Laptop văn phòng</option>
+                <option value="3">Laptop Mỏng nhẹ</option>
+                <option value="4">Máy tính bảng</option>
+                <option value="5">Phụ kiện laptop</option>
+            </select> --}}
+        </div>
+
+        <textarea name="description" id="description" required></textarea>
+        <button type="submit" class="button-submit">Xuất bản</button>
+    </form>
+</div>
+
+<script>
+    var description = CKEDITOR.replace('description', {
+        
+        editorplaceholder: 'Nội dung viết ở đây...',
+    });
+
+    description.on( 'change', function( evt ) {
+    // getData() returns CKEditor's HTML content.
+    console.log( 'Total bytes: ' + evt.editor.getData() );
+});
+</script>

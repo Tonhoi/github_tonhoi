@@ -7,162 +7,322 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+
 class adminController {
 
     // [GET] / news
     adminHome(req, res) {
-        res.render('admin/homeAdmin', {
-            layout: 'admin',
-        })
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            res.render('admin/homeAdmin', {
+                layout: 'admin',
+                fullname
+            })
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     userManager(req, res) {
-        Promise.all([loginRegister.find({}).sortable(req), 
-            loginRegister.countDocumentsDeleted()])
-            .then(([loginRegister, deleteusers]) =>
-                res.render('admin/userManager', {
-                    deleteusers,
-                    loginRegister:multipleMongooseToObject(loginRegister),
-                    layout: 'admin'
-                })
-            )
-            .catch(error => next(error))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            Promise.all([loginRegister.find({}).sortable(req), 
+                loginRegister.countDocumentsDeleted()])
+                .then(([loginRegister, deleteusers]) =>
+                    res.render('admin/userManager', {
+                        deleteusers,
+                        loginRegister:multipleMongooseToObject(loginRegister),
+                        layout: 'admin',
+                        fullname
+                    })
+                )
+                .catch(error => next(error))
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
+    }
+
+
+    // search
+    async getUser(req, res, next) {
+        let payload = req.body.payload.trim()
+
+        console.log(payload)
+        let search = await loginRegister.find({fullname: {$regex: new RegExp('^' + payload + '.*', 'i')}}).exec()
+
+        search = search.slice(0, 10)
+        res.send({payload: search})
     }
 
     trashUserManager(req, res) {
-        loginRegister.findDeleted({})
-            .then(loginRegister => {
-                res.render('admin/trashUserManager', {
-                    loginRegister:multipleMongooseToObject(loginRegister),
-                    layout: 'admin'
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            loginRegister.findDeleted({})
+                .then(loginRegister => {
+                    res.render('admin/trashUserManager', {
+                        loginRegister:multipleMongooseToObject(loginRegister),
+                        layout: 'admin',
+                        fullname
+                    })
                 })
+            .catch(error => next(error))
+        }else {
+            res.render('user/error', {
+                layout: 'login'
             })
-        .catch(error => next(error))
+        }
     }
 
     handleUser(req, res) {
-        res.render('admin/handleUser', {
-            layout: 'admin'
-        })
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            res.render('admin/handleUser', {
+                layout: 'admin',
+                fullname
+            })
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     managerPost(req, res) {
-
-        Promise.all([blogUser.find({}).sortable(req), 
-            blogUser.countDocumentsDeleted()])
-            .then(([blogUser, deleteblogs]) =>
-                res.render('admin/managerPost', {
-                    deleteblogs,
-                    blogUser:multipleMongooseToObject(blogUser),
-                    layout: 'admin'
-                })
-            )
-            .catch(error => next(error))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            Promise.all([blogUser.find({}).sortable(req), 
+                blogUser.countDocumentsDeleted()])
+                .then(([blogUser, deleteblogs]) =>
+                    res.render('admin/managerPost', {
+                        deleteblogs,
+                        blogUser:multipleMongooseToObject(blogUser),
+                        layout: 'admin',
+                        fullname
+                    })
+                )
+                .catch(error => next(error))
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     trashManagerPost(req, res) {
-        blogUser.findDeleted({})
-            .then(blogUser => {
-                res.render('admin/trashManagerPost', {
-                    blogUser:multipleMongooseToObject(blogUser),
-                    layout: 'admin'
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            blogUser.findDeleted({})
+                .then(blogUser => {
+                    res.render('admin/trashManagerPost', {
+                        blogUser:multipleMongooseToObject(blogUser),
+                        layout: 'admin',
+                        fullname
+                    })
                 })
+            .catch(error => next(error))
+        }else {
+            res.render('user/error', {
+                layout: 'login'
             })
-        .catch(error => next(error))
+        }
     }
 
 
 
     // [GET] slide
     edit(req, res, next) {
-        slideshow.findById(req.params.id)
-            .then(slideshow => res.render('admin/edit', {
-                layout: 'admin',
-                slideshow:MongooseToObject(slideshow)
-            }))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            slideshow.findById(req.params.id)
+                .then(slideshow => res.render('admin/edit', {
+                    layout: 'admin',
+                    slideshow:MongooseToObject(slideshow),
+                    fullname
+                }))
 
-            .catch(next)
+                .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     editPost(req, res, next) {
-        blogUser.findById(req.params.id)
-            .then(blogUser => res.render('admin/editPost', {
-                layout: 'admin',
-                blogUser:MongooseToObject(blogUser)
-            }))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            blogUser.findById(req.params.id)
+                .then(blogUser => res.render('admin/editPost', {
+                    layout: 'admin',
+                    blogUser:MongooseToObject(blogUser),
+                    fullname
+                }))
 
-            .catch(next)
+                .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     editRegister(req, res, next) {
-        loginRegister.findById(req.params.id)
-        .then(loginRegister => res.render('admin/editRegister', {
-            layout: 'admin',
-            loginRegister:MongooseToObject(loginRegister)
-        }))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            loginRegister.findById(req.params.id)
+            .then(loginRegister => res.render('admin/editRegister', {
+                layout: 'admin',
+                loginRegister:MongooseToObject(loginRegister),
+                fullname
+            }))
 
-        .catch(next)
+            .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     // [PUT]
     update(req, res, next) {
-        slideshow.updateOne({ _id: req.params.id }, req.body)
-            .then(() => res.redirect('/homeAdmin/viewPosts'))
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            
+            slideshow.updateOne({ _id: req.params.id }, req.body)
+                .then(() => res.redirect('/homeAdmin/viewPosts'))
+                .catch(next)
+            loginRegister.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/homeAdmin/userManager'))
             .catch(next)
-        loginRegister.updateOne({ _id: req.params.id }, req.body)
-        .then(() => res.redirect('/homeAdmin/userManager'))
-        .catch(next)
-        blogUser.updateOne({ _id: req.params.id }, req.body)
-        .then(() => res.redirect('/homeAdmin/managerPost'))
-        .catch(next)
+            blogUser.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/homeAdmin/managerPost'))
+            .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
      // [DELETE] 
     delete(req, res, next) {
-
-        Promise.all([slideshow.delete({ _id: req.params.id }), 
-            blogUser.delete({ _id: req.params.id }),
+        Promise.all([blogUser.delete({ _id: req.params.id }),
             loginRegister.delete({ _id: req.params.id })])
-            .then(([slideshow, blogUser, loginRegister]) =>
+            .then(([blogUser, loginRegister]) =>
                 res.redirect('back')
             )
             .catch(error => next(error))
+    }
+
+    deleteSlide(req, res, next) {
+        slideshow.delete({ _id:req.params.id })
+        .then(slideshow => {
+            res.redirect('back')
+        })
+        .catch(error => next(error))
     }
 
     // [DELETE]
     forceDelete(req, res, next) {
-        Promise.all([slideshow.deleteOne({ _id: req.params.id }), 
-            blogUser.deleteOne({ _id: req.params.id }),
+        Promise.all([blogUser.deleteOne({ _id: req.params.id }),
             loginRegister.deleteOne({ _id: req.params.id })])
-            .then(([slideshow, blogUser, loginRegister]) =>
+            .then(([blogUser, loginRegister]) =>
                 res.redirect('back')
             )
             .catch(error => next(error))
     }
 
+    forceDeleteSlide(req, res, next) {
+        slideshow.deleteOne({ _id: req.params.id })
+        .then(slideshow => {
+            res.redirect('back')
+        })
+        .catch(error => next(error))
+    }
+
     
-    viewPosts(req, res) {
-        Promise.all([slideshow.find({}).sortable(req), 
-            slideshow.countDocumentsDeleted()])
-            .then(([slideshow, deletedSlide]) =>
+    viewPosts(req, res, next) {
+        const { user: { role, fullname } = {} } = req;
+        var page = req.query.page
+        if(page) {
+            page = parseInt(page)
+            if(page < 1 || Number.isNaN(page)) {
+                page = 1
+            }
+            var soluongboqua = (page - 1) * 4
+
+            slideshow.find({}).sortable(req)
+            .skip(soluongboqua)
+            .limit(4)
+            .then(slideshow => {
                 res.render('admin/viewPosts', {
-                    deletedSlide,
                     slideshow:multipleMongooseToObject(slideshow),
-                    layout: 'admin'
+                    layout: 'admin',
+                    fullname
                 })
-            )
+            })
+
             .catch(error => next(error))
+
+        }else {
+            if (role === 'admin') {
+                Promise.all([slideshow.find({}).sortable(req), 
+                    slideshow.countDocumentsDeleted()])
+                    .then(([slideshow, deletedSlide]) =>
+                        res.render('admin/viewPosts', {
+                            deletedSlide,
+                            slideshow:multipleMongooseToObject(slideshow),
+                            layout: 'admin',
+                            fullname
+                        })
+                        
+                    )
+                    .catch(error => next(error))
+            }else {
+                res.render('user/error', {
+                    layout: 'login'
+                })
+            }
+        }
+    }
+
+
+    async GetViewPosts(req, res, next) {
+        var getViewPost = await slideshow.find({})
+        res.send(getViewPost)
+    }
+
+
+    async getSlide(req, res, next) {
+        let payload = req.body.payload.trim()
+        let slides = await slideshow.find({name: {$regex: new RegExp('^' + payload + '.*', 'i')}}).exec()
+        
+        slides = slides.slice(0, 10)
+        res.send({payload: slides})
     }
 
     trashViewPosts(req, res) {
-        slideshow.findDeleted({})
-            .then(slideshow => {
-                res.render('admin/trashViewPosts', {
-                    slideshow:multipleMongooseToObject(slideshow),
-                    layout: 'admin'
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            slideshow.findDeleted({})
+                .then(slideshow => {
+                    res.render('admin/trashViewPosts', {
+                        slideshow:multipleMongooseToObject(slideshow),
+                        layout: 'admin',
+                        fullname
+                    })
                 })
+            .catch(error => next(error))
+        }else {
+            res.render('user/error', {
+                layout: 'login'
             })
-        .catch(error => next(error))
+        }
     }
 
     
@@ -176,13 +336,20 @@ class adminController {
     // [PATCH] restore
     restore(req, res, next) {
 
-        Promise.all([slideshow.restore({ _id: req.params.id }), 
-            blogUser.restore({ _id: req.params.id }),
+        Promise.all([blogUser.restore({ _id: req.params.id }),
             loginRegister.restore({ _id: req.params.id })])
-            .then(([slideshow, deletedSlide, loginRegister]) =>
+            .then(([deletedSlide, loginRegister]) =>
                 res.redirect('back')
             )
             .catch(error => next(error))
+    }
+
+    restoreSlide(req, res, next) {
+        slideshow.restore({ _id: req.params.id })
+        .then(slideshow => {
+            res.redirect('back')
+        })
+        .catch(error => next(error))
     }
 
     register(req, res, next) {
@@ -206,39 +373,63 @@ class adminController {
                 .catch(err => console.log(err));
             });
         });
-     }
+    }
 
     description(req, res, next) {
-        slideshow.findOneWithDeleted({ slug: req.params.slug })
-            .then(slideshow => 
-                res.render('admin/description', {
-                    slideshow: MongooseToObject(slideshow),
-                    layout: 'admin',
-                })
-                )
-            .catch(next)
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            slideshow.findOneWithDeleted({ slug: req.params.slug })
+                .then(slideshow => 
+                    res.render('admin/description', {
+                        slideshow: MongooseToObject(slideshow),
+                        layout: 'admin',
+                        fullname
+                    })
+                    )
+                .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     infoUser(req, res, next) {
-        loginRegister.findOne({ infoUser: req.params.infoUser })
-            .then(loginRegister => 
-                res.render('admin/infoUser', {
-                    loginRegister: MongooseToObject(loginRegister),
-                    layout: 'admin',
-                })
-                )
-            .catch(next)     
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            loginRegister.findOne({ infoUser: req.params.infoUser })
+                .then(loginRegister => 
+                    res.render('admin/infoUser', {
+                        loginRegister: MongooseToObject(loginRegister),
+                        layout: 'admin',
+                        fullname
+                    })
+                    )
+                .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }
     }
 
     infodescription(req, res, next) {
-        blogUser.findOne({ slug: req.params.slug })
-            .then(blogUser => 
-                res.render('admin/infodescription', {
-                    blogUser: MongooseToObject(blogUser),
-                    layout: 'admin',
-                })
-                )
-            .catch(next)     
+        const { user: { role, fullname } = {} } = req;
+        if (role === 'admin') {
+            blogUser.findOne({ slug: req.params.slug })
+                .then(blogUser => 
+                    res.render('admin/infodescription', {
+                        blogUser: MongooseToObject(blogUser),
+                        layout: 'admin',
+                        fullname
+                    })
+                    )
+                .catch(next)
+        }else {
+            res.render('user/error', {
+                layout: 'login'
+            })
+        }    
     }
 
 }

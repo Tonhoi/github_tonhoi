@@ -3,20 +3,32 @@ const router = express.Router()
 
 const adminController = require('../app/controllers/adminController')
 
+
 // method update
 router.put('/:id', adminController.update)
 
 
 // viewpost
 router.post('/store', adminController.store)
+router.post('/getUser', adminController.getUser)
+
 router.get('/viewPosts', adminController.viewPosts)
+router.post('/GetViewPosts', adminController.GetViewPosts)
+router.post('/getSlide', adminController.getSlide)
+
 router.get('/trashViewPosts', adminController.trashViewPosts)
 router.get('/handleUser', adminController.handleUser)
 router.patch('/:id/restore', adminController.restore)
+router.patch('/:id/restoreSlide', adminController.restoreSlide)
+
 router.delete('/:id/force', adminController.forceDelete)
+router.delete('/:id/forceSlide', adminController.forceDeleteSlide)
+
 router.get('/:id/edit', adminController.edit)
-// mehtod delte
+
+// mehtod delete
 router.delete('/:id', adminController.delete)
+router.delete('/:id/deleteSlide', adminController.deleteSlide)
 
 
 
@@ -44,6 +56,8 @@ router.get('/trashManagerPost', adminController.trashManagerPost)
 router.get('/:slug', adminController.description)
 router.get('/user/:infoUser', adminController.infoUser)
 router.get('/user/blog/:slug', adminController.infodescription)
+
+
 
 
 router.get('/', adminController.adminHome)

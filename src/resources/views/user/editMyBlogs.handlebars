@@ -1,0 +1,30 @@
+<div class="editBlogs" style="position:relative; top: 100px;">
+    <div class="form-user" style="width: 65%; margin: 0 auto;">
+        <form action="/user/myBlogs/{{blogUser._id}}?_method=PUT" method="POST" style="width: 900px;">
+            <div class="form-group" style="display: flex; flex-direction: column;">
+                <label for="" style="margin: 12px 0 6px; font-size: 1.8rem;">Tiêu đề</label>
+                <input type="text" value="{{blogUser.tittle}}" name="tittle" placeholder="Tiêu đề" class="form-control" style="flex: 1; padding: 12px;font-size: 1.8rem; border: none; border-radius: 8px; border: 1px solid #ccc; outline: none;">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; margin-bottom: 12px;">
+                <label for="" style="margin: 12px 0 6px; font-size: 1.8rem;">Hình ảnh</label>
+                <input type="text" value="{{blogUser.image}}" name="image" placeholder="Hình ảnh" class="form-control" style="flex: 1; padding: 12px;font-size: 1.8rem; border: none; border-radius: 8px; border: 1px solid #ccc; outline: none;">
+            </div>
+
+            <div class="form-group">
+                <textarea name="description" placeholder="Miêu tả" class="form-control">{{blogUser.description}}</textarea>
+            </div>
+            <button type="submit" class="button-submit">Lưu lại</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    var description = CKEDITOR.replace('description', {
+        editorplaceholder: 'Nội dung viết ở đây...',
+    });
+
+    description.on( 'change', function( evt ) {
+    // getData() returns CKEditor's HTML content.
+    console.log( 'Total bytes: ' + evt.editor.getData() );
+});
+</script>

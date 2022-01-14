@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "61af84407d195333e9962ef1"
+  },
+  "fullname": "Kiều giang",
+  "email": "giang@gmail.com",
+  "username": "admin",
+  "password": "$2a$10$CVzwMTOfdJ9SGrqyodSH1.71yxm.aVD2Y6pjsczzEZr5GGHHsRJsa",
+  "role": "admin",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2021-12-07T15:56:48.980Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-07T15:56:48.980Z"
+  },
+  "infoUser": "giang-gmail-com",
+  "__v": 0
+}]
